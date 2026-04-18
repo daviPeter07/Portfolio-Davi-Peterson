@@ -139,7 +139,11 @@ export function Header() {
           <div className="hidden lg:flex items-center space-x-3">
             <ThemeToggle />
             <Select value={locale} onValueChange={handleLocaleChange}>
-              <SelectTrigger size="sm" aria-label={dictionary.common.languageLabel}>
+              <SelectTrigger
+                size="sm"
+                aria-label={dictionary.common.languageLabel}
+                className="w-[152px] shrink-0"
+              >
                 <span className="flex items-center gap-2">
                   <span aria-hidden="true" className={localeBadgeClassName}>
                     {currentLocale.short}
@@ -155,7 +159,11 @@ export function Header() {
           <div className="lg:hidden flex items-center space-x-2">
             <ThemeToggle />
             <Select value={locale} onValueChange={handleLocaleChange}>
-              <SelectTrigger size="sm" aria-label={dictionary.common.languageLabel}>
+              <SelectTrigger
+                size="sm"
+                aria-label={dictionary.common.languageLabel}
+                className="w-[152px] shrink-0"
+              >
                 <span className="flex items-center gap-2">
                   <span aria-hidden="true" className={localeBadgeClassName}>
                     {currentLocale.short}
