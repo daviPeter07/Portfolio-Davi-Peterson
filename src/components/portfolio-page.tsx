@@ -1,6 +1,8 @@
 'use client';
 
 import { Header } from '@/src/components/header';
+import { Footer } from '@/src/components/footer';
+import { BackToTopButton } from '@/src/components/back-to-top-button';
 import {
   HeroSection,
   AboutSection,
@@ -9,12 +11,11 @@ import {
   ExperienceSection,
   ContactSection,
 } from '@/src/sections';
-import { Footer } from '@/src/components/footer';
-import { BackToTopButton } from '@/src/components/back-to-top-button';
 import { useReveal } from '@/src/hooks/use-reveal';
 
-export default function Home() {
+export function PortfolioPage() {
   useReveal();
+
   return (
     <main className="min-h-screen">
       <Header />

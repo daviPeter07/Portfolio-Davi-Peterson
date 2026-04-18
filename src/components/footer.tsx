@@ -1,14 +1,22 @@
 'use client';
 
 import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { useI18n } from '@/src/components/i18n-provider';
+import { sectionIds, type SectionId } from '@/src/constants/section-ids';
 
 export function Footer() {
-  const scrollToSection = (sectionId: string) => {
+  const { dictionary } = useI18n();
+
+  const scrollToSection = (sectionId: SectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const mailHref = `mailto:davipetersondev173@gmail.com?subject=${encodeURIComponent(
+    dictionary.footer.mailSubject
+  )}&body=${encodeURIComponent(dictionary.footer.mailBody)}`;
 
   return (
     <footer className="bg-card border-t">
@@ -16,53 +24,52 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center text-center">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-primary mb-4">Davi Peterson</h3>
+            <h3 className="text-xl font-bold text-primary mb-4">{dictionary.common.siteName}</h3>
             <p className="text-muted-foreground leading-relaxed max-w-md">
-              Desenvolvedor Full Stack apaixonado por criar soluções digitais inovadoras e
-              experiências de usuário excepcionais.
+              {dictionary.footer.description}
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Links Rápidos</h4>
+            <h4 className="font-semibold mb-4">{dictionary.footer.quickLinks}</h4>
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => scrollToSection('inicio')}
+                  onClick={() => scrollToSection(sectionIds.home)}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Início
+                  {dictionary.nav.home}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('sobre')}
+                  onClick={() => scrollToSection(sectionIds.about)}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Sobre
+                  {dictionary.nav.about}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('projetos')}
+                  onClick={() => scrollToSection(sectionIds.projects)}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Projetos
+                  {dictionary.nav.projects}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection('contato')}
+                  onClick={() => scrollToSection(sectionIds.contact)}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Contato
+                  {dictionary.nav.contact}
                 </button>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Redes Sociais</h4>
+            <h4 className="font-semibold mb-4">{dictionary.footer.social}</h4>
             <div className="flex justify-center space-x-4">
               <a
                 href="https://github.com/daviPeter07"
@@ -81,7 +88,7 @@ export function Footer() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
-                href="mailto:davipetersondev173@gmail.com?subject=Contato%20pelo%20Portfólio&body=Olá,%20Davi!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
+                href={mailHref}
                 className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -93,7 +100,8 @@ export function Footer() {
         {/* Rodapé final */}
         <div className="border-t mt-8 pt-8 text-center">
           <p className="text-muted-foreground flex items-center justify-center gap-2">
-            Feito com <Heart className="h-4 w-4 text-red-500" /> e café por Davi Peterson © 2025
+            {dictionary.footer.madeWith} <Heart className="h-4 w-4 text-red-500" />{' '}
+            {dictionary.footer.andCoffee} {dictionary.common.siteName} © {new Date().getFullYear()}
           </p>
         </div>
       </div>

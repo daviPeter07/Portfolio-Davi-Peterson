@@ -1,0 +1,242 @@
+{
+  "metadata": {
+    "title": "Davi Peterson - Desarrollador de Software",
+    "description": "Portafolio profesional de Davi Peterson, desarrollador de software enfocado en Next.js, React, TypeScript, Node.js y PHP.",
+    "keywords": [
+      "Davi Peterson",
+      "Desarrollador de Software",
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PHP",
+      "Portafolio"
+    ],
+    "jobTitle": "Desarrollador de Software"
+  },
+  "common": {
+    "siteName": "Davi Peterson",
+    "role": "Desarrollador de Software",
+    "themeToggle": "Cambiar tema",
+    "backToTop": "Volver arriba",
+    "documentation": "Documentación",
+    "stacks": "Stacks",
+    "navigate": "Abrir",
+    "github": "GitHub",
+    "languageLabel": "Idioma",
+    "languages": {
+      "pt": "Portugués",
+      "en": "Inglés",
+      "es": "Español"
+    },
+    "comingSoon": "próximamente"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "technologies": "Tecnologías",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "backToTopTitle": "Volver arriba"
+  },
+  "hero": {
+    "title": "Hola, soy",
+    "subtitle": "Desarrollador de software apasionado por crear productos digitales bien construidos y agradables de usar.",
+    "primaryCta": "Ver Proyectos",
+    "secondaryCta": "Descargar CV",
+    "mailSubject": "Contacto desde el Portafolio",
+    "mailBody": "Hola, Davi. Vi tu portafolio y me gustaría conversar."
+  },
+  "about": {
+    "titleBefore": "Sobre",
+    "titleAccent": "Mí",
+    "paragraphs": {
+      "first": "Desarrollador de Software Junior con 2 años de experiencia en el ecosistema JavaScript y TypeScript. Me gusta construir aplicaciones web rápidas, bien resueltas y agradables de usar en el día a día.",
+      "second": "Actualmente estudio Análisis y Desarrollo de Sistemas en UniNorte y he trabajado en proyectos como CRM, landing pages y plataformas web, siempre con atención a la organización del código, el mantenimiento y la escalabilidad del producto. Recientemente he profundizado mis estudios en el ecosistema Laravel para fortalecer mi base en desarrollo full stack."
+    },
+    "stats": {
+      "seniorityValue": "Junior",
+      "seniorityLabel": "Nivel actual",
+      "experienceValue": "2+",
+      "experienceLabel": "Años de experiencia"
+    },
+    "cards": {
+      "performance": {
+        "title": "Rendimiento",
+        "description": "Desarrollo con foco en fluidez, optimización y una experiencia consistente."
+      },
+      "accessibility": {
+        "title": "Accesibilidad",
+        "description": "Interfaces más inclusivas y preparadas para una mejor experiencia de uso."
+      },
+      "scalability": {
+        "title": "Escalabilidad",
+        "description": "Código pensado para mantenimiento, evolución del producto y trabajo en equipo."
+      },
+      "collaboration": {
+        "title": "Colaboración",
+        "description": "Experiencia con pull requests, comunicación clara y alineación entre código y negocio."
+      }
+    }
+  },
+  "technologies": {
+    "titleBefore": "Mis",
+    "titleAccent": "Tecnologías",
+    "categories": {
+      "javascript": "Ecosistema JavaScript",
+      "php": "Ecosistema PHP",
+      "dataDevOps": "Datos y DevOps",
+      "designProduct": "Diseño y Producto"
+    },
+    "docs": {
+      "TypeScript": "Superset de JavaScript con tipado estático.",
+      "ReactJS": "Biblioteca para construir interfaces con componentes.",
+      "Vue.js": "Framework progresivo para construir interfaces reactivas y basadas en componentes.",
+      "Next.js": "Framework de React con rutas, rendering y herramientas modernas.",
+      "Tailwind CSS": "Framework CSS utilitario para crear interfaces rápidamente.",
+      "Node.js": "Entorno de ejecución JavaScript para aplicaciones del lado del servidor.",
+      "Express": "Framework web minimalista para Node.js.",
+      "Jest": "Framework de pruebas para JavaScript con mocks y assertions.",
+      "PHP": "Lenguaje de scripting para aplicaciones web del lado del servidor.",
+      "Laravel": "Framework PHP centrado en productividad y experiencia del desarrollador.",
+      "Inertia.js": "Puente entre backend y frontend para construir SPAs sin renunciar al servidor.",
+      "Eloquent": "ORM de Laravel para modelado de datos y consultas expresivas en PHP.",
+      "Pest": "Framework de pruebas para PHP con sintaxis fluida y legible.",
+      "Docker": "Plataforma de contenedores para empaquetar y distribuir aplicaciones.",
+      "Prisma ORM": "ORM para TypeScript y Node con schema y migraciones.",
+      "Redis": "Base de datos en memoria usada para caché, colas y alto rendimiento.",
+      "MySQL": "Base de datos relacional popular y ampliamente utilizada.",
+      "PostgreSQL": "Base de datos relacional avanzada y extensible.",
+      "Figma": "Herramienta colaborativa de diseño para UI y UX.",
+      "Pencil": "Herramienta de diseño y prototipado para wireframes y flujos de interfaz."
+    }
+  },
+  "experience": {
+    "titleBefore": "Mi",
+    "titleAccent": "Experiencia",
+    "items": {
+      "dgComputer": {
+        "title": "Técnico de Hardware",
+        "period": "2019 - 2025",
+        "description": "Experiencia sólida en soporte técnico, montaje y mantenimiento de hardware, infraestructura de redes y sistemas.",
+        "achievements": [
+          "Atención y soporte técnico en informática, con mantenimiento preventivo y correctivo de equipos.",
+          "Montaje y configuración de computadoras (desktop y laptops) y dispositivos de red como switches y routers.",
+          "Instalación de sistemas operativos, drivers y software, con optimización y troubleshooting."
+        ]
+      },
+      "nxsSkill": {
+        "title": "Desarrollador Frontend",
+        "period": "06-2025 - 02-2026",
+        "description": "Desarrollo frontend en una plataforma educativa, con énfasis en accesibilidad, rendimiento y experiencias ricas de UI. Colaboración en design system y optimización de flujos de autenticación.",
+        "achievements": [
+          "Participación en la versión 2.0 de la plataforma web en colaboración con un equipo de 6 desarrolladores.",
+          "Construcción de interfaces responsivas complejas para autenticación, registros y dashboards usando Next.js y TypeScript.",
+          "Implementación de módulos backend y rutas de API para soportar nuevas funcionalidades del sistema."
+        ]
+      },
+      "twoBrains": {
+        "title": "Desarrollador de Software Junior",
+        "period": "01-2026 - 03-2026",
+        "description": "Actuación como Desarrollador de Software Junior en productos digitales modernos. Trabajo en frontend con Next.js y React, backend con Node.js, corrección de bugs y evolución técnica continua. También inicié estudios en AWS para servicios serverless, storage, APIs e integraciones con IA cuando fue necesario.",
+        "achievements": [
+          "Desarrollo full stack con Next.js y Node.js en productos internos y proyectos para clientes.",
+          "Aprendizaje práctico de servicios AWS como serverless, storage y APIs con apoyo del equipo.",
+          "Corrección de bugs y mejoras continuas enfocadas en calidad y entrega de valor."
+        ]
+      },
+      "indicai": {
+        "title": "Desarrollador de Software (Contratista)",
+        "period": "11-2025 - Actualidad",
+        "description": "Trabajo como contratista independiente en soluciones full stack y prácticas DevOps, con responsabilidades alineadas a nivel junior: implementación de funcionalidades, corrección de bugs, integración de APIs y patrones de código escalables. Participación en ciclos de despliegue para Play Store y App Store, además de mejoras continuas en UX, UI y rendimiento.",
+        "achievements": [
+          "Actuación full stack y DevOps enfocada en definición de arquitectura y estándares de código escalables.",
+          "Implementación de interfaces de alta fidelidad con prioridad en UX, UI, accesibilidad y rendimiento.",
+          "Planificación y ejecución de ciclos de despliegue, incluyendo el lanzamiento de la aplicación en tiendas móviles."
+        ]
+      },
+      "uape": {
+        "title": "Practicante Full Stack",
+        "period": "06-2025 - Actualidad",
+        "description": "Práctica en desarrollo full stack con foco en arquitectura escalable, integración entre servicios y buenas prácticas de código. Participación en iniciativas de IA y Data Science aplicadas a productos internos.",
+        "achievements": [
+          "Desarrollo completo de un software de gestión de pagos implementado en 3 estados.",
+          "Creación de landing pages con soporte de internacionalización (i18n) en portugués, inglés y español.",
+          "Soporte técnico avanzado y configuración de entornos e infraestructura en Windows y Linux/Ubuntu."
+        ]
+      }
+    }
+  },
+  "projects": {
+    "titleBefore": "Mis",
+    "titleAccent": "Proyectos",
+    "items": {
+      "aliceBlog": {
+        "title": "Alice Blog",
+        "description": "Blog open source construido para estudiar estrategias de caché en Next.js, autenticación con perfiles de administrador y usuario, interacciones por post con comentarios y likes, y cálculo de tiempo de lectura. También sirvió como práctica de colaboración mediante PRs y desarrollo asistido por IA con Specify."
+      },
+      "nexusSkills": {
+        "title": "Nexus Skills",
+        "description": "Plataforma Nexus Skill con cursos orientados a fortalecer las soft skills de las personas."
+      },
+      "uape": {
+        "title": "UAPE",
+        "description": "Landing institucional que presenta el trabajo de ingeniería de datos en salud global de UAPÉ: soberanía de datos, despliegue rápido, recolección móvil offline-first, integración entre sistemas de salud y visualizaciones en tiempo real. Disponible en 3 idiomas (PT/EN/ES)."
+      },
+      "masterMindLanding": {
+        "title": "Master Mind – Landing Page",
+        "description": "Landing page creada para divulgar la app Master Mind, combinando productividad y control financiero integrado con Google Calendar."
+      },
+      "masterControl": {
+        "title": "Master Control",
+        "description": "Software de punto de venta utilizado para gestionar ventas y clientes sin depender de un inventario base."
+      },
+      "jusFacil": {
+        "title": "Jus Fácil",
+        "description": "Aplicación jurídica open source para consultar y organizar súmulas, desarrollada con Expo y React Native."
+      },
+      "roboticaEducacional": {
+        "title": "Robótica Educacional",
+        "description": "Sitio institucional de un proyecto académico migrado a React y TypeScript, presentando objetivos, equipo, metodología STEAM y resultados."
+      }
+    }
+  },
+  "contact": {
+    "titleBefore": "Ponte en",
+    "titleAccent": "Contacto",
+    "introTitle": "¡Hablemos!",
+    "introDescription": "Siempre estoy disponible para conversar sobre nuevos proyectos, oportunidades creativas o alianzas interesantes. No dudes en contactarme.",
+    "info": {
+      "email": "Email",
+      "phone": "Teléfono",
+      "location": "Ubicación",
+      "locationValue": "Manaus, AM - Brasil"
+    },
+    "form": {
+      "title": "Envía un mensaje",
+      "description": "Completa el formulario abajo y me pondré en contacto contigo lo antes posible.",
+      "name": "Nombre",
+      "email": "Email",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "namePlaceholder": "Tu nombre completo",
+      "emailPlaceholder": "tu@email.com",
+      "subjectPlaceholder": "Asunto del mensaje",
+      "messagePlaceholder": "Describe tu proyecto o tu duda...",
+      "submit": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado con éxito!",
+      "error": "¡Ups! Algo salió mal. Inténtalo de nuevo."
+    }
+  },
+  "footer": {
+    "description": "Desarrollador de software apasionado por crear soluciones digitales bien construidas y experiencias de usuario consistentes.",
+    "quickLinks": "Enlaces Rápidos",
+    "social": "Redes Sociales",
+    "madeWith": "Hecho con",
+    "andCoffee": "y café por",
+    "mailSubject": "Contacto desde el Portafolio",
+    "mailBody": "Hola, Davi. Vi tu portafolio y me gustaría conversar."
+  }
+}

@@ -1,9 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/src/components/ui/button';
 import { ThemeToggle } from '@/src/components/theme-toggle';
+import { useI18n } from '@/src/components/i18n-provider';
+import { sectionIds, type SectionId } from '@/src/constants/section-ids';
 import {
   Select,
   SelectContent,
@@ -15,7 +18,8 @@ import {
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [lang, setLang] = useState('pt-BR');
+  const router = useRouter();
+  const { dictionary, locale } = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,11 +29,17 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId: SectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
+    }
+  };
+
+  const handleLocaleChange = (nextLocale: string) => {
+    if (nextLocale !== locale) {
+      router.push(`/${nextLocale}`);
     }
   };
 
@@ -43,66 +53,65 @@ export function Header() {
         <div className="flex items-center justify-between">
           <button
             type="button"
-            onClick={() => scrollToSection('inicio')}
+            onClick={() => scrollToSection(sectionIds.home)}
             className="text-xl font-bold text-primary hover:text-primary/80 transition-colors cursor-pointer"
-            aria-label="Voltar ao topo"
-            title="Voltar ao topo"
+            aria-label={dictionary.nav.backToTopTitle}
+            title={dictionary.nav.backToTopTitle}
           >
-            Davi Peterson
+            {dictionary.common.siteName}
           </button>
 
           {/* Desktop Navigation - centered (show only on lg and above) */}
           <div className="hidden lg:flex flex-1 items-center justify-center space-x-6">
             <button
-              onClick={() => scrollToSection('inicio')}
+              onClick={() => scrollToSection(sectionIds.home)}
               className="hover:text-primary transition-colors"
             >
-              Início
+              {dictionary.nav.home}
             </button>
             <button
-              onClick={() => scrollToSection('sobre')}
+              onClick={() => scrollToSection(sectionIds.about)}
               className="hover:text-primary transition-colors"
             >
-              Sobre
+              {dictionary.nav.about}
             </button>
             <button
-              onClick={() => scrollToSection('tecnologias')}
+              onClick={() => scrollToSection(sectionIds.technologies)}
               className="hover:text-primary transition-colors"
             >
-              Tecnologias
+              {dictionary.nav.technologies}
             </button>
             <button
-              onClick={() => scrollToSection('experiencia')}
+              onClick={() => scrollToSection(sectionIds.experience)}
               className="hover:text-primary transition-colors"
             >
-              Experiência
+              {dictionary.nav.experience}
             </button>
             <button
-              onClick={() => scrollToSection('projetos')}
+              onClick={() => scrollToSection(sectionIds.projects)}
               className="hover:text-primary transition-colors"
             >
-              Projetos
+              {dictionary.nav.projects}
             </button>
             <button
-              onClick={() => scrollToSection('contato')}
+              onClick={() => scrollToSection(sectionIds.contact)}
               className="hover:text-primary transition-colors"
             >
-              Contato
+              {dictionary.nav.contact}
             </button>
           </div>
 
           {/* Desktop Right Controls (show only on lg and above) */}
           <div className="hidden lg:flex items-center space-x-3">
             <ThemeToggle />
-            <Select value={lang} onValueChange={setLang}>
-              <SelectTrigger size="sm" aria-label="Idioma">
-                <SelectValue placeholder="Idioma" />
+            <Select value={locale} onValueChange={handleLocaleChange}>
+              <SelectTrigger size="sm" aria-label={dictionary.common.languageLabel}>
+                <SelectValue placeholder={dictionary.common.languageLabel} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="pt-BR">Português</SelectItem>
-                <SelectItem value="en" disabled>
-                  English (coming soon)
-                </SelectItem>
+                <SelectItem value="pt">{dictionary.common.languages.pt}</SelectItem>
+                <SelectItem value="en">{dictionary.common.languages.en}</SelectItem>
+                <SelectItem value="es">{dictionary.common.languages.es}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -110,15 +119,14 @@ export function Header() {
           {/* Mobile/Tablet Navigation (show below lg) */}
           <div className="lg:hidden flex items-center space-x-2">
             <ThemeToggle />
-            <Select value={lang} onValueChange={setLang}>
-              <SelectTrigger size="sm" aria-label="Idioma">
-                <SelectValue placeholder="Idioma" />
+            <Select value={locale} onValueChange={handleLocaleChange}>
+              <SelectTrigger size="sm" aria-label={dictionary.common.languageLabel}>
+                <SelectValue placeholder={dictionary.common.languageLabel} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="pt-BR">Português</SelectItem>
-                <SelectItem value="en" disabled>
-                  English (coming soon)
-                </SelectItem>
+                <SelectItem value="pt">{dictionary.common.languages.pt}</SelectItem>
+                <SelectItem value="en">{dictionary.common.languages.en}</SelectItem>
+                <SelectItem value="es">{dictionary.common.languages.es}</SelectItem>
               </SelectContent>
             </Select>
             <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -127,45 +135,45 @@ export function Header() {
           </div>
         </div>
 
-          {/* Mobile/Tablet Menu (show below lg) */}
-          {isMenuOpen && (
-            <div className="lg:hidden mt-4 pb-4 border-t border-border">
+        {/* Mobile/Tablet Menu (show below lg) */}
+        {isMenuOpen && (
+          <div className="lg:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col space-y-4 pt-4">
               <button
-                onClick={() => scrollToSection('inicio')}
+                onClick={() => scrollToSection(sectionIds.home)}
                 className="text-left hover:text-primary transition-colors"
               >
-                Início
+                {dictionary.nav.home}
               </button>
               <button
-                onClick={() => scrollToSection('sobre')}
+                onClick={() => scrollToSection(sectionIds.about)}
                 className="text-left hover:text-primary transition-colors"
               >
-                Sobre
+                {dictionary.nav.about}
               </button>
               <button
-                onClick={() => scrollToSection('tecnologias')}
+                onClick={() => scrollToSection(sectionIds.technologies)}
                 className="text-left hover:text-primary transition-colors"
               >
-                Tecnologias
+                {dictionary.nav.technologies}
               </button>
               <button
-                onClick={() => scrollToSection('experiencia')}
+                onClick={() => scrollToSection(sectionIds.experience)}
                 className="text-left hover:text-primary transition-colors"
               >
-                Experiência
+                {dictionary.nav.experience}
               </button>
               <button
-                onClick={() => scrollToSection('projetos')}
+                onClick={() => scrollToSection(sectionIds.projects)}
                 className="text-left hover:text-primary transition-colors"
               >
-                Projetos
+                {dictionary.nav.projects}
               </button>
               <button
-                onClick={() => scrollToSection('contato')}
+                onClick={() => scrollToSection(sectionIds.contact)}
                 className="text-left hover:text-primary transition-colors"
               >
-                Contato
+                {dictionary.nav.contact}
               </button>
             </div>
           </div>

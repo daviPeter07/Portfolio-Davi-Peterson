@@ -4,6 +4,9 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Mail, MapPin, Phone, Send, Loader2, CheckCircle, XCircle } from 'lucide-react';
+import { useI18n } from '@/src/components/i18n-provider';
+import { sectionIds } from '@/src/constants/section-ids';
+import { localeToHtmlLang } from '@/src/lib/i18n-config';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { Input } from '../components/ui/input';
@@ -11,6 +14,7 @@ import { Label } from '../components/ui/label';
 import { Textarea } from '../components/ui/textarea';
 
 export function ContactSection() {
+  const { dictionary, locale } = useI18n();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -48,7 +52,7 @@ export function ContactSection() {
     setFormStatus(null);
 
     try {
-      const timestamp = new Intl.DateTimeFormat('pt-BR', {
+      const timestamp = new Intl.DateTimeFormat(localeToHtmlLang[locale], {
         dateStyle: 'short',
         timeStyle: 'medium',
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -69,14 +73,14 @@ export function ContactSection() {
 
       console.log(result.text);
       setFormStatus({
-        message: 'Mensagem enviada com sucesso!',
+        message: dictionary.contact.form.success,
         type: 'success',
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error(error);
       setFormStatus({
-        message: 'Ops! Algo deu errado. Tente novamente.',
+        message: dictionary.contact.form.error,
         type: 'error',
       });
     } finally {
@@ -85,23 +89,23 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contato" className="py-20 bg-muted/30">
+    <section id={sectionIds.contact} className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div
           data-reveal
           className="transition-all duration-1000 opacity-0 translate-y-10 data-[revealed=true]:opacity-100 data-[revealed=true]:translate-y-0"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Entre em <span className="text-primary">Contato</span>
+            {dictionary.contact.titleBefore}{' '}
+            <span className="text-primary">{dictionary.contact.titleAccent}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <div className="space-y-8">
               <div>
-                <h3 className="text-2xl font-semibold mb-4">Vamos conversar!</h3>
+                <h3 className="text-2xl font-semibold mb-4">{dictionary.contact.introTitle}</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Estou sempre disponível para discutir novos projetos, oportunidades criativas ou
-                  parcerias interessantes. Não hesite em entrar em contato!
+                  {dictionary.contact.introDescription}
                 </p>
               </div>
 
@@ -111,7 +115,7 @@ export function ContactSection() {
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium">Email</h4>
+                    <h4 className="font-medium">{dictionary.contact.info.email}</h4>
                     <p className="text-muted-foreground">davipetersondev173@gmail.com</p>
                   </div>
                 </div>
@@ -121,7 +125,7 @@ export function ContactSection() {
                     <Phone className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium">Telefone</h4>
+                    <h4 className="font-medium">{dictionary.contact.info.phone}</h4>
                     <p className="text-muted-foreground">+55 (92) 99258-4985</p>
                   </div>
                 </div>
@@ -131,8 +135,8 @@ export function ContactSection() {
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium">Localização</h4>
-                    <p className="text-muted-foreground">Manaus, AM - Brasil</p>
+                    <h4 className="font-medium">{dictionary.contact.info.location}</h4>
+                    <p className="text-muted-foreground">{dictionary.contact.info.locationValue}</p>
                   </div>
                 </div>
               </div>
@@ -140,59 +144,57 @@ export function ContactSection() {
 
             <Card>
               <CardHeader>
-                <CardTitle>Envie uma mensagem</CardTitle>
-                <CardDescription>
-                  Preencha o formulário abaixo e entrarei em contato o mais breve possível.
-                </CardDescription>
+                <CardTitle>{dictionary.contact.form.title}</CardTitle>
+                <CardDescription>{dictionary.contact.form.description}</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Nome</Label>
+                      <Label htmlFor="name">{dictionary.contact.form.name}</Label>
                       <Input
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Seu nome completo"
+                        placeholder={dictionary.contact.form.namePlaceholder}
                         required
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">{dictionary.contact.form.email}</Label>
                       <Input
                         id="email"
                         name="email"
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="seu@email.com"
+                        placeholder={dictionary.contact.form.emailPlaceholder}
                         required
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Assunto</Label>
+                    <Label htmlFor="subject">{dictionary.contact.form.subject}</Label>
                     <Input
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Assunto da mensagem"
+                      placeholder={dictionary.contact.form.subjectPlaceholder}
                       required
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Mensagem</Label>
+                    <Label htmlFor="message">{dictionary.contact.form.message}</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Descreva seu projeto ou dúvida..."
+                      placeholder={dictionary.contact.form.messagePlaceholder}
                       rows={5}
                       required
                     />
@@ -202,12 +204,12 @@ export function ContactSection() {
                     {isLoading ? (
                       <>
                         <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                        Enviando...
+                        {dictionary.contact.form.sending}
                       </>
                     ) : (
                       <>
                         <Send className="h-4 w-4 mr-2" />
-                        Enviar Mensagem
+                        {dictionary.contact.form.submit}
                       </>
                     )}
                   </Button>

@@ -1,9 +1,13 @@
 'use client';
 
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
+import { sectionIds } from '@/src/constants/section-ids';
 
 export function HeroSection() {
+  const { dictionary } = useI18n();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -11,9 +15,13 @@ export function HeroSection() {
     }
   };
 
+  const mailHref = `mailto:davipetersondev173@gmail.com?subject=${encodeURIComponent(
+    dictionary.hero.mailSubject
+  )}&body=${encodeURIComponent(dictionary.hero.mailBody)}`;
+
   return (
     <section
-      id="inicio"
+      id={sectionIds.home}
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       <div className="container mx-auto px-4 text-center">
@@ -22,21 +30,22 @@ export function HeroSection() {
           className="transition-all duration-1000 opacity-0 translate-y-10 data-[revealed=true]:opacity-100 data-[revealed=true]:translate-y-0"
         >
           <div className="mb-8">
-            <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-br from-primary to-accent overflow-hidden">
+            <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-linear-to-br from-primary to-accent overflow-hidden">
               <img
                 src="/meProfessional.jpg"
-                alt="Davi Peterson"
+                alt={dictionary.common.siteName}
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Olá, eu sou <span className="text-primary">Davi Peterson</span>
+            {dictionary.hero.title}{' '}
+            <span className="text-primary">{dictionary.common.siteName}</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Software Developer apaixonado por criar soluções digitais inovadoras
+            {dictionary.hero.subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -45,7 +54,7 @@ export function HeroSection() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
               onClick={() => window.open('https://github.com/daviPeter07', '_blank')}
             >
-              Ver Projetos
+              {dictionary.hero.primaryCta}
             </Button>
             <Button
               asChild
@@ -54,7 +63,7 @@ export function HeroSection() {
               className="border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 bg-transparent"
             >
               <a href="/Davi Peterson.pdf" download>
-                Download CV
+                {dictionary.hero.secondaryCta}
               </a>
             </Button>
           </div>
@@ -77,7 +86,7 @@ export function HeroSection() {
               <Linkedin className="h-6 w-6" />
             </a>
             <a
-              href="mailto:davipetersondev173@gmail.com?subject=Contato%20pelo%20Portfólio&body=Olá,%20Davi!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20conversar."
+              href={mailHref}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail className="h-6 w-6" />
@@ -87,7 +96,7 @@ export function HeroSection() {
       </div>
 
       <button
-        onClick={() => scrollToSection('sobre')}
+        onClick={() => scrollToSection(sectionIds.about)}
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
       >
         <ArrowDown className="h-6 w-6 text-primary" />

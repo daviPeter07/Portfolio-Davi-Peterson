@@ -95,85 +95,25 @@ export const designAndProduct: TechItem[] = [
   },
 ];
 
-export const techDocs: Record<string, { desc: string; url: string }> = {
-  TypeScript: {
-    desc: 'Superset do JavaScript com tipagem estática.',
-    url: 'https://www.typescriptlang.org/docs',
-  },
-  ReactJS: {
-    desc: 'Biblioteca para construir interfaces com componentes.',
-    url: 'https://react.dev/learn',
-  },
-  'Vue.js': {
-    desc: 'Framework progressivo para construir interfaces reativas e componentizadas.',
-    url: 'https://vuejs.org/guide/',
-  },
-  'Next.js': {
-    desc: 'Framework React com rotas, rendering e tooling moderno.',
-    url: 'https://nextjs.org/docs',
-  },
-  'Tailwind CSS': {
-    desc: 'Framework utilitário de CSS para criar interfaces rápidas.',
-    url: 'https://tailwindcss.com/docs',
-  },
-  'Node.js': {
-    desc: 'Ambiente de execução JavaScript no servidor.',
-    url: 'https://nodejs.org/en/docs',
-  },
-  Express: {
-    desc: 'Framework web minimalista para Node.js.',
-    url: 'https://expressjs.com',
-  },
-  PHP: {
-    desc: 'Linguagem de script para aplicações web no servidor.',
-    url: 'https://www.php.net/manual/en/',
-  },
-  Laravel: {
-    desc: 'Framework PHP para aplicações web com foco em produtividade e DX.',
-    url: 'https://laravel.com/docs',
-  },
-  'Inertia.js': {
-    desc: 'Ponte entre backend e frontend para construir SPAs sem abrir mão do servidor.',
-    url: 'https://inertiajs.com/',
-  },
-  MySQL: {
-    desc: 'Banco de dados relacional popular e amplamente usado.',
-    url: 'https://dev.mysql.com/doc/',
-  },
-  PostgreSQL: {
-    desc: 'Banco de dados relacional avançado e extensível.',
-    url: 'https://www.postgresql.org/docs/',
-  },
-  Docker: {
-    desc: 'Plataforma de containers para empacotar e distribuir apps.',
-    url: 'https://docs.docker.com',
-  },
-  'Prisma ORM': {
-    desc: 'ORM para TypeScript/Node com schema e migrações.',
-    url: 'https://www.prisma.io/docs',
-  },
-  Redis: {
-    desc: 'Banco de dados em memória usado para cache, filas e alta performance.',
-    url: 'https://redis.io/docs/latest',
-  },
-  Eloquent: {
-    desc: 'ORM do Laravel para modelagem de dados e consultas expressivas em PHP.',
-    url: 'https://laravel.com/docs/eloquent',
-  },
-  Jest: {
-    desc: 'Framework de testes em JavaScript com mocks e asserts.',
-    url: 'https://jestjs.io/docs/getting-started',
-  },
-  Pest: {
-    desc: 'Framework de testes para PHP com sintaxe fluida e foco em legibilidade.',
-    url: 'https://pestphp.com/docs',
-  },
-  Pencil: {
-    desc: 'Ferramenta de design e prototipação de interfaces para wireframes e fluxos.',
-    url: 'https://pencil.evolus.vn/',
-  },
-  Figma: {
-    desc: 'Ferramenta de design colaborativa para UI/UX.',
-    url: 'https://help.figma.com/hc/en-us',
-  },
+export const techResources: Record<string, { url: string }> = {
+  TypeScript: { url: 'https://www.typescriptlang.org/docs' },
+  ReactJS: { url: 'https://react.dev/learn' },
+  'Vue.js': { url: 'https://vuejs.org/guide/' },
+  'Next.js': { url: 'https://nextjs.org/docs' },
+  'Tailwind CSS': { url: 'https://tailwindcss.com/docs' },
+  'Node.js': { url: 'https://nodejs.org/en/docs' },
+  Express: { url: 'https://expressjs.com' },
+  PHP: { url: 'https://www.php.net/manual/en/' },
+  Laravel: { url: 'https://laravel.com/docs' },
+  'Inertia.js': { url: 'https://inertiajs.com/' },
+  MySQL: { url: 'https://dev.mysql.com/doc/' },
+  PostgreSQL: { url: 'https://www.postgresql.org/docs/' },
+  Docker: { url: 'https://docs.docker.com' },
+  'Prisma ORM': { url: 'https://www.prisma.io/docs' },
+  Redis: { url: 'https://redis.io/docs/latest' },
+  Eloquent: { url: 'https://laravel.com/docs/eloquent' },
+  Jest: { url: 'https://jestjs.io/docs/getting-started' },
+  Pest: { url: 'https://pestphp.com/docs' },
+  Pencil: { url: 'https://pencil.evolus.vn/' },
+  Figma: { url: 'https://help.figma.com/hc/en-us' },
 };

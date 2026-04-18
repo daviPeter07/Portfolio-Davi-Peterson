@@ -2,6 +2,7 @@
 
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/src/components/ui/hover-card';
 import { Popover, PopoverContent, PopoverTrigger } from '@/src/components/ui/popover';
+import { useI18n } from '@/src/components/i18n-provider';
 import { useIsMobile } from '@/src/hooks/use-mobile';
 
 type TechnologyItemProps = {
@@ -13,6 +14,7 @@ type TechnologyItemProps = {
 
 export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemProps) {
   const isMobile = useIsMobile();
+  const { dictionary } = useI18n();
 
   const content = (
     <div className="space-y-2">
@@ -25,7 +27,7 @@ export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemP
           rel="noopener noreferrer"
           className="text-sm text-primary hover:underline"
         >
-          Documentação
+          {dictionary.common.documentation}
         </a>
       )}
     </div>

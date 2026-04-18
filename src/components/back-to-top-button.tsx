@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/src/components/ui/button';
+import { useI18n } from '@/src/components/i18n-provider';
 
 type BackToTopButtonProps = {
   threshold?: number;
@@ -11,6 +12,7 @@ type BackToTopButtonProps = {
 export function BackToTopButton({ threshold = 300 }: BackToTopButtonProps) {
   const [visible, setVisible] = useState(false);
   const [scrolling, setScrolling] = useState(false);
+  const { dictionary } = useI18n();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +47,7 @@ export function BackToTopButton({ threshold = 300 }: BackToTopButtonProps) {
   return (
     <Button
       size="icon"
-      aria-label="Voltar ao topo"
+      aria-label={dictionary.common.backToTop}
       onClick={scrollTop}
       className={`fixed bottom-6 right-6 z-50 rounded-full bg-primary text-primary-foreground shadow-lg hover:bg-primary/90 transition-all duration-300 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'
