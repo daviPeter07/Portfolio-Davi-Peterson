@@ -1,9 +1,15 @@
 'use client';
 
 import { useRef } from 'react';
-import { Code2, Server, Smartphone, Wrench } from 'lucide-react';
+import { Code2, Database, Palette, Server } from 'lucide-react';
 import { TechnologyCategory } from '@/src/components/technology-category';
-import { frontEnd, backEnd, additional, mobile, techDocs } from '@/src/constants/technologies';
+import {
+  dataAndDevOps,
+  designAndProduct,
+  javaScriptEcosystem,
+  phpEcosystem,
+  techDocs,
+} from '@/src/constants/technologies';
 
 export function TechnologiesSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,28 +27,28 @@ export function TechnologiesSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             <TechnologyCategory
-              title="Front-end"
+              title="Ecossistema JavaScript"
               Icon={Code2}
-              items={frontEnd}
+              items={javaScriptEcosystem}
               infoMap={techDocs}
+              invertNames={['Express']}
             />
             <TechnologyCategory
-              title="Back-end"
+              title="Ecossistema PHP"
               Icon={Server}
-              items={backEnd}
-              infoMap={techDocs}
-              invertNames={['Express', 'Fastify']}
-            />
-            <TechnologyCategory
-              title="Mobile"
-              Icon={Smartphone}
-              items={mobile}
+              items={phpEcosystem}
               infoMap={techDocs}
             />
             <TechnologyCategory
-              title="Ferramentas e Tecnologias"
-              Icon={Wrench}
-              items={additional}
+              title="Dados e DevOps"
+              Icon={Database}
+              items={dataAndDevOps}
+              infoMap={techDocs}
+            />
+            <TechnologyCategory
+              title="Design e Produto"
+              Icon={Palette}
+              items={designAndProduct}
               infoMap={techDocs}
             />
           </div>

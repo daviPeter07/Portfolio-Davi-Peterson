@@ -48,7 +48,7 @@ export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemP
           className={`w-9 h-9 object-contain ${invertDark ? 'dark:invert dark:brightness-0' : ''}`}
         />
       )}
-      <span className="font-semibold text-base whitespace-normal break-words cursor-default select-none">
+      <span className="font-semibold text-base whitespace-normal wrap-break-word cursor-default select-none">
         {name}
       </span>
     </div>
