@@ -7,13 +7,7 @@ import { Button } from '@/src/components/ui/button';
 import { ThemeToggle } from '@/src/components/theme-toggle';
 import { useI18n } from '@/src/components/i18n-provider';
 import { sectionIds, type SectionId } from '@/src/constants/section-ids';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/src/components/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger } from '@/src/components/ui/select';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,6 +36,46 @@ export function Header() {
       router.push(`/${nextLocale}`);
     }
   };
+
+  const localeOptions = {
+    pt: { flag: 'BR', short: 'PT', label: dictionary.common.languages.pt },
+    en: { flag: 'US', short: 'EN', label: dictionary.common.languages.en },
+    es: { flag: 'ES', short: 'ES', label: dictionary.common.languages.es },
+  } as const;
+
+  const currentLocale = localeOptions[locale];
+
+  const localeBadgeClassName =
+    'inline-flex h-5 min-w-5 items-center justify-center rounded-sm bg-primary/10 px-1.5 text-[10px] font-bold text-primary';
+
+  const languageOptions = (
+    <>
+      <SelectItem value="pt">
+        <span className="flex items-center gap-2">
+          <span aria-hidden="true" className={localeBadgeClassName}>
+            {localeOptions.pt.flag}
+          </span>
+          <span>{localeOptions.pt.label}</span>
+        </span>
+      </SelectItem>
+      <SelectItem value="en">
+        <span className="flex items-center gap-2">
+          <span aria-hidden="true" className={localeBadgeClassName}>
+            {localeOptions.en.flag}
+          </span>
+          <span>{localeOptions.en.label}</span>
+        </span>
+      </SelectItem>
+      <SelectItem value="es">
+        <span className="flex items-center gap-2">
+          <span aria-hidden="true" className={localeBadgeClassName}>
+            {localeOptions.es.flag}
+          </span>
+          <span>{localeOptions.es.label}</span>
+        </span>
+      </SelectItem>
+    </>
+  );
 
   return (
     <header
@@ -106,13 +140,14 @@ export function Header() {
             <ThemeToggle />
             <Select value={locale} onValueChange={handleLocaleChange}>
               <SelectTrigger size="sm" aria-label={dictionary.common.languageLabel}>
-                <SelectValue placeholder={dictionary.common.languageLabel} />
+                <span className="flex items-center gap-2">
+                  <span aria-hidden="true" className={localeBadgeClassName}>
+                    {currentLocale.short}
+                  </span>
+                  <span>{currentLocale.label}</span>
+                </span>
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="pt">{dictionary.common.languages.pt}</SelectItem>
-                <SelectItem value="en">{dictionary.common.languages.en}</SelectItem>
-                <SelectItem value="es">{dictionary.common.languages.es}</SelectItem>
-              </SelectContent>
+              <SelectContent>{languageOptions}</SelectContent>
             </Select>
           </div>
 
@@ -121,13 +156,14 @@ export function Header() {
             <ThemeToggle />
             <Select value={locale} onValueChange={handleLocaleChange}>
               <SelectTrigger size="sm" aria-label={dictionary.common.languageLabel}>
-                <SelectValue placeholder={dictionary.common.languageLabel} />
+                <span className="flex items-center gap-2">
+                  <span aria-hidden="true" className={localeBadgeClassName}>
+                    {currentLocale.short}
+                  </span>
+                  <span>{currentLocale.label}</span>
+                </span>
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="pt">{dictionary.common.languages.pt}</SelectItem>
-                <SelectItem value="en">{dictionary.common.languages.en}</SelectItem>
-                <SelectItem value="es">{dictionary.common.languages.es}</SelectItem>
-              </SelectContent>
+              <SelectContent>{languageOptions}</SelectContent>
             </Select>
             <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
