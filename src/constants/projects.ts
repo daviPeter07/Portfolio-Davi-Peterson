@@ -1,5 +1,14 @@
 export const projects = [
   {
+    title: 'Alice Blog',
+    description:
+      'Blog open source construído para estudar estratégias de cache no Next.js, autenticação com perfis de admin e usuário, interações por post com comentários e likes, e cálculo de tempo de leitura. Também serviu como prática de colaboração com PRs e uso de IA com Specify no fluxo de desenvolvimento.',
+    image: '/Alice-blog.png',
+    technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Tailwind', 'Specify'],
+    demo: 'https://quely-blog.vercel.app/',
+    code: 'https://github.com/daviPeter07/alice-blog',
+  },
+  {
     title: 'Nexus Skills',
     description: 'Plataforma Nexus Skill com cursos para potencializar as softs skills das pessoas',
     image: '/nexus-skill-web-image.png',

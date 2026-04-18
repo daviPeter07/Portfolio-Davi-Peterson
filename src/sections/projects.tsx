@@ -28,7 +28,15 @@ export function ProjectsSection() {
                     alt={project.title}
                     className="w-full h-48 object-cover group-hover:scale-103 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                    {project.demo ? (
+                      <Button size="sm" asChild>
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Navegar
+                        </a>
+                      </Button>
+                    ) : null}
                     {project.code ? (
                       <Button
                         size="sm"
@@ -38,13 +46,6 @@ export function ProjectsSection() {
                         <a href={project.code} target="_blank" rel="noopener noreferrer">
                           <Github className="h-4 w-4 mr-2" />
                           GitHub
-                        </a>
-                      </Button>
-                    ) : project.demo ? (
-                      <Button size="sm" asChild>
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Navegar
                         </a>
                       </Button>
                     ) : null}
