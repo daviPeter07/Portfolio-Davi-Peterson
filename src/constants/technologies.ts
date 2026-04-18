@@ -48,6 +48,10 @@ export const phpEcosystem: TechItem[] = [
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
   },
   {
+    name: 'Inertia.js',
+    logo: 'https://cdn.simpleicons.org/inertia',
+  },
+  {
     name: 'Eloquent',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
   },
@@ -127,6 +131,10 @@ export const techDocs: Record<string, { desc: string; url: string }> = {
   Laravel: {
     desc: 'Framework PHP para aplicações web com foco em produtividade e DX.',
     url: 'https://laravel.com/docs',
+  },
+  'Inertia.js': {
+    desc: 'Ponte entre backend e frontend para construir SPAs sem abrir mão do servidor.',
+    url: 'https://inertiajs.com/',
   },
   MySQL: {
     desc: 'Banco de dados relacional popular e amplamente usado.',

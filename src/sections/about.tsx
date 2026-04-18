@@ -1,6 +1,6 @@
 'use client';
 
-import { Code, Coffee, Lightbulb, Users } from 'lucide-react';
+import { Accessibility, Gauge, GitPullRequest, Layers3 } from 'lucide-react';
 
 export function AboutSection() {
   return (
@@ -17,64 +17,61 @@ export function AboutSection() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Desenvolvedor Fullstack focado em criar soluções web modernas, eficientes e que
-                realmente funcionam na prática.
+                Desenvolvedor de Software Júnior com 2 anos de experiência no ecossistema JavaScript
+                e TypeScript. Gosto de construir aplicações web que sejam rápidas, bem resolvidas e
+                agradáveis de usar no dia a dia.
               </p>
 
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Sou movido pela curiosidade e pelo desejo constante de aprendizado. Acredito que a
-                tecnologia é uma ferramenta poderosa para transformar ideias em soluções que
-                impactam vidas, e por isso estou sempre buscando evoluir, tanto tecnicamente quanto
-                pessoalmente.
-              </p>
-
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Me esforço para ser proativo na identificação e resolução de problemas, sempre com
-                foco em entregar valor real para os usuários e para o negócio.
+                Atualmente curso Análise e Desenvolvimento de Sistemas na UniNorte e venho atuando
+                em projetos como CRM, landing pages e plataformas web, sempre com atenção à
+                organização do código, manutenção e escalabilidade do produto. Recentemente tenho
+                aprofundado meus estudos no ecossistema Laravel para ampliar minha base no
+                desenvolvimento full stack.
               </p>
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-card rounded-lg border">
-                  <div className="text-2xl font-bold text-primary">5</div>
-                  <div className="text-sm text-muted-foreground">Empresas atuadas</div>
+                  <div className="text-2xl font-bold text-primary">Júnior</div>
+                  <div className="text-sm text-muted-foreground">Senioridade atual</div>
                 </div>
                 <div className="text-center p-4 bg-card rounded-lg border">
                   <div className="text-2xl font-bold text-primary">2+</div>
-                  <div className="text-sm text-muted-foreground">Anos de Experiência</div>
+                  <div className="text-sm text-muted-foreground">Anos de experiência</div>
                 </div>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Code className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Código Limpo</h3>
+                <Gauge className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Performance</h3>
                 <p className="text-sm text-muted-foreground">
-                  Escrevo código escalável e bem documentado
+                  Desenvolvimento com foco em fluidez, otimização e experiência consistente.
                 </p>
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Lightbulb className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Inovação</h3>
+                <Accessibility className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Acessibilidade</h3>
                 <p className="text-sm text-muted-foreground">
-                  Sempre buscando soluções criativas e eficientes
+                  Interfaces mais inclusivas e preparadas para uma melhor experiência de uso.
                 </p>
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Layers3 className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">Escalabilidade</h3>
+                <p className="text-sm text-muted-foreground">
+                  Código pensado para manutenção, evolução do produto e trabalho em equipe.
+                </p>
+              </div>
+
+              <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
+                <GitPullRequest className="h-12 w-12 text-primary mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">Colaboração</h3>
                 <p className="text-sm text-muted-foreground">
-                  Trabalho bem em equipe e comunicação clara
-                </p>
-              </div>
-
-              <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Coffee className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Dedicação</h3>
-                <p className="text-sm text-muted-foreground">
-                  Comprometido com a excelência em cada projeto
+                  Experiência com PRs, comunicação clara e alinhamento entre código e negócio.
                 </p>
               </div>
             </div>
