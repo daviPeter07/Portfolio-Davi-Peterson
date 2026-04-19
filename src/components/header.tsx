@@ -38,8 +38,8 @@ export function Header() {
   };
 
   const localeOptions = {
-    pt: { flag: 'BR', short: 'PT', label: dictionary.common.languages.pt },
-    en: { flag: 'US', short: 'EN', label: dictionary.common.languages.en },
+    pt: { flag: 'PT', short: 'PT', label: dictionary.common.languages.pt },
+    en: { flag: 'EN', short: 'EN', label: dictionary.common.languages.en },
     es: { flag: 'ES', short: 'ES', label: dictionary.common.languages.es },
   } as const;
 
