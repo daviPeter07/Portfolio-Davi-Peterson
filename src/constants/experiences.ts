@@ -30,4 +30,9 @@ export const experiences: Experience[] = [
     company: 'UAPE',
     location: 'Manaus, AM',
   },
+  {
+    id: 'residuum',
+    company: 'Residuum (UniNorte)',
+    location: 'Manaus, AM',
+  },
 ];

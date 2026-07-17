@@ -1,6 +1,6 @@
 'use client';
 
-import { Accessibility, Gauge, GitPullRequest, Layers3 } from 'lucide-react';
+import { Gauge, Layers3, Server, Users } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { sectionIds } from '@/src/constants/section-ids';
 
@@ -59,10 +59,10 @@ export function AboutSection() {
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Accessibility className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">{dictionary.about.cards.accessibility.title}</h3>
+                <Server className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">{dictionary.about.cards.architecture.title}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {dictionary.about.cards.accessibility.description}
+                  {dictionary.about.cards.architecture.description}
                 </p>
               </div>
 
@@ -75,10 +75,10 @@ export function AboutSection() {
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <GitPullRequest className="h-12 w-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">{dictionary.about.cards.collaboration.title}</h3>
+                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
+                <h3 className="font-semibold mb-2">{dictionary.about.cards.leadership.title}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {dictionary.about.cards.collaboration.description}
+                  {dictionary.about.cards.leadership.description}
                 </p>
               </div>
             </div>
