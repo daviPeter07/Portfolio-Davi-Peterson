@@ -1,6 +1,7 @@
 'use client';
 
-import { ExternalLink, Github } from 'lucide-react';
+import { useState } from 'react';
+import { ExternalLink, Github, Lock } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/src/components/ui/card';
@@ -9,6 +10,12 @@ import { sectionIds } from '@/src/constants/section-ids';
 
 export function ProjectsSection() {
   const { dictionary } = useI18n();
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
+
+  const filterOptions = ['TypeScript', 'Python', 'Java', 'PHP'];
+  const filteredProjects = activeFilter 
+    ? projects.filter((p) => p.technologies.includes(activeFilter)) 
+    : projects;
 
   return (
     <section id={sectionIds.projects} className="py-20">
@@ -21,8 +28,34 @@ export function ProjectsSection() {
             {dictionary.projects.titleBefore}{' '}
             <span className="text-primary">{dictionary.projects.titleAccent}</span>
           </h2>
+          <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
+            <button
+              onClick={() => setActiveFilter(null)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeFilter === null
+                  ? 'bg-primary text-primary-foreground shadow-md'
+                  : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary'
+              }`}
+            >
+              {dictionary.common.all}
+            </button>
+            {filterOptions.map((tech) => (
+              <button
+                key={tech}
+                onClick={() => setActiveFilter(tech)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === tech
+                    ? 'bg-primary text-primary-foreground shadow-md'
+                    : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary'
+                }`}
+              >
+                {tech}
+              </button>
+            ))}
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {projects.map((project) => {
+            {filteredProjects.map((project) => {
               const content =
                 dictionary.projects.items[project.id as keyof typeof dictionary.projects.items];
 
@@ -38,26 +71,35 @@ export function ProjectsSection() {
                       className="w-full h-48 object-cover group-hover:scale-103 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      {project.demo ? (
-                        <Button size="sm" asChild>
-                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            {dictionary.common.navigate}
-                          </a>
-                        </Button>
-                      ) : null}
-                      {project.code ? (
-                        <Button
-                          size="sm"
-                          asChild
-                          className="bg-[#0D1117] text-white hover:bg-[#161b22]"
-                        >
-                          <a href={project.code} target="_blank" rel="noopener noreferrer">
-                            <Github className="h-4 w-4 mr-2" />
-                            {dictionary.common.github}
-                          </a>
-                        </Button>
-                      ) : null}
+                      {project.isPrivate ? (
+                        <span className="bg-black/70 text-white px-4 py-2 rounded-md font-medium text-sm flex items-center shadow-lg backdrop-blur-sm">
+                          <Lock className="h-4 w-4 mr-2" />
+                          {dictionary.common.privateSoftware}
+                        </span>
+                      ) : (
+                        <>
+                          {project.demo ? (
+                            <Button size="sm" asChild>
+                              <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="h-4 w-4 mr-2" />
+                                {dictionary.common.navigate}
+                              </a>
+                            </Button>
+                          ) : null}
+                          {project.code ? (
+                            <Button
+                              size="sm"
+                              asChild
+                              className="bg-[#0D1117] text-white hover:bg-[#161b22]"
+                            >
+                              <a href={project.code} target="_blank" rel="noopener noreferrer">
+                                <Github className="h-4 w-4 mr-2" />
+                                {dictionary.common.github}
+                              </a>
+                            </Button>
+                          ) : null}
+                        </>
+                      )}
                     </div>
                   </div>
 
