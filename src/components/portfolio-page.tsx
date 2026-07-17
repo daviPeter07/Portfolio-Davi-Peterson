@@ -2,7 +2,7 @@
 
 import { Header } from '@/src/components/header';
 import { Footer } from '@/src/components/footer';
-import { BackToTopButton } from '@/src/components/back-to-top-button';
+import { AiAssistant } from '@/src/components/ai-assistant';
 import {
   HeroSection,
   AboutSection,
@@ -26,7 +26,7 @@ export function PortfolioPage() {
       <ProjectsSection />
       <ContactSection />
       <Footer />
-      <BackToTopButton threshold={300} />
+      <AiAssistant />
     </main>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, ArrowUp } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { sectionIds, type SectionId } from '@/src/constants/section-ids';
 
@@ -98,11 +98,19 @@ export function Footer() {
         </div>
 
         {/* Rodapé final */}
-        <div className="border-t mt-8 pt-8 text-center">
+        <div className="border-t mt-8 pt-8 text-center relative flex flex-col items-center gap-4">
           <p className="text-muted-foreground flex items-center justify-center gap-2">
             {dictionary.footer.madeWith} <Heart className="h-4 w-4 text-red-500" />{' '}
             {dictionary.footer.andCoffee} {dictionary.common.siteName} © {new Date().getFullYear()}
           </p>
+          
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center justify-center gap-1"
+          >
+            <ArrowUp className="h-4 w-4" />
+            {dictionary.common.backToTop}
+          </button>
         </div>
       </div>
     </footer>
