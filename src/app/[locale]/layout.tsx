@@ -18,8 +18,6 @@ import {
 import '../globals.css';
 
 const siteUrl = 'https://davi-peterson.vercel.app';
-const ogImage =
-  'https://opengraph.b-cdn.net/production/images/45e1268b-86cd-49db-8d44-b2d2246f74a4.jpg?token=zBXpmuoggtRcZn5tWqDYOY5iKnD-XB7wnOGGJ6sEuMg&height=299&width=1200&expires=33291618338';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -68,13 +66,11 @@ export async function generateMetadata({
       url: `/${locale}`,
       type: 'website',
       locale: localeToOpenGraph[locale],
-      images: [{ url: ogImage }],
     },
     twitter: {
       card: 'summary_large_image',
       title: dictionary.metadata.title,
       description: dictionary.metadata.description,
-      images: [ogImage],
     },
   };
 }

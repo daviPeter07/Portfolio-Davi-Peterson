@@ -1,18 +1,19 @@
 {
   "metadata": {
-    "title": "Davi Peterson - Desarrollador de Software",
-    "description": "Portafolio profesional de Davi Peterson, desarrollador de software enfocado en Next.js, React, TypeScript, Node.js y PHP.",
+    "title": "Davi Peterson | Desarrollador Full Stack Junior",
+    "description": "Portafolio de Davi Peterson, Desarrollador Full Stack Junior especialista en React, Next.js, Node.js, PHP/Laravel y arquitectura escalable.",
     "keywords": [
       "Davi Peterson",
-      "Desarrollador de Software",
-      "Next.js",
+      "Desarrollador Full Stack Junior",
+      "Ingeniero de Software Junior",
       "React",
-      "TypeScript",
+      "Next.js",
       "Node.js",
-      "PHP",
+      "Laravel",
+      "TypeScript",
       "Portafolio"
     ],
-    "jobTitle": "Desarrollador de Software"
+    "jobTitle": "Desarrollador Full Stack Junior"
   },
   "common": {
     "siteName": "Davi Peterson",
