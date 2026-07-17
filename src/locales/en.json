@@ -23,6 +23,8 @@
     "stacks": "Stacks",
     "navigate": "Open",
     "github": "GitHub",
+    "privateSoftware": "Private Software",
+    "all": "All",
     "languageLabel": "Language",
     "languages": {
       "pt": "Portuguese",
@@ -52,31 +54,31 @@
     "titleBefore": "About",
     "titleAccent": "Me",
     "paragraphs": {
-      "first": "Junior Software Developer with 2 years of experience in the JavaScript and TypeScript ecosystem. I enjoy building web applications that are fast, well thought out, and pleasant to use day to day.",
-      "second": "I am currently studying Systems Analysis and Development at UniNorte and have been working on projects such as CRMs, landing pages, and web platforms, always paying attention to code organization, maintainability, and product scalability. More recently, I have been deepening my studies in the Laravel ecosystem to strengthen my full stack foundation."
+      "first": "Full Stack Developer with solid experience in frontend, backend, integrations, and infrastructure. I work primarily with Next.js and NestJS, smoothly navigating between interface creation, APIs, authentication, caching, queues, asynchronous processing, and advanced AI integrations.",
+      "second": "I am currently studying Systems Analysis and Development at UniNorte. I have taken on technical leadership responsibilities in both frontend and backend, supporting architectural decisions and raising the quality of team deliveries. I focus on maintainability, best practices, and technical decisions aligned with the value the product needs to deliver."
     },
     "stats": {
-      "seniorityValue": "Junior",
-      "seniorityLabel": "Current seniority",
+      "seniorityValue": "+1000",
+      "seniorityLabel": "Cups of coffee",
       "experienceValue": "2+",
       "experienceLabel": "Years of experience"
     },
     "cards": {
       "performance": {
         "title": "Performance",
-        "description": "Development focused on fluidity, optimization, and a consistent experience."
+        "description": "End-to-end optimization, covering caching, SSR, and asynchronous processing for maximum fluidity."
       },
-      "accessibility": {
-        "title": "Accessibility",
-        "description": "Interfaces built to be more inclusive and easier to use."
+      "architecture": {
+        "title": "Architecture & Design",
+        "description": "Designing scalable solutions using microservices, ensuring high availability and easy maintenance."
       },
       "scalability": {
         "title": "Scalability",
-        "description": "Code designed for maintenance, product evolution, and teamwork."
+        "description": "Systems designed for organic growth, utilizing microservices and consolidated design patterns."
       },
-      "collaboration": {
-        "title": "Collaboration",
-        "description": "Experience with pull requests, clear communication, and alignment between code and business goals."
+      "leadership": {
+        "title": "Leadership",
+        "description": "Technical mentoring, defining coding standards, and making technical decisions aligned with business goals."
       }
     }
   },
@@ -84,32 +86,31 @@
     "titleBefore": "My",
     "titleAccent": "Technologies",
     "categories": {
-      "javascript": "JavaScript Ecosystem",
-      "php": "PHP Ecosystem",
-      "dataDevOps": "Data and DevOps",
-      "designProduct": "Design and Product"
+      "frontendUI": "Frontend & UI",
+      "backendAPIs": "Backend & APIs",
+      "coreLanguages": "Core Languages",
+      "dataDevOps": "Data & DevOps"
     },
     "docs": {
-      "TypeScript": "JavaScript superset with static typing.",
-      "ReactJS": "Library for building interfaces with components.",
-      "Vue.js": "Progressive framework for building reactive, component-based interfaces.",
+      "React": "Library for building interfaces with components.",
       "Next.js": "React framework with routing, rendering, and modern tooling.",
-      "Tailwind CSS": "Utility-first CSS framework for building interfaces quickly.",
+      "Vue.js": "Progressive framework for building reactive interfaces.",
+      "Nuxt": "Intuitive Vue.js framework for building optimized web applications.",
       "Node.js": "JavaScript runtime for server-side applications.",
-      "Express": "Minimal web framework for Node.js.",
-      "Jest": "JavaScript testing framework with mocks and assertions.",
-      "PHP": "Scripting language for server-side web applications.",
+      "NestJS": "Progressive Node.js framework for building efficient APIs.",
       "Laravel": "PHP framework focused on productivity and developer experience.",
-      "Inertia.js": "Bridge between backend and frontend for building SPAs without giving up the server.",
-      "Eloquent": "Laravel ORM for expressive data modeling and database queries.",
-      "Pest": "PHP testing framework with a fluent, readable syntax.",
-      "Docker": "Container platform for packaging and shipping applications.",
+      "Spring Boot": "Java framework for building stand-alone, production-grade Spring apps.",
+      "FastAPI": "Modern, fast, high-performance web framework for Python.",
+      "TypeScript": "JavaScript superset with static typing.",
+      "PHP": "Scripting language for server-side web applications.",
+      "Java": "Object-oriented programming language.",
+      "Python": "Versatile and powerful high-level programming language.",
+      "PostgreSQL": "Advanced and extensible relational database.",
       "Prisma ORM": "ORM for TypeScript and Node with schema and migrations.",
       "Redis": "In-memory database used for cache, queues, and high performance.",
-      "MySQL": "Popular and widely used relational database.",
-      "PostgreSQL": "Advanced and extensible relational database.",
-      "Figma": "Collaborative design tool for UI and UX.",
-      "Pencil": "Design and prototyping tool for wireframes and interface flows."
+      "Docker": "Container platform for packaging and shipping applications.",
+      "MinIO": "High-performance, S3 compatible object storage.",
+      "BullMQ": "Advanced message queue system based on Redis."
     }
   },
   "experience": {
@@ -148,7 +149,7 @@
       },
       "indicai": {
         "title": "Software Developer (Contractor)",
-        "period": "11-2025 - Present",
+        "period": "11-2025 - 03-2026",
         "description": "Worked as an independent contractor on full stack solutions and DevOps practices, with responsibilities aligned with junior-level work: feature implementation, bug fixing, API integration, and scalable code patterns. Participated in release cycles for the Play Store and App Store while continuously improving UX, UI, and performance.",
         "achievements": [
           "Full stack and DevOps work focused on architecture definition and scalable coding standards.",
@@ -158,12 +159,22 @@
       },
       "uape": {
         "title": "Full Stack Developer Intern",
-        "period": "06-2025 - Present",
+        "period": "06-2025 - 05-2026",
         "description": "Internship in full stack development focused on scalable architecture, service integration, and good coding practices. Also involved in AI and Data Science initiatives applied to internal products.",
         "achievements": [
           "Built an entire payment management software used across 3 states.",
           "Created landing pages with internationalization support in Portuguese, English, and Spanish.",
           "Provided advanced technical support and environment setup for Windows and Linux/Ubuntu infrastructure."
+        ]
+      },
+      "residuum": {
+        "title": "Tech Lead & Full Stack Developer",
+        "period": "05-2026 - Present",
+        "description": "Invited by the university, I took on the technical leadership of the Residuum project to guide students in their mandatory internship discipline. I coordinated the developers, managing deliverables and ensuring code quality through Pull Request reviews and continuous mentoring.",
+        "achievements": [
+          "Technical leadership and task assignment in the Frontend, actively working on bug fixes, code reviews (PR analysis), and continuous UX/UI improvements.",
+          "Full Stack development in the Backend using FastAPI, applying data modeling refactoring and complex business rules.",
+          "Significant optimization of database query performance, improving the overall application response time."
         ]
       }
     }
@@ -172,10 +183,7 @@
     "titleBefore": "My",
     "titleAccent": "Projects",
     "items": {
-      "aliceBlog": {
-        "title": "Alice Blog",
-        "description": "Open source blog built to study cache strategies in Next.js, authentication with admin and regular user profiles, post interactions with comments and likes, and reading time calculation. It also served as hands-on practice for PR-based collaboration and AI-assisted development with Specify."
-      },
+
       "nexusSkills": {
         "title": "Nexus Skills",
         "description": "Nexus Skill platform with courses designed to strengthen people's soft skills."
@@ -184,21 +192,25 @@
         "title": "UAPE",
         "description": "Institutional landing page presenting UAPÉ's global health data engineering work: data sovereignty, fast deployment, offline-first mobile collection, health system integration, and real-time visualizations. Available in 3 languages (PT/EN/ES)."
       },
-      "masterMindLanding": {
-        "title": "Master Mind – Landing Page",
-        "description": "Landing page built to promote the Master Mind app, combining productivity and financial control integrated with Google Calendar."
+      "masterMind": {
+        "title": "Master Mind",
+        "description": "Financial control SaaS built with a modular monolith architecture. Features payment gateway integration and feature automation directly via Telegram."
       },
-      "masterControl": {
-        "title": "Master Control",
-        "description": "POS software used for managing sales and customers without depending on a base inventory."
+      "contaCloud": {
+        "title": "ContaCloud",
+        "description": "SaaS built at TwoBrains. Worked as an architect dividing operations into microservices for better maintainability, improving user experience and features. Integrates AI automations with LangGraph and LangChain for automated invoice generation using the Focus API, emphasizing Next.js SSR and caching."
       },
-      "jusFacil": {
-        "title": "Jus Fácil",
-        "description": "Open source legal app for consulting and organizing legal summaries, built with Expo and React Native."
+      "operis": {
+        "title": "Operis",
+        "description": "Complete POS and financial system built for DG Computer. Includes inventory management, sales and purchases, customer/supplier management, and invoice generation."
       },
-      "roboticaEducacional": {
-        "title": "Robótica Educacional",
-        "description": "Institutional website for an academic project migrated to React and TypeScript, presenting goals, team, STEAM methodology, and results."
+      "syncForge": {
+        "title": "SyncForge",
+        "description": "Landing page for SyncForge, my own Software House. As Dev and CEO, I lead a team of 4 developers creating prototypes and building on-demand and subscription-based products."
+      },
+      "residuum": {
+        "title": "Residuum",
+        "description": "A reverse logistics and circular economy platform connecting those who want to dispose of waste with those who need to collect it. I was responsible for building the institutional landing page, with a strong focus on UX/UI improvements. I also acted as Tech Lead and Full Stack Developer, refactoring business rules in the FastAPI backend and leading the team."
       }
     }
   },

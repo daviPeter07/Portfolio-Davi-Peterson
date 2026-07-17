@@ -23,6 +23,8 @@
     "stacks": "Stacks",
     "navigate": "Navegar",
     "github": "GitHub",
+    "privateSoftware": "Software Privado",
+    "all": "Todos",
     "languageLabel": "Idioma",
     "languages": {
       "pt": "Português",
@@ -52,31 +54,31 @@
     "titleBefore": "Sobre",
     "titleAccent": "Mim",
     "paragraphs": {
-      "first": "Desenvolvedor de Software Júnior com 2 anos de experiência no ecossistema JavaScript e TypeScript. Gosto de construir aplicações web que sejam rápidas, bem resolvidas e agradáveis de usar no dia a dia.",
-      "second": "Atualmente curso Análise e Desenvolvimento de Sistemas na UniNorte e venho atuando em projetos como CRM, landing pages e plataformas web, sempre com atenção à organização do código, manutenção e escalabilidade do produto. Recentemente tenho aprofundado meus estudos no ecossistema Laravel para ampliar minha base no desenvolvimento full stack."
+      "first": "Desenvolvedor Full Stack com sólida experiência em frontend, backend, integrações e infraestrutura. Atuo principalmente com Next.js e NestJS, transitando com fluidez entre criação de interfaces, APIs, autenticação, cache, filas, processamento assíncrono e integrações avançadas com IA.",
+      "second": "Atualmente curso Análise e Desenvolvimento de Sistemas na UniNorte. Já exerci responsabilidades de liderança técnica no frontend e no backend, apoiando decisões de arquitetura e elevando a qualidade das entregas. Trabalho com foco na manutenibilidade, em boas práticas e em decisões técnicas alinhadas ao valor que o produto precisa entregar."
     },
     "stats": {
-      "seniorityValue": "Júnior",
-      "seniorityLabel": "Senioridade atual",
+      "seniorityValue": "+1000",
+      "seniorityLabel": "Xícaras de café",
       "experienceValue": "2+",
       "experienceLabel": "Anos de experiência"
     },
     "cards": {
       "performance": {
         "title": "Performance",
-        "description": "Desenvolvimento com foco em fluidez, otimização e experiência consistente."
+        "description": "Otimização de ponta a ponta, abrangendo cache, SSR e processamento assíncrono para máxima fluidez."
       },
-      "accessibility": {
-        "title": "Acessibilidade",
-        "description": "Interfaces mais inclusivas e preparadas para uma melhor experiência de uso."
+      "architecture": {
+        "title": "Arquitetura e Design",
+        "description": "Desenho de soluções escaláveis utilizando microsserviços, garantindo alta disponibilidade e fácil manutenção."
       },
       "scalability": {
         "title": "Escalabilidade",
-        "description": "Código pensado para manutenção, evolução do produto e trabalho em equipe."
+        "description": "Sistemas projetados para o crescimento orgânico, utilizando microsserviços e padrões de projeto consolidados."
       },
-      "collaboration": {
-        "title": "Colaboração",
-        "description": "Experiência com PRs, comunicação clara e alinhamento entre código e negócio."
+      "leadership": {
+        "title": "Liderança",
+        "description": "Mentoria técnica, definição de padrões de código e decisões técnicas alinhadas aos objetivos do negócio."
       }
     }
   },
@@ -84,32 +86,31 @@
     "titleBefore": "Minhas",
     "titleAccent": "Tecnologias",
     "categories": {
-      "javascript": "Ecossistema JavaScript",
-      "php": "Ecossistema PHP",
-      "dataDevOps": "Dados e DevOps",
-      "designProduct": "Design e Produto"
+      "frontendUI": "Frontend & UI",
+      "backendAPIs": "Backend & APIs",
+      "coreLanguages": "Linguagens Base",
+      "dataDevOps": "Dados e DevOps"
     },
     "docs": {
-      "TypeScript": "Superset do JavaScript com tipagem estática.",
-      "ReactJS": "Biblioteca para construir interfaces com componentes.",
-      "Vue.js": "Framework progressivo para construir interfaces reativas e componentizadas.",
+      "React": "Biblioteca para construir interfaces com componentes.",
       "Next.js": "Framework React com rotas, rendering e tooling moderno.",
-      "Tailwind CSS": "Framework utilitário de CSS para criar interfaces rápidas.",
+      "Vue.js": "Framework progressivo para construir interfaces reativas.",
+      "Nuxt": "Framework Vue.js intuitivo para criar aplicações web otimizadas.",
       "Node.js": "Ambiente de execução JavaScript no servidor.",
-      "Express": "Framework web minimalista para Node.js.",
-      "Jest": "Framework de testes em JavaScript com mocks e asserts.",
+      "NestJS": "Framework Node.js progressivo para APIs eficientes.",
+      "Laravel": "Framework PHP para aplicações web com foco em produtividade.",
+      "Spring Boot": "Framework Java focado em aplicações corporativas stand-alone.",
+      "FastAPI": "Framework Python de alta performance para APIs.",
+      "TypeScript": "Superset do JavaScript com tipagem estática.",
       "PHP": "Linguagem de script para aplicações web no servidor.",
-      "Laravel": "Framework PHP para aplicações web com foco em produtividade e DX.",
-      "Inertia.js": "Ponte entre backend e frontend para construir SPAs sem abrir mão do servidor.",
-      "Eloquent": "ORM do Laravel para modelagem de dados e consultas expressivas em PHP.",
-      "Pest": "Framework de testes para PHP com sintaxe fluida e foco em legibilidade.",
-      "Docker": "Plataforma de containers para empacotar e distribuir apps.",
-      "Prisma ORM": "ORM para TypeScript/Node com schema e migrações.",
-      "Redis": "Banco de dados em memória usado para cache, filas e alta performance.",
-      "MySQL": "Banco de dados relacional popular e amplamente usado.",
+      "Java": "Linguagem de programação orientada a objetos.",
+      "Python": "Linguagem de alto nível versátil e poderosa.",
       "PostgreSQL": "Banco de dados relacional avançado e extensível.",
-      "Figma": "Ferramenta de design colaborativa para UI/UX.",
-      "Pencil": "Ferramenta de design e prototipação de interfaces para wireframes e fluxos."
+      "Prisma ORM": "ORM para TypeScript/Node com schema e migrações.",
+      "Redis": "Banco de dados em memória usado para cache e filas.",
+      "Docker": "Plataforma de containers para empacotar e distribuir apps.",
+      "MinIO": "Armazenamento de objetos compatível com S3 e de alta performance.",
+      "BullMQ": "Sistema avançado de filas de mensagens baseado em Redis."
     }
   },
   "experience": {
@@ -148,7 +149,7 @@
       },
       "indicai": {
         "title": "Software Developer (PJ)",
-        "period": "11-2025 - Em atividade",
+        "period": "11-2025 - 03-2026",
         "description": "Prestação de serviços como PJ (MEI) em soluções Full Stack e práticas DevOps, com escopo de atividades equivalente ao nível júnior: implementação de funcionalidades, correção de bugs, integração de APIs e aplicação de padrões de código escaláveis. Participação no ciclo de deploy (Play Store e App Store) e evolução contínua de UX/UI e performance.",
         "achievements": [
           "Atuação Full Stack e DevOps focada na definição de arquitetura e padrões de código escaláveis.",
@@ -158,12 +159,22 @@
       },
       "uape": {
         "title": "Full Stack Developer (Estágio)",
-        "period": "06-2025 - Em atividade",
+        "period": "06-2025 - 05-2026",
         "description": "Estágio em desenvolvimento Full Stack com foco em arquitetura escalável, integração entre serviços e boas práticas de código. Participação em iniciativas de IA e Data Science aplicadas a produtos internos.",
         "achievements": [
           "Desenvolvimento integral de um software de gerenciamento de pagamentos implementado em 3 estados.",
           "Criação de landing pages com suporte a internacionalização (i18n) em Português, Inglês e Espanhol.",
           "Suporte técnico avançado e configuração de ambientes e infraestrutura (Windows e Linux/Ubuntu)."
+        ]
+      },
+      "residuum": {
+        "title": "Tech Lead & Full Stack Developer",
+        "period": "05-2026 - Atualmente",
+        "description": "A convite da faculdade, assumi a liderança técnica do projeto Residuum para orientar os alunos na disciplina de estágio obrigatório. Atuei coordenando os desenvolvedores, gerenciando entregas e garantindo a qualidade do código através da análise de Pull Requests e mentoria contínua.",
+        "achievements": [
+          "Liderança técnica e instrução de tasks no Frontend, atuando ativamente na correção de bugs, code review (análise de PRs) e melhorias contínuas de UX/UI.",
+          "Atuação Full Stack no Backend utilizando FastAPI, aplicando refatorações de modelagem e regras de negócio complexas.",
+          "Otimização significativa na performance de queries do banco de dados, melhorando a resposta geral da aplicação."
         ]
       }
     }
@@ -172,10 +183,7 @@
     "titleBefore": "Meus",
     "titleAccent": "Projetos",
     "items": {
-      "aliceBlog": {
-        "title": "Alice Blog",
-        "description": "Blog open source construído para estudar estratégias de cache no Next.js, autenticação com perfis de admin e usuário, interações por post com comentários e likes, e cálculo de tempo de leitura. Também serviu como prática de colaboração com PRs e uso de IA com Specify no fluxo de desenvolvimento."
-      },
+
       "nexusSkills": {
         "title": "Nexus Skills",
         "description": "Plataforma Nexus Skill com cursos para potencializar as soft skills das pessoas."
@@ -184,21 +192,25 @@
         "title": "UAPE",
         "description": "Landing institucional que apresenta a engenharia de dados em saúde global da UAPÉ: soberania de dados, implantação rápida, coleta móvel offline-first, integração entre sistemas de saúde e visualizações em tempo real. Suporte a 3 idiomas (PT/EN/ES)."
       },
-      "masterMindLanding": {
-        "title": "Master Mind – Landing Page",
-        "description": "Landing page para divulgação do aplicativo Master Mind, unindo produtividade e controle financeiro integrado ao Google Calendar."
+      "masterMind": {
+        "title": "Master Mind",
+        "description": "SaaS de controle financeiro baseado em arquitetura de monólito modular. Possui integração com gateway de pagamento e automação de funcionalidades diretamente pelo Telegram."
       },
-      "masterControl": {
-        "title": "Master Control",
-        "description": "Software de PDV usado para gerenciamento de vendas e clientes sem a necessidade de um estoque base."
+      "contaCloud": {
+        "title": "ContaCloud",
+        "description": "SaaS desenvolvido na TwoBrains. Atuei como arquiteto dividindo as operações em microsserviços para melhor manutenção, melhorando a experiência do usuário e funcionalidades. Integra automações com LangGraph e LangChain para emissão de notas fiscais usando a API do Focus, focado em performance com SSR e cache do Next.js."
       },
-      "jusFacil": {
-        "title": "Jus Fácil",
-        "description": "Aplicativo jurídico open source para consulta e organização de súmulas, desenvolvido com Expo e React Native."
+      "operis": {
+        "title": "Operis",
+        "description": "Sistema completo de PDV e financeiro desenvolvido para a DG Computer. Conta com controle de estoque, compras e vendas, gestão de clientes/fornecedores e emissão de notas e cupons fiscais."
       },
-      "roboticaEducacional": {
-        "title": "Robótica Educacional",
-        "description": "Site institucional do projeto acadêmico migrado para React e TypeScript, apresentando objetivos, equipe, metodologia STEAM e resultados."
+      "syncForge": {
+        "title": "SyncForge",
+        "description": "Landing page da SyncForge, minha própria Software House. Como Dev e CEO, lidero uma equipe de 4 desenvolvedores na criação de protótipos e produtos sob demanda e por assinatura."
+      },
+      "residuum": {
+        "title": "Residuum",
+        "description": "Plataforma de logística reversa e economia circular que conecta quem deseja descartar resíduos com quem precisa coletar. Fui responsável pela construção da landing page institucional, com forte foco em melhorias de UX/UI. Atuei no projeto também como Tech Lead e Desenvolvedor Full Stack, refatorando regras de negócio no backend em FastAPI e liderando a equipe."
       }
     }
   },
