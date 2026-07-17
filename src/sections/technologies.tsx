@@ -1,15 +1,15 @@
 'use client';
 
 import { useRef } from 'react';
-import { Code2, Database, Palette, Server } from 'lucide-react';
+import { Code2, Database, Layout, Server } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { TechnologyCategory } from '@/src/components/technology-category';
 import { sectionIds } from '@/src/constants/section-ids';
 import {
-  dataAndDevOps,
-  designAndProduct,
-  javaScriptEcosystem,
-  phpEcosystem,
+  frontendUI,
+  backendAPIs,
+  coreLanguages,
+  dataDevOps,
   techResources,
 } from '@/src/constants/technologies';
 
@@ -41,28 +41,27 @@ export function TechnologiesSection() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             <TechnologyCategory
-              title={dictionary.technologies.categories.javascript}
-              Icon={Code2}
-              items={javaScriptEcosystem}
+              title={dictionary.technologies.categories.frontendUI}
+              Icon={Layout}
+              items={frontendUI}
               infoMap={infoMap}
-              invertNames={['Express']}
             />
             <TechnologyCategory
-              title={dictionary.technologies.categories.php}
+              title={dictionary.technologies.categories.backendAPIs}
               Icon={Server}
-              items={phpEcosystem}
+              items={backendAPIs}
+              infoMap={infoMap}
+            />
+            <TechnologyCategory
+              title={dictionary.technologies.categories.coreLanguages}
+              Icon={Code2}
+              items={coreLanguages}
               infoMap={infoMap}
             />
             <TechnologyCategory
               title={dictionary.technologies.categories.dataDevOps}
               Icon={Database}
-              items={dataAndDevOps}
-              infoMap={infoMap}
-            />
-            <TechnologyCategory
-              title={dictionary.technologies.categories.designProduct}
-              Icon={Palette}
-              items={designAndProduct}
+              items={dataDevOps}
               infoMap={infoMap}
             />
           </div>
