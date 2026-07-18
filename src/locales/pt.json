@@ -251,5 +251,14 @@
     "andCoffee": "e café por",
     "mailSubject": "Contato pelo Portfólio",
     "mailBody": "Olá, Davi! Vi seu portfólio e gostaria de conversar."
+  },
+  "aiAssistant": {
+    "title": "Davi AI",
+    "beta": "Beta",
+    "description": "Tire dúvidas sobre minha experiência e projetos.",
+    "comingSoon": "Em Breve",
+    "botMessage": "Olá! Como posso te ajudar a conhecer o perfil do Davi hoje?",
+    "userMessage": "Quais tecnologias ele mais usa?",
+    "placeholder": "Escreva sua mensagem..."
   }
 }

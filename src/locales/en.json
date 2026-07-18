@@ -250,6 +250,15 @@
     "madeWith": "Made with",
     "andCoffee": "and coffee by",
     "mailSubject": "Contact from Portfolio",
-    "mailBody": "Hi Davi! I saw your portfolio and would like to talk."
+    "mailBody": "Hello, Davi! I saw your portfolio and would like to talk."
+  },
+  "aiAssistant": {
+    "title": "Davi AI",
+    "beta": "Beta",
+    "description": "Ask questions about my experience and projects.",
+    "comingSoon": "Coming Soon",
+    "botMessage": "Hello! How can I help you get to know Davi's profile today?",
+    "userMessage": "What technologies does he use the most?",
+    "placeholder": "Type your message..."
   }
 }

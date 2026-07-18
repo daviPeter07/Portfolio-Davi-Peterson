@@ -249,7 +249,16 @@
     "social": "Redes Sociales",
     "madeWith": "Hecho con",
     "andCoffee": "y café por",
-    "mailSubject": "Contacto desde el Portafolio",
-    "mailBody": "Hola, Davi. Vi tu portafolio y me gustaría conversar."
+    "mailSubject": "Contacto por el Portafolio",
+    "mailBody": "¡Hola, Davi! Vi tu portafolio y me gustaría conversar."
+  },
+  "aiAssistant": {
+    "title": "Davi AI",
+    "beta": "Beta",
+    "description": "Haz preguntas sobre mi experiencia y proyectos.",
+    "comingSoon": "Próximamente",
+    "botMessage": "¡Hola! ¿Cómo te puedo ayudar a conocer el perfil de Davi hoy?",
+    "userMessage": "¿Qué tecnologías usa más?",
+    "placeholder": "Escribe tu mensaje..."
   }
 }
