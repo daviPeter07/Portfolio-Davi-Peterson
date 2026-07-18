@@ -6,10 +6,11 @@ import { useChat } from 'ai/react';
 import { Button } from '@/src/components/ui/button';
 import { Input } from '@/src/components/ui/input';
 import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/src/components/ui/popover';
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+} from '@/src/components/ui/dialog';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/src/components/ui/card';
 import { useI18n } from '@/src/components/i18n-provider';
 
@@ -105,11 +106,11 @@ export function AiAssistant() {
 
   return (
     <div className={`fixed bottom-6 right-6 z-50 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12 pointer-events-none'}`}>
-      <Popover open={isOpen} onOpenChange={(open) => {
+      <Dialog open={isOpen} onOpenChange={(open) => {
         setIsOpen(open);
         if (open) setHasNotification(false);
       }}>
-        <PopoverTrigger asChild>
+        <DialogTrigger asChild>
           <Button
             className="h-20 w-20 rounded-full bg-primary text-primary-foreground shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 relative flex items-center justify-center p-0"
           >
@@ -120,23 +121,26 @@ export function AiAssistant() {
               </span>
             )}
           </Button>
-        </PopoverTrigger>
+        </DialogTrigger>
 
-        <PopoverContent side="top" align="end" className="w-[320px] sm:w-[380px] p-0 border-0 shadow-2xl rounded-2xl mb-4 bg-background">
-          <Card className="border rounded-2xl overflow-hidden flex flex-col h-[450px] shadow-none bg-transparent relative p-0 gap-0">
+        <DialogContent 
+          className="w-[95vw] max-w-[500px] h-[85vh] max-h-[700px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden"
+        >
+          <DialogTitle className="sr-only">Chat com Davi AI</DialogTitle>
+          <Card className="border-0 rounded-2xl overflow-hidden flex flex-col h-full shadow-none bg-transparent relative p-0 gap-0">
             
-            <CardHeader className="bg-muted/50 border-b p-4 relative z-10 m-0">
-              <CardTitle className="flex items-center gap-2 text-lg font-bold tracking-tight text-foreground">
-                <Bot className="h-5 w-5" />
+            <CardHeader className="bg-muted/50 border-b p-4 sm:p-5 relative z-10 m-0">
+              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl font-bold tracking-tight text-foreground pr-8">
+                <Bot className="h-5 w-5 sm:h-6 sm:w-6" />
                 {t.title}
-                <span className="text-[10px] uppercase tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold ml-auto">
+                <span className="text-[10px] sm:text-xs uppercase tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold ml-2">
                   {t.beta}
                 </span>
               </CardTitle>
-              <p className="text-xs text-muted-foreground font-medium mt-1">
+              <p className="text-xs sm:text-sm text-muted-foreground font-medium mt-1">
                 {t.description}
               </p>
-              <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-1 rounded bg-orange-500/10 border border-orange-500/20 text-[10px] text-orange-500">
+              <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded bg-orange-500/10 border border-orange-500/20 text-xs sm:text-sm text-orange-500">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
@@ -149,7 +153,7 @@ export function AiAssistant() {
               <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-4">
                 {messages.map((m) => (
                   <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    <div className={`p-3 rounded-2xl text-sm max-w-[85%] whitespace-pre-wrap ${
+                    <div className={`p-3 sm:p-4 rounded-2xl text-sm sm:text-base leading-relaxed max-w-[85%] sm:max-w-[80%] whitespace-pre-wrap ${
                       m.role === 'user' 
                         ? 'bg-primary text-primary-foreground rounded-tr-sm' 
                         : 'bg-muted border text-foreground rounded-tl-sm'
@@ -187,7 +191,7 @@ export function AiAssistant() {
                   placeholder={t.placeholder}
                   value={input || ''}
                   onChange={(e) => handleInputChange && handleInputChange(e)}
-                  className="flex-1 rounded-full bg-muted/50 border-transparent"
+                  className="flex-1 rounded-full bg-muted/50 border-transparent text-base sm:text-base py-5 sm:py-6"
                   disabled={isLoading}
                 />
                 <Button type="submit" size="icon" className="rounded-full shrink-0" disabled={isLoading || !input?.trim()}>
@@ -197,8 +201,8 @@ export function AiAssistant() {
             </CardFooter>
             
           </Card>
-        </PopoverContent>
-      </Popover>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
