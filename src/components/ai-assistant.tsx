@@ -14,6 +14,10 @@ import {
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/src/components/ui/card';
 import { useI18n } from '@/src/components/i18n-provider';
 
+type WindowWithWebkitAudioContext = Window & {
+  webkitAudioContext?: typeof AudioContext;
+};
+
 export function AiAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -68,7 +72,14 @@ export function AiAssistant() {
 
       // Como o usuário acabou de interagir (clicar/tocar/digitar), o navegador PERMITE o som 100% das vezes!
       try {
-        const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+        const AudioContextConstructor =
+          window.AudioContext || (window as WindowWithWebkitAudioContext).webkitAudioContext;
+
+        if (!AudioContextConstructor) {
+          return;
+        }
+
+        const audioCtx = new AudioContextConstructor();
         
         const oscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
@@ -85,8 +96,8 @@ export function AiAssistant() {
 
         oscillator.start();
         oscillator.stop(audioCtx.currentTime + 0.6);
-      } catch (e) {
-        console.warn('Erro ao tocar áudio:', e);
+      } catch (error) {
+        console.warn('Erro ao tocar áudio:', error);
       }
 
       // Remover ouvintes após o primeiro acionamento

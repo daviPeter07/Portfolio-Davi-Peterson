@@ -1,7 +1,12 @@
+import ptDict from '@/src/locales/pt.json';
 import { projects } from '@/src/constants/projects';
 import { frontendUI, backendAPIs, coreLanguages, dataDevOps } from '@/src/constants/technologies';
 
-export function getResumeInfo(dict: any) {
+type Dictionary = typeof ptDict;
+type ExperienceItem = Dictionary['experience']['items'][keyof Dictionary['experience']['items']];
+type ProjectItems = Dictionary['projects']['items'];
+
+export function getResumeInfo(dict: Dictionary) {
   const techFrontend = frontendUI.map((t) => t.name).join(', ');
   const techBackend = backendAPIs.map((t) => t.name).join(', ');
   const techCore = coreLanguages.map((t) => t.name).join(', ');
@@ -9,15 +14,17 @@ export function getResumeInfo(dict: any) {
 
   const experiencesList = Object.values(dict.experience.items)
     .map(
-      (exp: any) =>
+      (exp: ExperienceItem) =>
         `- ${exp.title} (${exp.period}): ${exp.description}\n  Conquistas:\n  * ${exp.achievements.join('\n  * ')}`
     )
     .join('\n\n');
 
   const projectsList = projects
     .map((p) => {
-      const localeData = (dict.projects.items as any)[p.id];
+      const localeData = dict.projects.items[p.id as keyof ProjectItems];
+
       if (!localeData) return '';
+
       return `- ${localeData.title}: ${localeData.description}\n  Tecnologias: ${p.technologies.join(', ')}\n  Link: ${p.demo || p.code || 'Privado'}`;
     })
     .filter(Boolean)

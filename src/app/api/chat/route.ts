@@ -1,5 +1,5 @@
 import { createOpenAI } from '@ai-sdk/openai';
-import { streamText } from 'ai';
+import { convertToCoreMessages, streamText, type Attachment, type ToolInvocation } from 'ai';
 
 // Base de dados local (importando do próprio portfólio)
 import ptDict from '@/src/locales/pt.json';
@@ -19,39 +19,64 @@ const openrouter = createOpenAI({
 
 export const maxDuration = 30;
 
+type Locale = 'pt' | 'en' | 'es';
+type Dictionary = typeof ptDict;
 type ChatMessage = {
-  role?: string;
-  content?: unknown;
-  [key: string]: unknown;
+  role: 'system' | 'user' | 'assistant' | 'function' | 'data' | 'tool';
+  content: string;
+  toolInvocations?: ToolInvocation[];
+  experimental_attachments?: Attachment[];
 };
-
-function normalizeMessageContent(content: unknown) {
-  if (typeof content === 'string') {
-    return content.trim();
-  }
-
-  return content;
-}
+type ChatRequestBody = {
+  messages: ChatMessage[];
+  locale?: Locale;
+};
 
 function normalizeMessages(messages: ChatMessage[]) {
   return messages.map((message) => ({
     ...message,
-    content: normalizeMessageContent(message.content),
+    content: message.content.trim(),
   }));
+}
+
+function getDictionary(locale?: Locale): Dictionary {
+  if (locale === 'en') {
+    return enDict;
+  }
+
+  if (locale === 'es') {
+    return esDict;
+  }
+
+  return ptDict;
+}
+
+function getErrorMessage(error: unknown) {
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  return 'Failed to process request';
+}
+
+function getErrorStack(error: unknown) {
+  if (error instanceof Error) {
+    return error.stack;
+  }
+
+  return undefined;
 }
 
 export async function POST(req: Request) {
   try {
-    const { messages, locale } = await req.json();
+    const { messages, locale } = (await req.json()) as ChatRequestBody;
     const normalizedMessages = normalizeMessages(messages);
 
     // Limitar o histórico para não enviar a conversa inteira e não deixar a API lenta
     const recentMessages = normalizedMessages.slice(-6);
 
     // Selecionar o dicionário correto com base no idioma atual do usuário
-    let dict = ptDict;
-    if (locale === 'en') dict = enDict as any;
-    else if (locale === 'es') dict = esDict as any;
+    const dict = getDictionary(locale);
 
     // Processar o currículo com base no idioma atual
     const resumeInfo = getResumeInfo(dict);
@@ -89,19 +114,19 @@ ${resumeInfo}`;
     const result = await streamText({
       model: openrouter(process.env.OPENROUTER_MODEL || 'openrouter/free'),
       system: systemPrompt,
-      messages: recentMessages as any,
+      messages: convertToCoreMessages(recentMessages),
       temperature: 0.7,
-    } as any);
+    });
 
     // O TypeScript acusa erro nesta linha dizendo que toDataStreamResponse não existe,
     // sugerindo toTextStreamResponse. No entanto, toTextStreamResponse envia texto puro,
     // o que faz o useChat (frontend) travar. Apenas toDataStreamResponse empacota o stream
     // no formato correto para o useChat v1.x+.
-    return (result as any).toDataStreamResponse();
-  } catch (error: any) {
+    return result.toDataStreamResponse();
+  } catch (error: unknown) {
     console.error('Error handling chat request:', error);
     return new Response(
-      JSON.stringify({ error: error.message || 'Failed to process request', stack: error.stack }),
+      JSON.stringify({ error: getErrorMessage(error), stack: getErrorStack(error) }),
       {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
