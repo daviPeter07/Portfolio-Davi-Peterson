@@ -105,18 +105,18 @@ export function AiAssistant() {
   }, []);
 
   return (
-    <div className={`fixed bottom-6 right-6 z-50 transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12 pointer-events-none'}`}>
+    <div className={`fixed right-4 bottom-4 z-50 transition-all duration-700 ease-out transform sm:right-6 sm:bottom-6 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12 pointer-events-none'}`}>
       <Dialog open={isOpen} onOpenChange={(open) => {
         setIsOpen(open);
         if (open) setHasNotification(false);
       }}>
         <DialogTrigger asChild>
           <Button
-            className="h-20 w-20 rounded-full bg-primary text-primary-foreground shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 relative flex items-center justify-center p-0"
+            className="relative flex h-16 w-16 items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20"
           >
-            <Bot style={{ width: '32px', height: '32px' }} className="text-white" />
+            <Bot className="size-8 text-white sm:size-8" strokeWidth={2.25} />
             {hasNotification && !isOpen && (
-              <span className="absolute top-0 right-0 -mt-1 -mr-1 flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-sm font-black text-white shadow-lg ring-4 ring-background animate-bounce">
+              <span className="absolute top-0 right-0 -mt-1 -mr-1 flex h-6 w-6 animate-bounce items-center justify-center rounded-full bg-red-500 text-xs font-black text-white shadow-lg ring-4 ring-background sm:h-8 sm:w-8 sm:text-sm">
                 1
               </span>
             )}

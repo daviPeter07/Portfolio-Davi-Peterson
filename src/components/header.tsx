@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/src/components/ui/button';
@@ -11,17 +11,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger } from '@/src/componen
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
   const { dictionary, locale } = useI18n();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const scrollToSection = (sectionId: SectionId) => {
     const element = document.getElementById(sectionId);
@@ -78,17 +69,13 @@ export function Header() {
   );
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border' : 'bg-transparent'
-      }`}
-    >
-      <nav className="container mx-auto px-4 py-4">
+    <header className="fixed top-0 w-full z-50 border-b border-border/70 bg-background/80 backdrop-blur-md">
+      <nav className="container mx-auto px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <button
             type="button"
             onClick={() => scrollToSection(sectionIds.home)}
-            className="text-xl font-bold text-primary hover:text-primary/80 transition-colors cursor-pointer"
+            className="shrink-0 whitespace-nowrap text-lg font-bold text-primary transition-colors hover:text-primary/80 sm:text-xl"
             aria-label={dictionary.nav.backToTopTitle}
             title={dictionary.nav.backToTopTitle}
           >
@@ -162,13 +149,13 @@ export function Header() {
               <SelectTrigger
                 size="sm"
                 aria-label={dictionary.common.languageLabel}
-                className="w-[152px] shrink-0"
+                className="w-[138px] shrink-0 px-2.5"
               >
                 <span className="flex items-center gap-2">
                   <span aria-hidden="true" className={localeBadgeClassName}>
                     {currentLocale.short}
                   </span>
-                  <span>{currentLocale.label}</span>
+                  <span className="truncate">{currentLocale.label}</span>
                 </span>
               </SelectTrigger>
               <SelectContent>{languageOptions}</SelectContent>
