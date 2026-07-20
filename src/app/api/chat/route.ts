@@ -19,13 +19,34 @@ const openrouter = createOpenAI({
 
 export const maxDuration = 30;
 
+type ChatMessage = {
+  role?: string;
+  content?: unknown;
+  [key: string]: unknown;
+};
+
+function normalizeMessageContent(content: unknown) {
+  if (typeof content === 'string') {
+    return content.trim();
+  }
+
+  return content;
+}
+
+function normalizeMessages(messages: ChatMessage[]) {
+  return messages.map((message) => ({
+    ...message,
+    content: normalizeMessageContent(message.content),
+  }));
+}
+
 export async function POST(req: Request) {
   try {
     const { messages, locale } = await req.json();
-    console.log(`[Chat API] Received request - Locale: ${locale}, Messages: ${messages.length}`);
+    const normalizedMessages = normalizeMessages(messages);
 
     // Limitar o histórico para não enviar a conversa inteira e não deixar a API lenta
-    const recentMessages = messages.slice(-6);
+    const recentMessages = normalizedMessages.slice(-6);
 
     // Selecionar o dicionário correto com base no idioma atual do usuário
     let dict = ptDict;
@@ -68,20 +89,23 @@ ${resumeInfo}`;
     const result = await streamText({
       model: openrouter(process.env.OPENROUTER_MODEL || 'openrouter/free'),
       system: systemPrompt,
-      messages: recentMessages,
+      messages: recentMessages as any,
       temperature: 0.7,
-    });
+    } as any);
 
-    // O TypeScript acusa erro nesta linha dizendo que toDataStreamResponse não existe, 
-    // sugerindo toTextStreamResponse. No entanto, toTextStreamResponse envia texto puro, 
-    // o que faz o useChat (frontend) travar. Apenas toDataStreamResponse empacota o stream 
+    // O TypeScript acusa erro nesta linha dizendo que toDataStreamResponse não existe,
+    // sugerindo toTextStreamResponse. No entanto, toTextStreamResponse envia texto puro,
+    // o que faz o useChat (frontend) travar. Apenas toDataStreamResponse empacota o stream
     // no formato correto para o useChat v1.x+.
     return (result as any).toDataStreamResponse();
   } catch (error: any) {
     console.error('Error handling chat request:', error);
-    return new Response(JSON.stringify({ error: error.message || 'Failed to process request', stack: error.stack }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return new Response(
+      JSON.stringify({ error: error.message || 'Failed to process request', stack: error.stack }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   }
 }

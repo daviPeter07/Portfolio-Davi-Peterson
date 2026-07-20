@@ -35,6 +35,19 @@ export function AiAssistant() {
     ],
   });
 
+  const getDisplayContent = (content: string) => content.trim();
+
+  const handleChatSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const normalizedInput = input.trim();
+
+    if (!normalizedInput || isLoading) {
+      return;
+    }
+
+    handleSubmit(event);
+  };
+
   // Auto scroll para o final das mensagens
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -112,7 +125,7 @@ export function AiAssistant() {
       }}>
         <DialogTrigger asChild>
           <Button
-            className="relative flex h-16 w-16 items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20"
+            className="relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20"
           >
             <Bot className="size-8 text-white sm:size-8" strokeWidth={2.25} />
             {hasNotification && !isOpen && (
@@ -153,12 +166,12 @@ export function AiAssistant() {
               <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-4">
                 {messages.map((m) => (
                   <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    <div className={`p-3 sm:p-4 rounded-2xl text-sm sm:text-base leading-relaxed max-w-[85%] sm:max-w-[80%] whitespace-pre-wrap ${
-                      m.role === 'user' 
-                        ? 'bg-primary text-primary-foreground rounded-tr-sm' 
-                        : 'bg-muted border text-foreground rounded-tl-sm'
-                    }`}>
-                      {m.content}
+                      <div className={`p-3 sm:p-4 rounded-2xl text-sm sm:text-base leading-relaxed max-w-[85%] sm:max-w-[80%] whitespace-pre-wrap ${
+                        m.role === 'user' 
+                          ? 'bg-primary text-primary-foreground rounded-tr-sm' 
+                          : 'bg-muted border text-foreground rounded-tl-sm'
+                      }`}>
+                      {getDisplayContent(m.content)}
                     </div>
                   </div>
                 ))}
@@ -185,7 +198,7 @@ export function AiAssistant() {
             </CardContent>
 
             <CardFooter className="p-3 bg-background border-t relative z-10 m-0">
-              <form onSubmit={handleSubmit} className="flex w-full items-center gap-2">
+              <form onSubmit={handleChatSubmit} className="flex w-full items-center gap-2">
                 <Input
                   type="text"
                   placeholder={t.placeholder}
