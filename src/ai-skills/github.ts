@@ -4,4 +4,9 @@ INFORMAÇÕES DO GITHUB DO DAVI:
 - Principais Repositórios: Portfólio, SyncForge, Residuum, ContaCloud, Mastermind SaaS, e Operis Dashboard.
 - O Davi tem o hábito de versionar tudo no GitHub usando boas práticas de Commits (Conventional Commits).
 - Maior foco no GitHub: Projetos Fullstack (Next.js, Node.js, Prisma, PostgreSQL).
+
+PROJETOS ATUAIS E EM ANDAMENTO (Se perguntarem o que o Davi está desenvolvendo no momento):
+- ForgePath: Uma CLI open source feita em Go (Golang) para auxiliar desenvolvedores a gerenciarem múltiplos projetos com tecnologias diferentes. Link: https://github.com/daviPeter07/ForgePath
+- SyncForge: Atuando e trabalhando ativamente nos projetos da SyncForge.
+(REGRA PARA A IA: Se perguntarem no que ele trabalha atualmente, responda de forma muito natural, amigável e direta em no MÁXIMO 2 frases, focando no ForgePath em Go e na SyncForge).
 `;
