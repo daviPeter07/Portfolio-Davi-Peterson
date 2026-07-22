@@ -5,12 +5,7 @@ import { Bot, Send, Loader2 } from 'lucide-react';
 import { useChat } from 'ai/react';
 import { Button } from '@/src/components/ui/button';
 import { Input } from '@/src/components/ui/input';
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  DialogTitle,
-} from '@/src/components/ui/dialog';
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/src/components/ui/dialog';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/src/components/ui/card';
 import { useI18n } from '@/src/components/i18n-provider';
 
@@ -29,7 +24,7 @@ export function AiAssistant() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
     api: '/api/chat',
     body: { locale },
-    onError: (err) => console.error("Chat Hook Error:", err),
+    onError: (err) => console.error('Chat Hook Error:', err),
     initialMessages: [
       {
         id: 'welcome-message',
@@ -39,7 +34,51 @@ export function AiAssistant() {
     ],
   });
 
-  const getDisplayContent = (content: string) => content.trim();
+  const renderMessageContent = (content: string) => {
+    const trimmed = content.trim();
+    // Regex para identificar URLs (ignora parênteses e colchetes no final caso venha markdown)
+    const urlRegex = /(https?:\/\/[^\s)\]]+)/g;
+    const parts = trimmed.split(urlRegex);
+
+    return parts.map((part, index) => {
+      if (part.match(urlRegex)) {
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary underline font-medium hover:text-primary/80 break-all transition-colors"
+          >
+            {part}
+          </a>
+        );
+      }
+      
+      // Quebrar por negrito (**texto**)
+      const boldRegex = /\*\*(.*?)\*\*/g;
+      const subParts = part.split(boldRegex);
+
+      return (
+        <span key={index}>
+          {subParts.map((subPart, subIndex) => {
+            // Índices ímpares são o texto capturado dentro do ** **
+            if (subIndex % 2 !== 0) {
+              return <strong key={subIndex} className="font-bold">{subPart}</strong>;
+            }
+            
+            // Índices pares são texto normal. Vamos forçar as quebras de linha com <br/>
+            return subPart.split('\n').map((line, lineIndex, arr) => (
+              <span key={`${subIndex}-${lineIndex}`}>
+                {line}
+                {lineIndex < arr.length - 1 && <br />}
+              </span>
+            ));
+          })}
+        </span>
+      );
+    });
+  };
 
   const handleChatSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -80,7 +119,7 @@ export function AiAssistant() {
         }
 
         const audioCtx = new AudioContextConstructor();
-        
+
         const oscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
 
@@ -129,15 +168,18 @@ export function AiAssistant() {
   }, []);
 
   return (
-    <div className={`fixed right-4 bottom-4 z-50 transition-all duration-700 ease-out transform sm:right-6 sm:bottom-6 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12 pointer-events-none'}`}>
-      <Dialog open={isOpen} onOpenChange={(open) => {
-        setIsOpen(open);
-        if (open) setHasNotification(false);
-      }}>
+    <div
+      className={`fixed right-4 bottom-4 z-50 transition-all duration-700 ease-out transform sm:right-6 sm:bottom-6 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12 pointer-events-none'}`}
+    >
+      <Dialog
+        open={isOpen}
+        onOpenChange={(open) => {
+          setIsOpen(open);
+          if (open) setHasNotification(false);
+        }}
+      >
         <DialogTrigger asChild>
-          <Button
-            className="relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20"
-          >
+          <Button className="relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20">
             <Bot className="size-8 text-white sm:size-8" strokeWidth={2.25} />
             {hasNotification && !isOpen && (
               <span className="absolute top-0 right-0 -mt-1 -mr-1 flex h-6 w-6 animate-bounce items-center justify-center rounded-full bg-red-500 text-xs font-black text-white shadow-lg ring-4 ring-background sm:h-8 sm:w-8 sm:text-sm">
@@ -147,12 +189,9 @@ export function AiAssistant() {
           </Button>
         </DialogTrigger>
 
-        <DialogContent 
-          className="w-[95vw] max-w-[500px] h-[85vh] max-h-[700px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden"
-        >
+        <DialogContent className="w-[95vw] max-w-[500px] h-[85vh] max-h-[700px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden">
           <DialogTitle className="sr-only">Chat com Davi AI</DialogTitle>
           <Card className="border-0 rounded-2xl overflow-hidden flex flex-col h-full shadow-none bg-transparent relative p-0 gap-0">
-            
             <CardHeader className="bg-muted/50 border-b p-4 sm:p-5 relative z-10 m-0">
               <CardTitle className="flex items-center gap-2 text-lg sm:text-xl font-bold tracking-tight text-foreground pr-8">
                 <Bot className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -176,23 +215,53 @@ export function AiAssistant() {
             <CardContent className="flex-1 p-0 relative overflow-hidden flex flex-col m-0">
               <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-4">
                 {messages.map((m) => (
-                  <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                      <div className={`p-3 sm:p-4 rounded-2xl text-sm sm:text-base leading-relaxed max-w-[85%] sm:max-w-[80%] whitespace-pre-wrap ${
-                        m.role === 'user' 
-                          ? 'bg-primary text-primary-foreground rounded-tr-sm' 
-                          : 'bg-muted border text-foreground rounded-tl-sm'
-                      }`}>
-                      {getDisplayContent(m.content)}
+                  <div
+                    key={m.id}
+                    className={`flex w-full ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                  >
+                    {m.role !== 'user' && (
+                      <div className="flex-shrink-0 mr-3 mt-1 hidden sm:block">
+                        <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20 shadow-sm">
+                          <Bot className="w-4 h-4 text-primary" />
+                        </div>
+                      </div>
+                    )}
+                    <div
+                      className={`flex flex-col ${m.role === 'user' ? 'items-end' : 'items-start'} max-w-[85%] sm:max-w-[80%]`}
+                    >
+                      {m.role !== 'user' && (
+                        <span className="text-[11px] sm:text-xs text-muted-foreground font-semibold mb-1 ml-1 uppercase tracking-wider">
+                          Davi AI
+                        </span>
+                      )}
+                      <div
+                        className={`p-3 sm:p-4 rounded-2xl text-sm sm:text-base leading-relaxed whitespace-pre-wrap shadow-sm ${
+                          m.role === 'user'
+                            ? 'bg-primary text-primary-foreground rounded-tr-sm'
+                            : 'bg-muted border text-foreground rounded-tl-sm'
+                        }`}
+                      >
+                        {renderMessageContent(m.content)}
+                      </div>
                     </div>
                   </div>
                 ))}
-                
+
                 {isLoading && (
                   <div className="flex justify-start">
                     <div className="bg-muted border px-4 py-3.5 rounded-2xl rounded-tl-sm flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-orange-500 animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                      <span className="w-2 h-2 rounded-full bg-orange-500 animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                      <span className="w-2 h-2 rounded-full bg-orange-500 animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                      <span
+                        className="w-2 h-2 rounded-full bg-orange-500 animate-bounce"
+                        style={{ animationDelay: '0ms' }}
+                      ></span>
+                      <span
+                        className="w-2 h-2 rounded-full bg-orange-500 animate-bounce"
+                        style={{ animationDelay: '150ms' }}
+                      ></span>
+                      <span
+                        className="w-2 h-2 rounded-full bg-orange-500 animate-bounce"
+                        style={{ animationDelay: '300ms' }}
+                      ></span>
                     </div>
                   </div>
                 )}
@@ -218,12 +287,16 @@ export function AiAssistant() {
                   className="flex-1 rounded-full bg-muted/50 border-transparent text-base sm:text-base py-5 sm:py-6"
                   disabled={isLoading}
                 />
-                <Button type="submit" size="icon" className="rounded-full shrink-0" disabled={isLoading || !input?.trim()}>
+                <Button
+                  type="submit"
+                  size="icon"
+                  className="rounded-full shrink-0"
+                  disabled={isLoading || !input?.trim()}
+                >
                   <Send className="h-4 w-4" />
                 </Button>
               </form>
             </CardFooter>
-            
           </Card>
         </DialogContent>
       </Dialog>
