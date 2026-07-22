@@ -1,6 +1,7 @@
 export type Project = {
   id: string;
-  image: string;
+  image?: string;
+  icon?: string;
   technologies: string[];
   demo?: string;
   code?: string;
@@ -8,6 +9,12 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    id: 'forgePath',
+    icon: 'Brain',
+    technologies: ['Go', 'Bubble Tea', 'Bubbles', 'Lip Gloss', 'Cobra', 'Huh', 'Nerd Fonts'],
+    code: 'https://github.com/daviPeter07/ForgePath',
+  },
   {
     id: 'syncForge',
     image: '/Syncforge-landingpage.png',

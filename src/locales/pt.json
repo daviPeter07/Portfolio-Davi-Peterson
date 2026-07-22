@@ -205,6 +205,10 @@
         "title": "Operis",
         "description": "Sistema completo de PDV e financeiro desenvolvido para a DG Computer. Conta com controle de estoque, compras e vendas, gestão de clientes/fornecedores e emissão de notas e cupons fiscais."
       },
+      "forgePath": {
+        "title": "ForgePath CLI",
+        "description": "Uma ferramenta interativa de linha de comando em Go (Golang) focada em Developer Experience para gerenciar múltiplos projetos."
+      },
       "syncForge": {
         "title": "SyncForge",
         "description": "Landing page da SyncForge, minha própria Software House. Como Dev e CEO, lidero uma equipe de 4 desenvolvedores na criação de protótipos e produtos sob demanda e por assinatura."

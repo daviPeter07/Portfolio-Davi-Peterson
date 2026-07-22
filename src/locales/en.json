@@ -205,6 +205,10 @@
         "title": "Operis",
         "description": "Complete POS and financial system built for DG Computer. Includes inventory management, sales and purchases, customer/supplier management, and invoice generation."
       },
+      "forgePath": {
+        "title": "ForgePath CLI",
+        "description": "An interactive command-line tool built in Go (Golang) focused on Developer Experience to manage multiple projects."
+      },
       "syncForge": {
         "title": "SyncForge",
         "description": "Landing page for SyncForge, my own Software House. As Dev and CEO, I lead a team of 4 developers creating prototypes and building on-demand and subscription-based products."

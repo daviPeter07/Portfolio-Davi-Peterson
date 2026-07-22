@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ExternalLink, Github, Lock } from 'lucide-react';
+import { ExternalLink, Github, Lock, Brain } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/src/components/ui/card';
@@ -12,7 +12,7 @@ export function ProjectsSection() {
   const { dictionary } = useI18n();
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-  const filterOptions = ['TypeScript', 'Python', 'Java', 'PHP'];
+  const filterOptions = ['TypeScript', 'Python', 'Java', 'PHP', 'Go'];
   const filteredProjects = activeFilter 
     ? projects.filter((p) => p.technologies.includes(activeFilter)) 
     : projects;
@@ -65,11 +65,17 @@ export function ProjectsSection() {
                   className="group hover:shadow-xl transition-all duration-300 overflow-hidden"
                 >
                   <div className="relative overflow-hidden p-4">
-                    <img
-                      src={project.image || '/placeholder.svg'}
-                      alt={content.title}
-                      className="w-full h-48 object-cover group-hover:scale-103 transition-transform duration-300"
-                    />
+                    {project.icon === 'Brain' ? (
+                      <div className="w-full h-48 bg-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 rounded-t-lg">
+                        <Brain className="w-20 h-20 text-white" />
+                      </div>
+                    ) : (
+                      <img
+                        src={project.image || '/placeholder.svg'}
+                        alt={content.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
                       {project.isPrivate ? (
                         <span className="bg-black/70 text-white px-4 py-2 rounded-md font-medium text-sm flex items-center shadow-lg backdrop-blur-sm">
