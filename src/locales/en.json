@@ -124,6 +124,15 @@
     "titleBefore": "My",
     "titleAccent": "Experience",
     "items": {
+      "solasstec": {
+        "title": "Junior Software Developer",
+        "period": "08-2026 - Present",
+        "description": "Working as a Junior Software Developer on the maintenance and evolution of systems for public agencies, using Next.js on the Frontend and NestJS on the Backend.",
+        "achievements": [
+          "Developing and maintaining features for systems used by public agencies.",
+          "Refactoring code to improve readability, organization, performance, and maintainability."
+        ]
+      },
       "dgComputer": {
         "title": "Hardware Technician",
         "period": "2019 - 2025",
@@ -135,7 +144,7 @@
         ]
       },
       "nxsSkill": {
-        "title": "Frontend Developer",
+        "title": "Volunteer Software Developer",
         "period": "06-2025 - 02-2026",
         "description": "Frontend development for an education platform, with emphasis on accessibility, performance, and rich UI experiences. Collaboration on design system work and authentication flow improvements.",
         "achievements": [
@@ -165,7 +174,7 @@
         ]
       },
       "uape": {
-        "title": "Full Stack Developer Intern",
+        "title": "Software Developer Intern",
         "period": "06-2025 - 05-2026",
         "description": "Internship in full stack development focused on scalable architecture, service integration, and good coding practices. Also involved in AI and Data Science initiatives applied to internal products.",
         "achievements": [
@@ -175,11 +184,11 @@
         ]
       },
       "residuum": {
-        "title": "Tech Lead & Full Stack Developer",
+        "title": "Volunteer Mentor and Developer",
         "period": "05-2026 - Present",
-        "description": "Invited by the university, I took on the technical leadership of the Residuum project to guide students in their mandatory internship discipline. I coordinated the developers, managing deliverables and ensuring code quality through Pull Request reviews and continuous mentoring.",
+        "description": "Invited by the university, I provided technical guidance for the Residuum project to eighth-semester Computer Science and Computer Engineering students during their mandatory internship course. I assigned tasks, provided technical instructions, monitored deliveries, and ensured code quality through Pull Request reviews and continuous guidance.",
         "achievements": [
-          "Technical leadership and task assignment in the Frontend, actively working on bug fixes, code reviews (PR analysis), and continuous UX/UI improvements.",
+          "Assigned and provided technical instructions for Frontend tasks using React, contributing to bug fixes, code reviews (PR analysis), and continuous UX/UI improvements.",
           "Full Stack development in the Backend using FastAPI, applying data modeling refactoring and complex business rules.",
           "Significant optimization of database query performance, improving the overall application response time."
         ]

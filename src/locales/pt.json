@@ -124,8 +124,17 @@
     "titleBefore": "Minha",
     "titleAccent": "Experiência",
     "items": {
+      "solasstec": {
+        "title": "Desenvolvedor de Software Júnior",
+        "period": "08-2026 - Atualmente",
+        "description": "Atuação como Desenvolvedor de Software Júnior na manutenção e evolução de sistemas destinados a órgãos públicos, utilizando Next.js no Frontend e NestJS no Backend.",
+        "achievements": [
+          "Desenvolvimento e manutenção de funcionalidades em sistemas utilizados por órgãos públicos.",
+          "Refatoração de código para melhorar legibilidade, organização, desempenho e facilidade de manutenção."
+        ]
+      },
       "dgComputer": {
-        "title": "Hardware technician",
+        "title": "Técnico de Hardware",
         "period": "2019 - 2025",
         "description": "Experiência sólida em suporte técnico, montagem e manutenção de hardware, infraestrutura de redes e sistemas.",
         "achievements": [
@@ -135,7 +144,7 @@
         ]
       },
       "nxsSkill": {
-        "title": "Frontend Developer",
+        "title": "Desenvolvedor de Software Voluntário",
         "period": "06-2025 - 02-2026",
         "description": "Desenvolvimento Front-end em plataforma educacional, com ênfase em acessibilidade, performance e experiências ricas de UI. Colaboração em design system e otimizações nos fluxos de autenticação.",
         "achievements": [
@@ -145,7 +154,7 @@
         ]
       },
       "twoBrains": {
-        "title": "Jr Software Developer",
+        "title": "Desenvolvedor de Software Júnior",
         "period": "01-2026 - 03-2026",
         "description": "Atuação como Desenvolvedor de Software Júnior em produtos digitais modernos. Trabalho em front-end (Next.js/React) e back-end (Node.js), com foco em aprendizado contínuo, correção de bugs e evolução técnica. Iniciação em AWS para serviços serverless, storage e APIs, além de integrações com IA conforme necessidades dos projetos.",
         "achievements": [
@@ -155,7 +164,7 @@
         ]
       },
       "indicai": {
-        "title": "Software Developer (PJ)",
+        "title": "Desenvolvedor de Software (PJ)",
         "period": "11-2025 - 03-2026",
         "description": "Prestação de serviços como PJ (MEI) em soluções Full Stack e práticas DevOps, com escopo de atividades equivalente ao nível júnior: implementação de funcionalidades, correção de bugs, integração de APIs e aplicação de padrões de código escaláveis. Participação no ciclo de deploy (Play Store e App Store) e evolução contínua de UX/UI e performance.",
         "achievements": [
@@ -165,7 +174,7 @@
         ]
       },
       "uape": {
-        "title": "Full Stack Developer (Estágio)",
+        "title": "Desenvolvedor de Software (Estágio)",
         "period": "06-2025 - 05-2026",
         "description": "Estágio em desenvolvimento Full Stack com foco em arquitetura escalável, integração entre serviços e boas práticas de código. Participação em iniciativas de IA e Data Science aplicadas a produtos internos.",
         "achievements": [
@@ -175,11 +184,11 @@
         ]
       },
       "residuum": {
-        "title": "Tech Lead & Full Stack Developer",
+        "title": "Orientador e Desenvolvedor Voluntário",
         "period": "05-2026 - Atualmente",
-        "description": "A convite da faculdade, assumi a liderança técnica do projeto Residuum para orientar os alunos na disciplina de estágio obrigatório. Atuei coordenando os desenvolvedores, gerenciando entregas e garantindo a qualidade do código através da análise de Pull Requests e mentoria contínua.",
+        "description": "A convite da faculdade, assumi a orientação técnica do projeto Residuum com alunos do 8º período dos cursos de Ciência da Computação e Engenharia da Computação, durante a disciplina de estágio obrigatório. Atuei na atribuição e instrução técnica das tarefas, no acompanhamento das entregas e na garantia da qualidade do código por meio da análise de Pull Requests e orientação contínua.",
         "achievements": [
-          "Liderança técnica e instrução de tasks no Frontend, atuando ativamente na correção de bugs, code review (análise de PRs) e melhorias contínuas de UX/UI.",
+          "Atribuição e instrução técnica das tarefas de Frontend com React, atuando na correção de bugs, code review (análise de PRs) e melhorias contínuas de UX/UI.",
           "Atuação Full Stack no Backend utilizando FastAPI, aplicando refatorações de modelagem e regras de negócio complexas.",
           "Otimização significativa na performance de queries do banco de dados, melhorando a resposta geral da aplicação."
         ]

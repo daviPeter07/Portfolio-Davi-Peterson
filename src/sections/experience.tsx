@@ -40,7 +40,14 @@ export function ExperienceSection() {
                     <div
                       className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}
                     >
-                      <div className="bg-card p-6 rounded-lg border shadow-sm hover:shadow-md transition-shadow">
+                      <div className="relative bg-card p-6 rounded-lg border shadow-sm transition-all hover:border-primary/50 hover:shadow-md focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/10">
+                        <a
+                          href={exp.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${exp.company} - site oficial`}
+                          className="absolute inset-0 z-10 rounded-lg"
+                        />
                         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                           <Calendar className="h-4 w-4" />
                           {content.period}
@@ -48,7 +55,14 @@ export function ExperienceSection() {
 
                         <h3 className="text-xl font-semibold mb-1">{content.title}</h3>
                         <div className="flex items-center gap-2 text-primary font-medium mb-2">
-                          <span>{exp.company}</span>
+                          <a
+                            href={exp.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="relative z-20 underline underline-offset-4 decoration-primary/60 hover:decoration-primary"
+                          >
+                            {exp.company}
+                          </a>
                         </div>
 
                         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">

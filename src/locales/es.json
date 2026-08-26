@@ -124,6 +124,15 @@
     "titleBefore": "Mi",
     "titleAccent": "Experiencia",
     "items": {
+      "solasstec": {
+        "title": "Desarrollador de Software Junior",
+        "period": "08-2026 - Actualidad",
+        "description": "Trabajo como Desarrollador de Software Junior en el mantenimiento y evolución de sistemas destinados a organismos públicos, utilizando Next.js en el Frontend y NestJS en el Backend.",
+        "achievements": [
+          "Desarrollo y mantenimiento de funcionalidades en sistemas utilizados por organismos públicos.",
+          "Refactorización de código para mejorar su legibilidad, organización, rendimiento y mantenibilidad."
+        ]
+      },
       "dgComputer": {
         "title": "Técnico de Hardware",
         "period": "2019 - 2025",
@@ -135,7 +144,7 @@
         ]
       },
       "nxsSkill": {
-        "title": "Desarrollador Frontend",
+        "title": "Desarrollador de Software Voluntario",
         "period": "06-2025 - 02-2026",
         "description": "Desarrollo frontend en una plataforma educativa, con énfasis en accesibilidad, rendimiento y experiencias ricas de UI. Colaboración en design system y optimización de flujos de autenticación.",
         "achievements": [
@@ -165,7 +174,7 @@
         ]
       },
       "uape": {
-        "title": "Practicante Full Stack",
+        "title": "Desarrollador de Software (Prácticas)",
         "period": "06-2025 - 05-2026",
         "description": "Práctica en desarrollo full stack con foco en arquitectura escalable, integración entre servicios y buenas prácticas de código. Participación en iniciativas de IA y Data Science aplicadas a productos internos.",
         "achievements": [
@@ -175,11 +184,11 @@
         ]
       },
       "residuum": {
-        "title": "Tech Lead & Full Stack Developer",
+        "title": "Orientador y Desarrollador Voluntario",
         "period": "05-2026 - Actualidad",
-        "description": "Por invitación de la universidad, asumí el liderazgo técnico del proyecto Residuum para guiar a los estudiantes en su pasantía obligatoria. Actué coordinando a los desarrolladores, gestionando entregas y asegurando la calidad del código a través de revisiones de Pull Requests y mentoría continua.",
+        "description": "Por invitación de la universidad, brindé orientación técnica en el proyecto Residuum a estudiantes del octavo semestre de Ciencia de la Computación e Ingeniería de la Computación durante sus prácticas obligatorias. Asigné tareas, proporcioné instrucciones técnicas, acompañé las entregas y aseguré la calidad del código mediante revisiones de Pull Requests y orientación continua.",
         "achievements": [
-          "Liderazgo técnico e instrucción de tareas en el Frontend, trabajando activamente en la corrección de errores, revisión de código (análisis de PRs) y mejoras continuas de UX/UI.",
+          "Asignación e instrucción técnica de tareas de Frontend con React, trabajando en la corrección de errores, revisión de código (análisis de PRs) y mejoras continuas de UX/UI.",
           "Desarrollo Full Stack en el Backend usando FastAPI, aplicando refactorización de modelado de datos y reglas de negocio complejas.",
           "Optimización significativa en el rendimiento de consultas a la base de datos, mejorando el tiempo de respuesta de la aplicación."
         ]
