@@ -92,13 +92,17 @@
       "coreLanguages": "Lenguajes Base",
       "dataDevOps": "Datos y DevOps"
     },
+    "groups": {
+      "development": "Herramientas",
+      "dataInfrastructure": "Infraestructura"
+    },
     "docs": {
       "React": "Biblioteca para construir interfaces con componentes.",
-      "Next.js": "Framework de React con rutas, rendering y herramientas modernas.",
+      "Next": "Framework de React con rutas, rendering y herramientas modernas.",
       "Vue.js": "Framework progresivo para construir interfaces reactivas.",
       "Nuxt": "Framework intuitivo de Vue.js para crear aplicaciones web optimizadas.",
-      "Node.js": "Entorno de ejecución JavaScript para el lado del servidor.",
-      "NestJS": "Framework de Node.js progresivo para APIs eficientes.",
+      "Node": "Entorno de ejecución JavaScript para el lado del servidor.",
+      "Nest": "Framework de Node.js progresivo para APIs eficientes.",
       "Laravel": "Framework PHP centrado en productividad y experiencia del desarrollador.",
       "Spring Boot": "Framework de Java para aplicaciones corporativas stand-alone.",
       "FastAPI": "Framework de Python de alto rendimiento para construir APIs.",
@@ -106,12 +110,14 @@
       "PHP": "Lenguaje de scripting para aplicaciones web del lado del servidor.",
       "Java": "Lenguaje de programación orientado a objetos.",
       "Python": "Lenguaje de programación versátil y de alto nivel.",
-      "PostgreSQL": "Base de datos relacional avanzada y extensible.",
-      "Prisma ORM": "ORM para TypeScript y Node con schema y migraciones.",
+      "Golang": "Lenguaje compilado eficiente para sistemas y servicios escalables.",
+      "Postgres": "Base de datos relacional avanzada y extensible.",
+      "Prisma": "ORM para TypeScript y Node con schema y migraciones.",
       "Redis": "Base de datos en memoria usada para caché, colas y rendimiento.",
       "Docker": "Plataforma de contenedores para empaquetar y distribuir aplicaciones.",
-      "MinIO": "Almacenamiento de objetos compatible con S3 de alto rendimiento.",
-      "BullMQ": "Sistema avanzado de colas de mensajes basado en Redis."
+      "MiniIO": "Almacenamiento de objetos compatible con S3 de alto rendimiento.",
+      "Bull": "Sistema avanzado de colas de mensajes basado en Redis.",
+      "AWS": "Plataforma de computación en la nube con servicios de infraestructura administrados."
     }
   },
   "experience": {

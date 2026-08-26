@@ -1,9 +1,9 @@
 'use client';
 
 import { useRef } from 'react';
-import { Code2, Database, Layout, Server } from 'lucide-react';
+import { CloudCog, Code2 } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
-import { TechnologyCategory } from '@/src/components/technology-category';
+import { TechnologyItem } from '@/src/components/technology-item';
 import { sectionIds } from '@/src/constants/section-ids';
 import {
   frontendUI,
@@ -16,6 +16,18 @@ import {
 export function TechnologiesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const { dictionary } = useI18n();
+  const groups = [
+    {
+      title: dictionary.technologies.groups.development,
+      Icon: Code2,
+      items: [...frontendUI, ...backendAPIs, ...coreLanguages],
+    },
+    {
+      title: dictionary.technologies.groups.dataInfrastructure,
+      Icon: CloudCog,
+      items: dataDevOps,
+    },
+  ];
 
   const infoMap = Object.fromEntries(
     Object.entries(techResources).map(([name, value]) => [
@@ -39,31 +51,32 @@ export function TechnologiesSection() {
             <span className="text-primary">{dictionary.technologies.titleAccent}</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            <TechnologyCategory
-              title={dictionary.technologies.categories.frontendUI}
-              Icon={Layout}
-              items={frontendUI}
-              infoMap={infoMap}
-            />
-            <TechnologyCategory
-              title={dictionary.technologies.categories.backendAPIs}
-              Icon={Server}
-              items={backendAPIs}
-              infoMap={infoMap}
-            />
-            <TechnologyCategory
-              title={dictionary.technologies.categories.coreLanguages}
-              Icon={Code2}
-              items={coreLanguages}
-              infoMap={infoMap}
-            />
-            <TechnologyCategory
-              title={dictionary.technologies.categories.dataDevOps}
-              Icon={Database}
-              items={dataDevOps}
-              infoMap={infoMap}
-            />
+          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
+            {groups.map(({ title, Icon, items }) => (
+              <div
+                  key={title}
+                  className="rounded-2xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md sm:p-7"
+                >
+                  <div className="mb-6 flex items-center gap-3 border-b pb-5">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <h3 className="text-xl font-bold">{title}</h3>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    {items.map((tech) => (
+                      <TechnologyItem
+                        key={tech.name}
+                        name={tech.name}
+                        logo={tech.logo}
+                        info={infoMap[tech.name]}
+                        invertDark={tech.name === 'Prisma'}
+                      />
+                    ))}
+                  </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -92,13 +92,17 @@
       "coreLanguages": "Core Languages",
       "dataDevOps": "Data & DevOps"
     },
+    "groups": {
+      "development": "Tools",
+      "dataInfrastructure": "Infrastructure"
+    },
     "docs": {
       "React": "Library for building interfaces with components.",
-      "Next.js": "React framework with routing, rendering, and modern tooling.",
+      "Next": "React framework with routing, rendering, and modern tooling.",
       "Vue.js": "Progressive framework for building reactive interfaces.",
       "Nuxt": "Intuitive Vue.js framework for building optimized web applications.",
-      "Node.js": "JavaScript runtime for server-side applications.",
-      "NestJS": "Progressive Node.js framework for building efficient APIs.",
+      "Node": "JavaScript runtime for server-side applications.",
+      "Nest": "Progressive Node.js framework for building efficient APIs.",
       "Laravel": "PHP framework focused on productivity and developer experience.",
       "Spring Boot": "Java framework for building stand-alone, production-grade Spring apps.",
       "FastAPI": "Modern, fast, high-performance web framework for Python.",
@@ -106,12 +110,14 @@
       "PHP": "Scripting language for server-side web applications.",
       "Java": "Object-oriented programming language.",
       "Python": "Versatile and powerful high-level programming language.",
-      "PostgreSQL": "Advanced and extensible relational database.",
-      "Prisma ORM": "ORM for TypeScript and Node with schema and migrations.",
+      "Golang": "Efficient compiled language for scalable systems and services.",
+      "Postgres": "Advanced and extensible relational database.",
+      "Prisma": "ORM for TypeScript and Node with schema and migrations.",
       "Redis": "In-memory database used for cache, queues, and high performance.",
       "Docker": "Container platform for packaging and shipping applications.",
-      "MinIO": "High-performance, S3 compatible object storage.",
-      "BullMQ": "Advanced message queue system based on Redis."
+      "MiniIO": "High-performance, S3 compatible object storage.",
+      "Bull": "Advanced message queue system based on Redis.",
+      "AWS": "Cloud computing platform with managed infrastructure services."
     }
   },
   "experience": {

@@ -38,9 +38,9 @@ export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemP
       title={name}
       className="group flex items-center gap-3 p-3 rounded-lg border bg-muted/30 hover:bg-muted transition-transform hover:-translate-y-0.5 hover:ring-1 ring-primary/20"
     >
-      {name === 'NativeWind' ? (
-        <span className="w-9 h-9 bg-white rounded-md overflow-hidden flex items-center justify-center">
-          <img src={logo} alt={name} title={name} className="w-12 h-12 object-contain" />
+      {name === 'NativeWind' || name === 'AWS' ? (
+        <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md bg-white p-1">
+          <img src={logo} alt={name} title={name} className="h-full w-full object-contain" />
         </span>
       ) : (
         <img
