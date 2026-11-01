@@ -16,6 +16,9 @@
     "jobTitle": "Junior Full Stack Developer"
   },
   "common": {
+    "menu": "Open menu",
+    "scrollDown": "Go to the next section",
+    "sendEmail": "Send email",
     "siteName": "Davi Peterson",
     "role": "Software Developer",
     "themeToggle": "Toggle theme",
@@ -45,9 +48,11 @@
   },
   "hero": {
     "title": "Hi, I'm",
-    "subtitle": "Software developer passionate about building well-crafted digital products that feel good to use.",
-    "primaryCta": "View Projects",
-    "secondaryCta": "Download Resume",
+    "role": "Full Stack Developer",
+    "subtitle": "I build well-made, easy-to-use web systems with Next.js and NestJS.",
+    "currentlyAt": "Currently at",
+    "primaryCta": "View projects",
+    "secondaryCta": "Download resume",
     "mailSubject": "Contact from Portfolio",
     "mailBody": "Hi Davi! I saw your portfolio and would like to talk."
   },
@@ -98,6 +103,7 @@
     },
     "docs": {
       "React": "Library for building interfaces with components.",
+      "Angular": "Google's TypeScript framework for robust web applications.",
       "Next": "React framework with routing, rendering, and modern tooling.",
       "Vue.js": "Progressive framework for building reactive interfaces.",
       "Nuxt": "Intuitive Vue.js framework for building optimized web applications.",
@@ -116,11 +122,15 @@
       "Redis": "In-memory database used for cache, queues, and high performance.",
       "Docker": "Container platform for packaging and shipping applications.",
       "MiniIO": "High-performance, S3 compatible object storage.",
-      "Bull": "Advanced message queue system based on Redis.",
+      "RabbitMQ": "Message broker for asynchronous communication between services.",
+      "Microserviços": "Architecture that splits a system into independent services.",
       "AWS": "Cloud computing platform with managed infrastructure services."
     }
   },
   "experience": {
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "officialSite": "official website",
     "titleBefore": "My",
     "titleAccent": "Experience",
     "items": {
@@ -196,6 +206,11 @@
     }
   },
   "projects": {
+    "filterLabel": "Filter projects by technology",
+    "github": {
+      "title": "Recently updated on GitHub",
+      "viewAll": "View all on GitHub"
+    },
     "titleBefore": "My",
     "titleAccent": "Projects",
     "items": {
@@ -278,6 +293,28 @@
     "comingSoon": "Coming Soon",
     "botMessage": "Hello! How can I help you get to know Davi's profile today?",
     "userMessage": "What technologies does he use the most?",
-    "placeholder": "Type your message..."
+    "placeholder": "Type your message...",
+    "disclaimer": "AI-generated answers. They may take a few seconds.",
+    "errorMessage": "I couldn't answer right now. Please try again in a moment.",
+    "fallbackMessage": "The assistant isn't available right now. Choose one of the questions below or try again later.",
+    "faq": {
+      "projects": {
+        "question": "What projects has Davi built?",
+        "intro": "These are Davi's projects:",
+        "githubIntro": "Also on GitHub:"
+      },
+      "experience": {
+        "question": "What is his experience?",
+        "intro": "This is Davi's professional experience:"
+      },
+      "technologies": {
+        "question": "What technologies does he use?",
+        "intro": "These are Davi's main technologies:"
+      },
+      "contact": {
+        "question": "How can I reach him?",
+        "intro": "You can reach Davi here:"
+      }
+    }
   }
 }

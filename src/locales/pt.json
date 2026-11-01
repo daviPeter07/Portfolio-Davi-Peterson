@@ -16,6 +16,9 @@
     "jobTitle": "Desenvolvedor Full Stack Júnior"
   },
   "common": {
+    "menu": "Abrir menu",
+    "scrollDown": "Ir para a próxima seção",
+    "sendEmail": "Enviar e-mail",
     "siteName": "Davi Peterson",
     "role": "Desenvolvedor de Software",
     "themeToggle": "Alternar tema",
@@ -45,9 +48,11 @@
   },
   "hero": {
     "title": "Olá, eu sou",
-    "subtitle": "Desenvolvedor de software apaixonado por criar soluções digitais bem construídas e fáceis de usar.",
-    "primaryCta": "Ver Projetos",
-    "secondaryCta": "Download CV",
+    "role": "Desenvolvedor Full Stack",
+    "subtitle": "Crio sistemas web bem construídos e fáceis de usar com Next.js e NestJS.",
+    "currentlyAt": "Atualmente na",
+    "primaryCta": "Ver projetos",
+    "secondaryCta": "Baixar currículo",
     "mailSubject": "Contato pelo Portfólio",
     "mailBody": "Olá, Davi! Vi seu portfólio e gostaria de conversar."
   },
@@ -98,6 +103,7 @@
     },
     "docs": {
       "React": "Biblioteca para construir interfaces com componentes.",
+      "Angular": "Framework TypeScript da Google para aplicações web robustas.",
       "Next": "Framework React com rotas, rendering e tooling moderno.",
       "Vue.js": "Framework progressivo para construir interfaces reativas.",
       "Nuxt": "Framework Vue.js intuitivo para criar aplicações web otimizadas.",
@@ -116,11 +122,15 @@
       "Redis": "Banco de dados em memória usado para cache e filas.",
       "Docker": "Plataforma de containers para empacotar e distribuir apps.",
       "MiniIO": "Armazenamento de objetos compatível com S3 e de alta performance.",
-      "Bull": "Sistema avançado de filas de mensagens baseado em Redis.",
+      "RabbitMQ": "Mensageria para comunicação assíncrona entre serviços.",
+      "Microserviços": "Arquitetura que divide o sistema em serviços independentes.",
       "AWS": "Plataforma de computação em nuvem com serviços de infraestrutura gerenciados."
     }
   },
   "experience": {
+    "showMore": "Ver mais",
+    "showLess": "Ver menos",
+    "officialSite": "site oficial",
     "titleBefore": "Minha",
     "titleAccent": "Experiência",
     "items": {
@@ -196,6 +206,11 @@
     }
   },
   "projects": {
+    "filterLabel": "Filtrar projetos por tecnologia",
+    "github": {
+      "title": "Atualizados recentemente no GitHub",
+      "viewAll": "Ver todos no GitHub"
+    },
     "titleBefore": "Meus",
     "titleAccent": "Projetos",
     "items": {
@@ -278,6 +293,28 @@
     "comingSoon": "Em Breve",
     "botMessage": "Olá! Como posso te ajudar a conhecer o perfil do Davi hoje?",
     "userMessage": "Quais tecnologias ele mais usa?",
-    "placeholder": "Escreva sua mensagem..."
+    "placeholder": "Escreva sua mensagem...",
+    "disclaimer": "Respostas geradas por IA. Podem levar alguns segundos.",
+    "errorMessage": "Não consegui responder agora. Tente novamente em instantes.",
+    "fallbackMessage": "O assistente não está disponível agora. Escolha uma das perguntas abaixo ou tente novamente mais tarde.",
+    "faq": {
+      "projects": {
+        "question": "Quais projetos o Davi já fez?",
+        "intro": "Estes são os projetos do Davi:",
+        "githubIntro": "Também no GitHub:"
+      },
+      "experience": {
+        "question": "Qual é a experiência dele?",
+        "intro": "Esta é a experiência profissional do Davi:"
+      },
+      "technologies": {
+        "question": "Quais tecnologias ele usa?",
+        "intro": "Estas são as principais tecnologias do Davi:"
+      },
+      "contact": {
+        "question": "Como falo com ele?",
+        "intro": "Você pode falar com o Davi por aqui:"
+      }
+    }
   }
 }

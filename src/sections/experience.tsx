@@ -1,14 +1,23 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Calendar, MapPin } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { experiences } from '@/src/constants/experiences';
 import { sectionIds } from '@/src/constants/section-ids';
 
+const VISIBLE_ACHIEVEMENTS = 2;
+
 export function ExperienceSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const { dictionary } = useI18n();
+  const [expandedIds, setExpandedIds] = useState<string[]>([]);
+
+  const toggleExpanded = (id: string) => {
+    setExpandedIds((ids) =>
+      ids.includes(id) ? ids.filter((expandedId) => expandedId !== id) : [...ids, id]
+    );
+  };
 
   return (
     <section id={sectionIds.experience} ref={sectionRef} className="py-20 bg-muted/30">
@@ -19,7 +28,7 @@ export function ExperienceSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             {dictionary.experience.titleBefore}{' '}
-            <span className="text-primary">{dictionary.experience.titleAccent}</span>
+            <span className="text-primary-text">{dictionary.experience.titleAccent}</span>
           </h2>
 
           <div className="max-w-4xl mx-auto">
@@ -29,6 +38,10 @@ export function ExperienceSection() {
               {experiences.map((exp, index) => {
                 const content =
                   dictionary.experience.items[exp.id as keyof typeof dictionary.experience.items];
+                const isExpanded = expandedIds.includes(exp.id);
+                const achievements = isExpanded
+                  ? content.achievements
+                  : content.achievements.slice(0, VISIBLE_ACHIEVEMENTS);
 
                 return (
                   <div
@@ -45,7 +58,7 @@ export function ExperienceSection() {
                           href={exp.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`${exp.company} - site oficial`}
+                          aria-label={`${exp.company} - ${dictionary.experience.officialSite}`}
                           className="absolute inset-0 z-10 rounded-lg"
                         />
                         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
@@ -54,7 +67,7 @@ export function ExperienceSection() {
                         </div>
 
                         <h3 className="text-xl font-semibold mb-1">{content.title}</h3>
-                        <div className="flex items-center gap-2 text-primary font-medium mb-2">
+                        <div className="flex items-center gap-2 text-primary-text font-medium mb-2">
                           <a
                             href={exp.url}
                             target="_blank"
@@ -75,13 +88,26 @@ export function ExperienceSection() {
                         </p>
 
                         <ul className="space-y-2">
-                          {content.achievements.map((achievement) => (
+                          {achievements.map((achievement) => (
                             <li key={achievement} className="flex items-start gap-2 text-sm">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></div>
                               <span>{achievement}</span>
                             </li>
                           ))}
                         </ul>
+
+                        {content.achievements.length > VISIBLE_ACHIEVEMENTS && (
+                          <button
+                            type="button"
+                            aria-expanded={isExpanded}
+                            onClick={() => toggleExpanded(exp.id)}
+                            className="relative z-20 mt-2 min-h-11 cursor-pointer text-sm font-medium text-primary-text hover:underline"
+                          >
+                            {isExpanded
+                              ? dictionary.experience.showLess
+                              : dictionary.experience.showMore}
+                          </button>
+                        )}
                       </div>
                     </div>
                   </div>

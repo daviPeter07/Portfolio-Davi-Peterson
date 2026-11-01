@@ -12,8 +12,13 @@ import {
   ContactSection,
 } from '@/src/sections';
 import { useReveal } from '@/src/hooks/use-reveal';
+import type { GithubRepo } from '@/src/lib/github-repos';
 
-export function PortfolioPage() {
+type PortfolioPageProps = {
+  repos: GithubRepo[];
+};
+
+export function PortfolioPage({ repos }: PortfolioPageProps) {
   useReveal();
 
   return (
@@ -23,10 +28,10 @@ export function PortfolioPage() {
       <AboutSection />
       <TechnologiesSection />
       <ExperienceSection />
-      <ProjectsSection />
+      <ProjectsSection repos={repos} />
       <ContactSection />
       <Footer />
-      <AiAssistant />
+      <AiAssistant repos={repos} />
     </main>
   );
 }

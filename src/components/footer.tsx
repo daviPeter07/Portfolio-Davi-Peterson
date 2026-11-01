@@ -24,7 +24,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 place-items-center text-center">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-primary mb-4">{dictionary.common.siteName}</h3>
+            <h3 className="text-xl font-bold text-primary-text mb-4">{dictionary.common.siteName}</h3>
             <p className="text-muted-foreground leading-relaxed max-w-md">
               {dictionary.footer.description}
             </p>
@@ -36,7 +36,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection(sectionIds.home)}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary-text transition-colors"
                 >
                   {dictionary.nav.home}
                 </button>
@@ -44,7 +44,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection(sectionIds.about)}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary-text transition-colors"
                 >
                   {dictionary.nav.about}
                 </button>
@@ -52,7 +52,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection(sectionIds.projects)}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary-text transition-colors"
                 >
                   {dictionary.nav.projects}
                 </button>
@@ -60,7 +60,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection(sectionIds.contact)}
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary-text transition-colors"
                 >
                   {dictionary.nav.contact}
                 </button>
@@ -75,7 +75,8 @@ export function Footer() {
                 href="https://github.com/daviPeter07"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label={dictionary.common.github}
+                className="size-11 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -83,13 +84,15 @@ export function Footer() {
                 href="https://www.linkedin.com/in/davipeterson/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label="LinkedIn"
+                className="size-11 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a
                 href={mailHref}
-                className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                aria-label={dictionary.common.sendEmail}
+                className="size-11 bg-muted rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Mail className="h-5 w-5" />
               </a>
@@ -106,7 +109,7 @@ export function Footer() {
           
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center justify-center gap-1"
+            className="text-sm font-medium text-muted-foreground hover:text-primary-text transition-colors flex items-center justify-center gap-1"
           >
             <ArrowUp className="h-4 w-4" />
             {dictionary.common.backToTop}

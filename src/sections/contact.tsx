@@ -97,7 +97,7 @@ export function ContactSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             {dictionary.contact.titleBefore}{' '}
-            <span className="text-primary">{dictionary.contact.titleAccent}</span>
+            <span className="text-primary-text">{dictionary.contact.titleAccent}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -112,7 +112,7 @@ export function ContactSection() {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Mail className="h-6 w-6 text-primary" />
+                    <Mail className="h-6 w-6 text-primary-text" />
                   </div>
                   <div>
                     <h4 className="font-medium">{dictionary.contact.info.email}</h4>
@@ -122,7 +122,7 @@ export function ContactSection() {
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <Phone className="h-6 w-6 text-primary" />
+                    <Phone className="h-6 w-6 text-primary-text" />
                   </div>
                   <div>
                     <h4 className="font-medium">{dictionary.contact.info.phone}</h4>
@@ -132,7 +132,7 @@ export function ContactSection() {
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <MapPin className="h-6 w-6 text-primary" />
+                    <MapPin className="h-6 w-6 text-primary-text" />
                   </div>
                   <div>
                     <h4 className="font-medium">{dictionary.contact.info.location}</h4>

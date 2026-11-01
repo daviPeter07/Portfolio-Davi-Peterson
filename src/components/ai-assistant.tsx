@@ -1,30 +1,60 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Bot, Send, Loader2 } from 'lucide-react';
+import {
+  Bot,
+  BriefcaseBusiness,
+  ChevronRight,
+  Code2,
+  FolderGit2,
+  Loader2,
+  Mail,
+  Send,
+  type LucideIcon,
+} from 'lucide-react';
 import { useChat } from 'ai/react';
 import { Button } from '@/src/components/ui/button';
 import { Input } from '@/src/components/ui/input';
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/src/components/ui/dialog';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/src/components/ui/card';
 import { useI18n } from '@/src/components/i18n-provider';
+import { isReplyMissing } from '@/src/lib/chat-reply';
+import { getFaqAnswer, rankFaqTopics, type FaqTopic } from '@/src/lib/chat-faq';
+import type { GithubRepo } from '@/src/lib/github-repos';
+
+const faqIcons: Record<FaqTopic, LucideIcon> = {
+  projects: FolderGit2,
+  experience: BriefcaseBusiness,
+  technologies: Code2,
+  contact: Mail,
+};
 
 type WindowWithWebkitAudioContext = Window & {
   webkitAudioContext?: typeof AudioContext;
 };
 
-export function AiAssistant() {
+type AiAssistantProps = {
+  repos: GithubRepo[];
+};
+
+export function AiAssistant({ repos }: AiAssistantProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [hasNotification, setHasNotification] = useState(false);
+  const [isFallbackActive, setIsFallbackActive] = useState(false);
+  const [lastQuestion, setLastQuestion] = useState('');
+  const [answeredTopics, setAnsweredTopics] = useState<FaqTopic[]>([]);
+  const [isNoticeDismissed, setIsNoticeDismissed] = useState(false);
   const { dictionary, locale } = useI18n();
   const t = dictionary.aiAssistant;
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
+  const { messages, setMessages, input, handleInputChange, handleSubmit, isLoading, error } =
+    useChat({
     api: '/api/chat',
     body: { locale },
     onError: (err) => console.error('Chat Hook Error:', err),
+    onFinish: () => setIsFallbackActive(false),
     initialMessages: [
       {
         id: 'welcome-message',
@@ -48,7 +78,7 @@ export function AiAssistant() {
             href={part}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary underline font-medium hover:text-primary/80 break-all transition-colors"
+            className="text-primary-text underline font-medium hover:text-primary-text/80 break-all transition-colors"
           >
             {part}
           </a>
@@ -88,15 +118,46 @@ export function AiAssistant() {
       return;
     }
 
+    setLastQuestion(normalizedInput);
+    setIsNoticeDismissed(false);
     handleSubmit(event);
   };
 
+  const handleFaqClick = (topic: FaqTopic) => {
+    setAnsweredTopics((topics) => [...topics, topic]);
+    setIsNoticeDismissed(true);
+    setMessages([
+      ...messages,
+      { id: `faq-${topic}-question`, role: 'user', content: t.faq[topic].question },
+      { id: `faq-${topic}-answer`, role: 'assistant', content: getFaqAnswer(topic, dictionary, repos) },
+    ]);
+  };
+
+  const fallback = rankFaqTopics(lastQuestion, answeredTopics);
+
+  // Fica ativo após a falha: clicar em uma pergunta pronta não pode esconder as demais
+  useEffect(() => {
+    if (error || isReplyMissing(messages, isLoading)) {
+      setIsFallbackActive(true);
+    }
+  }, [error, messages, isLoading]);
+
   // Auto scroll para o final das mensagens
   useEffect(() => {
+    // Respostas prontas são longas: rolar até o fim esconderia o início delas
+    const faqQuestion = messages.at(-1)?.id.startsWith('faq-') ? messages.at(-2) : null;
+
+    if (faqQuestion) {
+      document
+        .querySelector(`[data-message-id="${faqQuestion.id}"]`)
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages]);
+  }, [messages, isFallbackActive]);
 
   // Mostrar o botão apenas na primeira vez que o usuário interagir com a página
   useEffect(() => {
@@ -179,7 +240,9 @@ export function AiAssistant() {
         }}
       >
         <DialogTrigger asChild>
-          <Button className="relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20">
+          <Button
+            aria-label={t.title}
+            className="relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20">
             <Bot className="size-8 text-white sm:size-8" strokeWidth={2.25} />
             {hasNotification && !isOpen && (
               <span className="absolute top-0 right-0 -mt-1 -mr-1 flex h-6 w-6 animate-bounce items-center justify-center rounded-full bg-red-500 text-xs font-black text-white shadow-lg ring-4 ring-background sm:h-8 sm:w-8 sm:text-sm">
@@ -189,27 +252,25 @@ export function AiAssistant() {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="w-[95vw] max-w-[500px] h-[85vh] max-h-[700px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden">
-          <DialogTitle className="sr-only">Chat com Davi AI</DialogTitle>
+        <DialogContent
+          onOpenAutoFocus={(event) => {
+            // Evita abrir o teclado virtual antes de a pessoa ler o chat
+            if (window.matchMedia('(pointer: coarse)').matches) {
+              event.preventDefault();
+            }
+          }}
+          className="w-[95vw] max-w-[95vw] sm:max-w-2xl h-[90vh] max-h-[860px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden">
+          <DialogTitle className="sr-only">{t.title}</DialogTitle>
           <Card className="border-0 rounded-2xl overflow-hidden flex flex-col h-full shadow-none bg-transparent relative p-0 gap-0">
-            <CardHeader className="bg-muted/50 border-b p-4 sm:p-5 relative z-10 m-0">
-              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl font-bold tracking-tight text-foreground pr-8">
-                <Bot className="h-5 w-5 sm:h-6 sm:w-6" />
+            <CardHeader className="bg-muted/50 border-b px-4 py-3 relative z-10 m-0 gap-1">
+              <CardTitle className="flex items-center gap-2 text-lg font-bold tracking-tight text-foreground pr-10">
+                <Bot className="h-5 w-5" />
                 {t.title}
-                <span className="text-[10px] sm:text-xs uppercase tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold ml-2">
+                <span className="text-[10px] sm:text-xs uppercase tracking-wider bg-primary/10 text-primary-text px-2 py-0.5 rounded-full font-semibold ml-1">
                   {t.beta}
                 </span>
               </CardTitle>
-              <p className="text-xs sm:text-sm text-muted-foreground font-medium mt-1">
-                {t.description}
-              </p>
-              <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded bg-orange-500/10 border border-orange-500/20 text-xs sm:text-sm text-orange-500">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-                </span>
-                Respostas geradas por IA. Pode levar alguns segundos.
-              </div>
+              <p className="text-xs sm:text-sm text-muted-foreground pr-10">{t.disclaimer}</p>
             </CardHeader>
 
             <CardContent className="flex-1 p-0 relative overflow-hidden flex flex-col m-0">
@@ -217,12 +278,13 @@ export function AiAssistant() {
                 {messages.map((m) => (
                   <div
                     key={m.id}
-                    className={`flex w-full ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    data-message-id={m.id}
+                    className={`flex w-full scroll-mt-2 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     {m.role !== 'user' && (
                       <div className="flex-shrink-0 mr-3 mt-1 hidden sm:block">
                         <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20 shadow-sm">
-                          <Bot className="w-4 h-4 text-primary" />
+                          <Bot className="w-4 h-4 text-primary-text" />
                         </div>
                       </div>
                     )}
@@ -266,11 +328,50 @@ export function AiAssistant() {
                   </div>
                 )}
 
-                {error && (
-                  <div className="flex justify-center">
-                    <div className="bg-destructive/10 text-destructive text-xs p-2 rounded-lg text-center max-w-[90%]">
-                      Erro na conexão com a IA: {error.message || 'Falha ao enviar mensagem.'}
-                    </div>
+                {isFallbackActive && !isLoading && (
+                  <div className="flex w-full flex-col gap-3 sm:pl-11">
+                    {!isNoticeDismissed && (
+                      <div className="bg-muted border text-foreground rounded-2xl rounded-tl-sm p-3 sm:p-4 text-sm sm:text-base leading-relaxed shadow-sm">
+                        {fallback.topics.length > 0 ? t.fallbackMessage : t.errorMessage}
+                      </div>
+                    )}
+                    {fallback.topics.length > 0 && (
+                      <div
+                        role="group"
+                        aria-label={t.fallbackMessage}
+                        className="flex w-full flex-col gap-2"
+                      >
+                        {fallback.topics.map((topic) => {
+                          const Icon = faqIcons[topic];
+                          const isHighlighted = topic === fallback.highlighted;
+
+                          return (
+                            <button
+                              key={topic}
+                              type="button"
+                              onClick={() => handleFaqClick(topic)}
+                              className={`group flex min-h-12 w-full cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none sm:text-base ${
+                                isHighlighted
+                                  ? 'border-primary bg-primary text-primary-foreground hover:bg-primary/90'
+                                  : 'border-border bg-background text-foreground hover:border-primary hover:bg-primary/10'
+                              }`}
+                            >
+                              <Icon
+                                aria-hidden
+                                className={`size-5 shrink-0 ${isHighlighted ? '' : 'text-primary-text'}`}
+                              />
+                              <span className="flex-1">{t.faq[topic].question}</span>
+                              <ChevronRight
+                                aria-hidden
+                                className={`size-4 shrink-0 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none ${
+                                  isHighlighted ? '' : 'text-muted-foreground'
+                                }`}
+                              />
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 )}
                 <div ref={messagesEndRef} />
@@ -285,6 +386,7 @@ export function AiAssistant() {
                   value={input || ''}
                   onChange={(e) => handleInputChange && handleInputChange(e)}
                   className="flex-1 rounded-full bg-muted/50 border-transparent text-base sm:text-base py-5 sm:py-6"
+                  maxLength={500}
                   disabled={isLoading}
                 />
                 <Button

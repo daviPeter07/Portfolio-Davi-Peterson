@@ -16,7 +16,7 @@ export function AboutSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             {dictionary.about.titleBefore}{' '}
-            <span className="text-primary">{dictionary.about.titleAccent}</span>
+            <span className="text-primary-text">{dictionary.about.titleAccent}</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -31,7 +31,7 @@ export function AboutSection() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center p-4 bg-card rounded-lg border">
-                  <div className="text-2xl font-bold text-primary">
+                  <div className="text-2xl font-bold text-primary-text">
                     {dictionary.about.stats.seniorityValue}
                   </div>
                   <div className="text-sm text-muted-foreground">
@@ -39,7 +39,7 @@ export function AboutSection() {
                   </div>
                 </div>
                 <div className="text-center p-4 bg-card rounded-lg border">
-                  <div className="text-2xl font-bold text-primary">
+                  <div className="text-2xl font-bold text-primary-text">
                     {dictionary.about.stats.experienceValue}
                   </div>
                   <div className="text-sm text-muted-foreground">
@@ -51,7 +51,7 @@ export function AboutSection() {
 
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Gauge className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Gauge className="h-12 w-12 text-primary-text mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{dictionary.about.cards.performance.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {dictionary.about.cards.performance.description}
@@ -59,7 +59,7 @@ export function AboutSection() {
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Server className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Server className="h-12 w-12 text-primary-text mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{dictionary.about.cards.architecture.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {dictionary.about.cards.architecture.description}
@@ -67,7 +67,7 @@ export function AboutSection() {
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Layers3 className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Layers3 className="h-12 w-12 text-primary-text mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{dictionary.about.cards.scalability.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {dictionary.about.cards.scalability.description}
@@ -75,7 +75,7 @@ export function AboutSection() {
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Users className="h-12 w-12 text-primary mx-auto mb-4" />
+                <Users className="h-12 w-12 text-primary-text mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{dictionary.about.cards.leadership.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {dictionary.about.cards.leadership.description}

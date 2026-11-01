@@ -1,12 +1,14 @@
 'use client';
 
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
+import { experiences } from '@/src/constants/experiences';
 import { sectionIds } from '@/src/constants/section-ids';
 
 export function HeroSection() {
   const { dictionary } = useI18n();
+  const [currentExperience] = experiences;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -22,37 +24,40 @@ export function HeroSection() {
   return (
     <section
       id={sectionIds.home}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-svh flex items-center justify-center relative overflow-hidden pt-24 pb-20 short:pb-8"
     >
       <div className="container mx-auto px-4 text-center">
-        <div
-          data-reveal
-          className="transition-all duration-1000 opacity-0 translate-y-10 data-[revealed=true]:opacity-100 data-[revealed=true]:translate-y-0"
-        >
-          <div className="mb-8">
-            <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-linear-to-br from-primary to-accent overflow-hidden">
-              <img
-                src="/meProfessional.jpg"
-                alt={dictionary.common.siteName}
-                className="w-full h-full object-cover"
-              />
-            </div>
+        <div className="hero-enter">
+          <div className="size-40 short:size-28 mx-auto mb-6 short:mb-3 rounded-full bg-linear-to-br from-primary to-accent overflow-hidden">
+            <img
+              src="/davi-peterson.jpg"
+              alt={dictionary.common.siteName}
+              className="w-full h-full object-cover"
+            />
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            {dictionary.hero.title}{' '}
-            <span className="text-primary">{dictionary.common.siteName}</span>
+          <p className="text-lg text-muted-foreground mb-1">{dictionary.hero.title}</p>
+          <h1 className="text-4xl md:text-6xl short:md:text-5xl font-bold text-primary-text mb-3">
+            {dictionary.common.siteName}
           </h1>
+          <p className="text-2xl md:text-3xl short:md:text-2xl font-semibold mb-3 short:mb-2">
+            {dictionary.hero.role}
+          </p>
 
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-muted-foreground mb-3 short:mb-2 max-w-2xl mx-auto text-balance">
             {dictionary.hero.subtitle}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <p className="text-sm text-muted-foreground mb-8 short:mb-4 text-balance">
+            <MapPin className="inline h-4 w-4 mr-1.5 align-text-bottom" />
+            {dictionary.hero.currentlyAt} {currentExperience.company}, {currentExperience.location}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 short:gap-3 justify-center items-center mb-6 short:mb-3">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => window.open('https://github.com/daviPeter07', '_blank')}
+              className="h-11 bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => scrollToSection(sectionIds.projects)}
             >
               {dictionary.hero.primaryCta}
             </Button>
@@ -60,7 +65,7 @@ export function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 bg-transparent"
+              className="h-11 border-primary dark:border-primary text-primary-text hover:bg-primary hover:text-primary-foreground transition-colors duration-300 bg-transparent"
             >
               <a href="/Davi Peterson.pdf" download>
                 {dictionary.hero.secondaryCta}
@@ -68,12 +73,13 @@ export function HeroSection() {
             </Button>
           </div>
 
-          <div className="flex justify-center space-x-6 mb-12">
+          <div className="flex justify-center gap-2">
             <a
               href="https://github.com/daviPeter07"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label={dictionary.common.github}
+              className="inline-flex size-11 items-center justify-center text-muted-foreground hover:text-primary-text transition-colors"
             >
               <Github className="h-6 w-6" />
             </a>
@@ -81,13 +87,15 @@ export function HeroSection() {
               href="https://www.linkedin.com/in/davipeterson/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="LinkedIn"
+              className="inline-flex size-11 items-center justify-center text-muted-foreground hover:text-primary-text transition-colors"
             >
               <Linkedin className="h-6 w-6" />
             </a>
             <a
               href={mailHref}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label={dictionary.common.sendEmail}
+              className="inline-flex size-11 items-center justify-center text-muted-foreground hover:text-primary-text transition-colors"
             >
               <Mail className="h-6 w-6" />
             </a>
@@ -97,9 +105,10 @@ export function HeroSection() {
 
       <button
         onClick={() => scrollToSection(sectionIds.about)}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        aria-label={dictionary.common.scrollDown}
+        className="absolute bottom-6 left-1/2 flex short:hidden size-11 transform -translate-x-1/2 items-center justify-center animate-bounce"
       >
-        <ArrowDown className="h-6 w-6 text-primary" />
+        <ArrowDown className="h-6 w-6 text-primary-text" />
       </button>
     </section>
   );
