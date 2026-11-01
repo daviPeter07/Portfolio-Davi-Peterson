@@ -1,7 +1,17 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Bot, Send, Loader2 } from 'lucide-react';
+import {
+  Bot,
+  BriefcaseBusiness,
+  ChevronRight,
+  Code2,
+  FolderGit2,
+  Loader2,
+  Mail,
+  Send,
+  type LucideIcon,
+} from 'lucide-react';
 import { useChat } from 'ai/react';
 import { Button } from '@/src/components/ui/button';
 import { Input } from '@/src/components/ui/input';
@@ -10,6 +20,13 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/src/comp
 import { useI18n } from '@/src/components/i18n-provider';
 import { isReplyMissing } from '@/src/lib/chat-reply';
 import { getFaqAnswer, rankFaqTopics, type FaqTopic } from '@/src/lib/chat-faq';
+
+const faqIcons: Record<FaqTopic, LucideIcon> = {
+  projects: FolderGit2,
+  experience: BriefcaseBusiness,
+  technologies: Code2,
+  contact: Mail,
+};
 
 type WindowWithWebkitAudioContext = Window & {
   webkitAudioContext?: typeof AudioContext;
@@ -293,24 +310,47 @@ export function AiAssistant() {
                 )}
 
                 {isFallbackActive && !isLoading && (
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="bg-destructive/10 text-destructive text-xs p-2 rounded-lg text-center max-w-[90%]">
+                  <div className="flex w-full flex-col gap-3 sm:pl-11">
+                    <div className="bg-muted border text-foreground rounded-2xl rounded-tl-sm p-3 sm:p-4 text-sm sm:text-base leading-relaxed shadow-sm">
                       {fallback.topics.length > 0 ? t.fallbackMessage : t.errorMessage}
                     </div>
-                    <div className="flex flex-wrap justify-center gap-2">
-                      {fallback.topics.map((topic) => (
-                        <Button
-                          key={topic}
-                          type="button"
-                          size="sm"
-                          variant={topic === fallback.highlighted ? 'default' : 'outline'}
-                          className="h-auto rounded-full whitespace-normal"
-                          onClick={() => handleFaqClick(topic)}
-                        >
-                          {t.faq[topic].question}
-                        </Button>
-                      ))}
-                    </div>
+                    {fallback.topics.length > 0 && (
+                      <div
+                        role="group"
+                        aria-label={t.fallbackMessage}
+                        className="flex w-full flex-col gap-2"
+                      >
+                        {fallback.topics.map((topic) => {
+                          const Icon = faqIcons[topic];
+                          const isHighlighted = topic === fallback.highlighted;
+
+                          return (
+                            <button
+                              key={topic}
+                              type="button"
+                              onClick={() => handleFaqClick(topic)}
+                              className={`group flex min-h-12 w-full cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 text-left text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none sm:text-base ${
+                                isHighlighted
+                                  ? 'border-primary bg-primary text-primary-foreground hover:bg-primary/90'
+                                  : 'border-border bg-background text-foreground hover:border-primary hover:bg-primary/10'
+                              }`}
+                            >
+                              <Icon
+                                aria-hidden
+                                className={`size-5 shrink-0 ${isHighlighted ? '' : 'text-primary'}`}
+                              />
+                              <span className="flex-1">{t.faq[topic].question}</span>
+                              <ChevronRight
+                                aria-hidden
+                                className={`size-4 shrink-0 transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none ${
+                                  isHighlighted ? '' : 'text-muted-foreground'
+                                }`}
+                              />
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 )}
                 <div ref={messagesEndRef} />
