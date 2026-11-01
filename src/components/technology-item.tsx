@@ -36,7 +36,7 @@ export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemP
   const item = (
     <div
       title={name}
-      className="group flex items-center gap-3 p-3 rounded-lg border bg-muted/30 hover:bg-muted transition-transform hover:-translate-y-0.5 hover:ring-1 ring-primary/20"
+      className="group flex items-center gap-2.5 p-3 rounded-lg border bg-muted/30 hover:bg-muted transition-transform hover:-translate-y-0.5 hover:ring-1 ring-primary/20"
     >
       {name === 'NativeWind' || name === 'AWS' ? (
         <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md bg-white p-1">
@@ -50,7 +50,7 @@ export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemP
           className={`w-9 h-9 object-contain ${invertDark ? 'dark:invert dark:brightness-0' : ''}`}
         />
       )}
-      <span className="font-semibold text-base whitespace-normal wrap-break-word cursor-default select-none">
+      <span className="min-w-0 font-semibold text-sm whitespace-normal wrap-break-word cursor-default select-none">
         {name}
       </span>
     </div>

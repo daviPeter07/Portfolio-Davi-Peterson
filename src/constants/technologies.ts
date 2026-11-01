@@ -6,6 +6,10 @@ export const frontendUI: TechItem[] = [
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
   },
   {
+    name: 'Angular',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
+  },
+  {
     name: 'React',
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
   },
@@ -47,8 +51,8 @@ export const dataDevOps: TechItem[] = [
     logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',
   },
   {
-    name: 'Bull',
-    logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 6h16M4 12h16M4 18h8'/></svg>",
+    name: 'RabbitMQ',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg',
   },
   {
     name: 'MiniIO',
@@ -58,11 +62,16 @@ export const dataDevOps: TechItem[] = [
     name: 'AWS',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
   },
+  {
+    name: 'Microservices',
+    logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8804a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='9' y='2' width='6' height='6' rx='1'/><rect x='2' y='16' width='6' height='6' rx='1'/><rect x='16' y='16' width='6' height='6' rx='1'/><path d='M12 8v4M5 16v-2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2'/></svg>",
+  },
 ];
 
 export const techResources: Record<string, { url: string }> = {
   React: { url: 'https://react.dev/learn' },
   Next: { url: 'https://nextjs.org/docs' },
+  Angular: { url: 'https://angular.dev/overview' },
   Nest: { url: 'https://docs.nestjs.com/' },
   Node: { url: 'https://nodejs.org/en/docs' },
   Golang: { url: 'https://go.dev/doc/' },
@@ -70,7 +79,8 @@ export const techResources: Record<string, { url: string }> = {
   Prisma: { url: 'https://www.prisma.io/docs' },
   Redis: { url: 'https://redis.io/docs/latest' },
   Docker: { url: 'https://docs.docker.com' },
-  Bull: { url: 'https://docs.bullmq.io/' },
+  RabbitMQ: { url: 'https://www.rabbitmq.com/docs' },
+  Microservices: { url: 'https://microservices.io/' },
   MiniIO: { url: 'https://min.io/docs/minio/linux/index.html' },
   AWS: { url: 'https://docs.aws.amazon.com/' },
 };

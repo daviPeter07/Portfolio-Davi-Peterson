@@ -28,7 +28,10 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
   });
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-  const filterOptions = ['TypeScript', 'Python', 'Java', 'PHP', 'Go'];
+  const filterOptions = [
+    { label: dictionary.common.all, value: null },
+    ...['TypeScript', 'Python', 'Java', 'PHP', 'Go'].map((tech) => ({ label: tech, value: tech })),
+  ];
   const filteredProjects = activeFilter 
     ? projects.filter((p) => p.technologies.includes(activeFilter)) 
     : projects;
@@ -44,28 +47,24 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
             {dictionary.projects.titleBefore}{' '}
             <span className="text-primary-text">{dictionary.projects.titleAccent}</span>
           </h2>
-          <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-            <button
-              onClick={() => setActiveFilter(null)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                activeFilter === null
-                  ? 'bg-primary text-primary-foreground shadow-md'
-                  : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary-text'
-              }`}
-            >
-              {dictionary.common.all}
-            </button>
-            {filterOptions.map((tech) => (
+          <div
+            role="group"
+            aria-label={dictionary.projects.filterLabel}
+            className="mx-auto mb-12 flex w-fit max-w-full flex-wrap justify-center gap-1 rounded-2xl border bg-muted/40 p-1.5"
+          >
+            {filterOptions.map(({ label, value }) => (
               <button
-                key={tech}
-                onClick={() => setActiveFilter(tech)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeFilter === tech
-                    ? 'bg-primary text-primary-foreground shadow-md'
-                    : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary-text'
+                key={label}
+                type="button"
+                aria-pressed={activeFilter === value}
+                onClick={() => setActiveFilter(value)}
+                className={`min-h-11 cursor-pointer rounded-xl px-4 text-sm font-medium transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none ${
+                  activeFilter === value
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground hover:bg-background hover:text-foreground'
                 }`}
               >
-                {tech}
+                {label}
               </button>
             ))}
           </div>
@@ -78,18 +77,18 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
               return (
                 <Card
                   key={project.id}
-                  className="group hover:shadow-xl transition-all duration-300 overflow-hidden"
+                  className="overflow-hidden"
                 >
                   <div className="relative overflow-hidden p-4">
                     {project.icon === 'Terminal' ? (
-                      <div className="w-full h-48 bg-muted flex items-center justify-center group-hover:scale-105 transition-transform duration-300 rounded-t-lg">
+                      <div className="w-full h-48 bg-muted flex items-center justify-center rounded-t-lg">
                         <Terminal className="w-20 h-20 text-primary-text" />
                       </div>
                     ) : (
                       <img
                         src={project.image || '/placeholder.svg'}
                         alt={content.title}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-48 object-cover"
                       />
                     )}
                   </div>
@@ -118,7 +117,11 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                         </span>
                       ) : null}
                       {project.demo ? (
-                        <Button size="sm" asChild className="min-h-11 flex-1">
+                        <Button
+                          size="sm"
+                          asChild
+                          className="min-h-11 flex-1 transition-colors hover:bg-primary/80"
+                        >
                           <a href={project.demo} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="h-4 w-4 mr-2" />
                             {dictionary.common.navigate}
@@ -126,7 +129,12 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                         </Button>
                       ) : null}
                       {project.code ? (
-                        <Button size="sm" variant="outline" asChild className="min-h-11 flex-1">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          asChild
+                          className="min-h-11 flex-1 border-primary bg-transparent text-primary-text transition-colors hover:bg-primary hover:text-primary-foreground dark:border-primary dark:bg-transparent dark:hover:bg-primary"
+                        >
                           <a href={project.code} target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4 mr-2" />
                             {dictionary.common.github}

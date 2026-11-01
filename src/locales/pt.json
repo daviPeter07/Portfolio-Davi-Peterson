@@ -101,6 +101,7 @@
     },
     "docs": {
       "React": "Biblioteca para construir interfaces com componentes.",
+      "Angular": "Framework TypeScript da Google para aplicações web robustas.",
       "Next": "Framework React com rotas, rendering e tooling moderno.",
       "Vue.js": "Framework progressivo para construir interfaces reativas.",
       "Nuxt": "Framework Vue.js intuitivo para criar aplicações web otimizadas.",
@@ -119,7 +120,8 @@
       "Redis": "Banco de dados em memória usado para cache e filas.",
       "Docker": "Plataforma de containers para empacotar e distribuir apps.",
       "MiniIO": "Armazenamento de objetos compatível com S3 e de alta performance.",
-      "Bull": "Sistema avançado de filas de mensagens baseado em Redis.",
+      "RabbitMQ": "Mensageria para comunicação assíncrona entre serviços.",
+      "Microservices": "Arquitetura que divide o sistema em serviços independentes.",
       "AWS": "Plataforma de computação em nuvem com serviços de infraestrutura gerenciados."
     }
   },
@@ -202,6 +204,7 @@
     }
   },
   "projects": {
+    "filterLabel": "Filtrar projetos por tecnologia",
     "github": {
       "title": "Atualizados recentemente no GitHub",
       "viewAll": "Ver todos no GitHub"
