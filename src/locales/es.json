@@ -48,8 +48,10 @@
   },
   "hero": {
     "title": "Hola, soy",
-    "subtitle": "Desarrollador fullstack con Next.js y NestJS, creando sistemas web bien construidos y fáciles de usar.",
-    "primaryCta": "Ver Proyectos",
+    "role": "Desarrollador Full Stack",
+    "subtitle": "Creo sistemas web bien construidos y fáciles de usar con Next.js y NestJS.",
+    "currentlyAt": "Actualmente en",
+    "primaryCta": "Ver proyectos",
     "secondaryCta": "Descargar currículum",
     "mailSubject": "Contacto desde el Portafolio",
     "mailBody": "Hola, Davi. Vi tu portafolio y me gustaría conversar."
