@@ -269,7 +269,7 @@ export function AiAssistant() {
                 {error && (
                   <div className="flex justify-center">
                     <div className="bg-destructive/10 text-destructive text-xs p-2 rounded-lg text-center max-w-[90%]">
-                      Erro na conexão com a IA: {error.message || 'Falha ao enviar mensagem.'}
+                      {t.errorMessage}
                     </div>
                   </div>
                 )}
@@ -285,6 +285,7 @@ export function AiAssistant() {
                   value={input || ''}
                   onChange={(e) => handleInputChange && handleInputChange(e)}
                   className="flex-1 rounded-full bg-muted/50 border-transparent text-base sm:text-base py-5 sm:py-6"
+                  maxLength={500}
                   disabled={isLoading}
                 />
                 <Button

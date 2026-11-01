@@ -278,6 +278,7 @@
     "comingSoon": "Em Breve",
     "botMessage": "Olá! Como posso te ajudar a conhecer o perfil do Davi hoje?",
     "userMessage": "Quais tecnologias ele mais usa?",
-    "placeholder": "Escreva sua mensagem..."
+    "placeholder": "Escreva sua mensagem...",
+    "errorMessage": "Não consegui responder agora. Tente novamente em instantes."
   }
 }
