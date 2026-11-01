@@ -104,7 +104,7 @@ ${resumeInfo}`;
       system: systemPrompt,
       messages: convertToCoreMessages(messages),
       temperature: 0.7,
-      maxTokens: 500,
+      maxTokens: 1500,
       maxRetries: 1,
       abortSignal: req.signal,
     });

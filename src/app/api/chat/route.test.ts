@@ -72,7 +72,7 @@ describe('POST /api/chat', () => {
 
     const call = streamText.mock.calls[0][0];
 
-    expect(call.maxTokens).toBe(500);
+    expect(call.maxTokens).toBe(1500);
     expect(call.messages).toEqual([{ role: 'user', content: 'oi' }]);
   });
 
