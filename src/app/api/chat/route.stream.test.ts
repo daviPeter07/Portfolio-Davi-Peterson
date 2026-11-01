@@ -1,6 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { POST } from '@/src/app/api/chat/route';
 
+vi.mock('@/src/lib/github-repos', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/src/lib/github-repos')>()),
+  getGithubRepos: async () => [],
+}));
+
 const baseChunk = { id: '1', created: 1, model: 'test/model', object: 'chat.completion.chunk' };
 
 function sse(chunks: unknown[]) {

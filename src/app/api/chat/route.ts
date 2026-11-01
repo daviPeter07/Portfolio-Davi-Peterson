@@ -12,6 +12,7 @@ import { githubInfo } from '@/src/ai-skills/github';
 import { getResumeInfo } from '@/src/ai-skills/resume';
 
 import { isAllowedOrigin, parseChatRequest } from '@/src/lib/chat-request';
+import { formatGithubContext, getGithubRepos } from '@/src/lib/github-repos';
 import type { Locale } from '@/src/lib/i18n-config';
 
 // Instância customizada apontando para o OpenRouter
@@ -74,6 +75,9 @@ export async function POST(req: Request) {
     // Processar o currículo com base no idioma atual
     const resumeInfo = getResumeInfo(dict);
 
+    // Sem dados do GitHub, a IA continua com o texto de ai-skills/github.ts
+    const githubRepos = formatGithubContext(await getGithubRepos());
+
     const systemPrompt = `### IDENTITY AND ROLE ###
 Você é o assistente virtual oficial do portfólio do Davi Peterson. 
 Sua função é fornecer respostas extremamente curtas e precisas sobre o Davi, agindo como um colega de equipe ajudando um recrutador.
@@ -107,6 +111,8 @@ Assistant: O Davi é focado em React, Next.js e TailwindCSS para criar interface
 ${personalInfo}
 
 ${githubInfo}
+
+${githubRepos}
 
 ${resumeInfo}`;
 

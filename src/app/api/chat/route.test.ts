@@ -23,6 +23,20 @@ vi.mock('ai', async (importOriginal) => ({
   streamText,
 }));
 
+vi.mock('@/src/lib/github-repos', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/src/lib/github-repos')>()),
+  getGithubRepos: async () => [
+    {
+      name: 'leaf',
+      description: 'App de leitura',
+      url: 'https://github.com/daviPeter07/leaf',
+      homepage: null,
+      language: 'TypeScript',
+      pushedAt: '2026-10-30T10:00:00Z',
+    },
+  ],
+}));
+
 import { POST } from '@/src/app/api/chat/route';
 
 const valid = { messages: [{ role: 'user', content: 'oi' }], locale: 'pt' };
@@ -84,6 +98,12 @@ describe('POST /api/chat', () => {
 
     expect(system).toContain('davipetersondev173@gmail.com');
     expect(system).toContain('https://www.linkedin.com/in/davipeterson/');
+  });
+
+  it('gives the assistant the live GitHub repositories', async () => {
+    await POST(post(valid));
+
+    expect(streamText.mock.calls[0][0].system).toContain('App de leitura');
   });
 
   it('hides internal details on a 500', async () => {

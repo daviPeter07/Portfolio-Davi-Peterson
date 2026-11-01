@@ -2,6 +2,7 @@ import { contact } from '@/src/constants/contact';
 import { experiences } from '@/src/constants/experiences';
 import { projects } from '@/src/constants/projects';
 import { backendAPIs, coreLanguages, dataDevOps, frontendUI } from '@/src/constants/technologies';
+import type { GithubRepo } from '@/src/lib/github-repos';
 import type { Dictionary } from '@/src/lib/i18n';
 
 export const faqTopics = ['projects', 'experience', 'technologies', 'contact'] as const;
@@ -93,13 +94,30 @@ function getContactLines() {
   ];
 }
 
-export function getFaqAnswer(topic: FaqTopic, dictionary: Dictionary): string {
+function getGithubLines(dictionary: Dictionary, repos: GithubRepo[]) {
+  if (repos.length === 0) {
+    return [];
+  }
+
+  return [
+    '',
+    dictionary.aiAssistant.faq.projects.githubIntro,
+    ...repos.map((repo) => `- ${repo.name}: ${repo.homepage ?? repo.url}`),
+  ];
+}
+
+export function getFaqAnswer(
+  topic: FaqTopic,
+  dictionary: Dictionary,
+  repos: GithubRepo[] = []
+): string {
   const lines = {
     projects: getProjectLines,
     experience: getExperienceLines,
     technologies: getTechnologyLines,
     contact: getContactLines,
   }[topic](dictionary);
+  const githubLines = topic === 'projects' ? getGithubLines(dictionary, repos) : [];
 
-  return [dictionary.aiAssistant.faq[topic].intro, ...lines].join('\n');
+  return [dictionary.aiAssistant.faq[topic].intro, ...lines, ...githubLines].join('\n');
 }

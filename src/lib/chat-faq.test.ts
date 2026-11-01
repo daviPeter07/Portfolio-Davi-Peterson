@@ -65,6 +65,28 @@ describe.each(Object.entries(dictionaries))('getFaqAnswer in %s', (_locale, dict
     }
   });
 
+  it('adds recent GitHub repositories to the projects answer', () => {
+    const answer = getFaqAnswer('projects', dictionary, [
+      {
+        name: 'leaf',
+        description: 'App',
+        url: 'https://github.com/daviPeter07/leaf',
+        homepage: null,
+        language: null,
+        pushedAt: '2026-10-30T10:00:00Z',
+      },
+    ]);
+
+    expect(answer).toContain(dictionary.aiAssistant.faq.projects.githubIntro);
+    expect(answer).toContain('- leaf: https://github.com/daviPeter07/leaf');
+  });
+
+  it('omits the GitHub part without repositories', () => {
+    expect(getFaqAnswer('projects', dictionary)).not.toContain(
+      dictionary.aiAssistant.faq.projects.githubIntro
+    );
+  });
+
   it('lists every experience', () => {
     const answer = getFaqAnswer('experience', dictionary);
 

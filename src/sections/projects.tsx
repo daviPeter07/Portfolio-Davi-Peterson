@@ -7,9 +7,22 @@ import { Button } from '@/src/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/src/components/ui/card';
 import { projects } from '@/src/constants/projects';
 import { sectionIds } from '@/src/constants/section-ids';
+import type { GithubRepo } from '@/src/lib/github-repos';
+import { localeToHtmlLang } from '@/src/lib/i18n-config';
 
-export function ProjectsSection() {
-  const { dictionary } = useI18n();
+type ProjectsSectionProps = {
+  repos: GithubRepo[];
+};
+
+const GITHUB_PROFILE = 'https://github.com/daviPeter07';
+
+export function ProjectsSection({ repos }: ProjectsSectionProps) {
+  const { dictionary, locale } = useI18n();
+  const dateFormat = new Intl.DateTimeFormat(localeToHtmlLang[locale], {
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   const filterOptions = ['TypeScript', 'Python', 'Java', 'PHP', 'Go'];
@@ -130,6 +143,46 @@ export function ProjectsSection() {
               );
             })}
           </div>
+
+          {repos.length > 0 && (
+            <div className="mt-16 max-w-6xl mx-auto">
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+                <h3 className="text-xl md:text-2xl font-semibold">
+                  {dictionary.projects.github.title}
+                </h3>
+                <a
+                  href={GITHUB_PROFILE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                >
+                  <Github className="h-4 w-4" />
+                  {dictionary.projects.github.viewAll}
+                </a>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {repos.map((repo) => (
+                  <a
+                    key={repo.name}
+                    href={repo.homepage ?? repo.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col gap-2 rounded-xl border p-4 transition-colors hover:border-primary hover:bg-primary/5 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+                  >
+                    <span className="font-semibold break-all">{repo.name}</span>
+                    <span className="flex-1 text-sm text-muted-foreground line-clamp-3">
+                      {repo.description}
+                    </span>
+                    <span className="text-xs text-muted-foreground">
+                      {[repo.language, dateFormat.format(new Date(repo.pushedAt))]
+                        .filter(Boolean)
+                        .join(', ')}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

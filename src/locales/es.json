@@ -196,6 +196,10 @@
     }
   },
   "projects": {
+    "github": {
+      "title": "Actualizados recientemente en GitHub",
+      "viewAll": "Ver todos en GitHub"
+    },
     "titleBefore": "Mis",
     "titleAccent": "Proyectos",
     "items": {
@@ -284,7 +288,8 @@
     "faq": {
       "projects": {
         "question": "¿Qué proyectos ha hecho Davi?",
-        "intro": "Estos son los proyectos de Davi:"
+        "intro": "Estos son los proyectos de Davi:",
+        "githubIntro": "También en GitHub:"
       },
       "experience": {
         "question": "¿Cuál es su experiencia?",

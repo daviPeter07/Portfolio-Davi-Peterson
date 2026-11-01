@@ -60,6 +60,10 @@ Constraints that are easy to break:
 - Keep `toDataStreamResponse()` in the route. The comment there explains why: `toTextStreamResponse()` hangs `useChat`.
 - The prompt requires bare URLs because the client renders replies with its own small parser (`**bold**` and line breaks), not a Markdown library. Markdown links would show up broken.
 
+### GitHub sync
+
+`src/lib/github-repos.ts` fetches public repositories with a 10-minute cache. The page uses `revalidate = 600` and shows the ones that are not curated projects, the assistant receives them in the prompt, and the ready-made projects answer lists them. If GitHub fails, the result is empty: the section hides and the assistant falls back to `ai-skills/github.ts`.
+
 ### Other notes
 
 - Scroll animations: elements with `data-reveal` start hidden in their Tailwind classes and are revealed by `useReveal` (called in `PortfolioPage`), which sets `data-revealed="true"`. Without the hook running they stay invisible.
@@ -71,6 +75,7 @@ Constraints that are easy to break:
 Stored in `.env.local` (git-ignored):
 
 - `OPENROUTER_API_KEY`, and `OPENROUTER_MODEL` (optional, defaults to `openrouter/free`)
+- `GITHUB_TOKEN` (optional, raises the GitHub API rate limit)
 - `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
 
 ## Conventions

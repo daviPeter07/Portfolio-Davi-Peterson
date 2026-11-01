@@ -20,6 +20,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/src/comp
 import { useI18n } from '@/src/components/i18n-provider';
 import { isReplyMissing } from '@/src/lib/chat-reply';
 import { getFaqAnswer, rankFaqTopics, type FaqTopic } from '@/src/lib/chat-faq';
+import type { GithubRepo } from '@/src/lib/github-repos';
 
 const faqIcons: Record<FaqTopic, LucideIcon> = {
   projects: FolderGit2,
@@ -32,7 +33,11 @@ type WindowWithWebkitAudioContext = Window & {
   webkitAudioContext?: typeof AudioContext;
 };
 
-export function AiAssistant() {
+type AiAssistantProps = {
+  repos: GithubRepo[];
+};
+
+export function AiAssistant({ repos }: AiAssistantProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [hasNotification, setHasNotification] = useState(false);
@@ -124,7 +129,7 @@ export function AiAssistant() {
     setMessages([
       ...messages,
       { id: `faq-${topic}-question`, role: 'user', content: t.faq[topic].question },
-      { id: `faq-${topic}-answer`, role: 'assistant', content: getFaqAnswer(topic, dictionary) },
+      { id: `faq-${topic}-answer`, role: 'assistant', content: getFaqAnswer(topic, dictionary, repos) },
     ]);
   };
 
