@@ -24,9 +24,9 @@ export function TechnologyCategory({
   return (
     <div className="bg-card/50 backdrop-blur-sm rounded-xl border shadow-sm hover:shadow-md transition-shadow p-6">
       <div className="flex items-center gap-2 mb-4">
-        <Icon className="h-5 w-5 text-primary" />
+        <Icon className="h-5 w-5 text-primary-text" />
         <h3 className="text-xl font-semibold">{title}</h3>
-        <span className="ml-auto px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary">
+        <span className="ml-auto px-2 py-0.5 text-xs rounded-full bg-primary/10 text-primary-text">
           {dictionary.common.stacks}
         </span>
       </div>

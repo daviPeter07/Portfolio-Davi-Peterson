@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ExternalLink, Github, Lock, Brain } from 'lucide-react';
+import { ExternalLink, Github, Lock, Terminal } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/src/components/ui/card';
@@ -42,7 +42,7 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             {dictionary.projects.titleBefore}{' '}
-            <span className="text-primary">{dictionary.projects.titleAccent}</span>
+            <span className="text-primary-text">{dictionary.projects.titleAccent}</span>
           </h2>
           <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
             <button
@@ -50,7 +50,7 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 activeFilter === null
                   ? 'bg-primary text-primary-foreground shadow-md'
-                  : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary'
+                  : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary-text'
               }`}
             >
               {dictionary.common.all}
@@ -62,7 +62,7 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   activeFilter === tech
                     ? 'bg-primary text-primary-foreground shadow-md'
-                    : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary'
+                    : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary-text'
                 }`}
               >
                 {tech}
@@ -81,9 +81,9 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                   className="group hover:shadow-xl transition-all duration-300 overflow-hidden"
                 >
                   <div className="relative overflow-hidden p-4">
-                    {project.icon === 'Brain' ? (
-                      <div className="w-full h-48 bg-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 rounded-t-lg">
-                        <Brain className="w-20 h-20 text-white" />
+                    {project.icon === 'Terminal' ? (
+                      <div className="w-full h-48 bg-muted flex items-center justify-center group-hover:scale-105 transition-transform duration-300 rounded-t-lg">
+                        <Terminal className="w-20 h-20 text-primary-text" />
                       </div>
                     ) : (
                       <img
@@ -92,37 +92,6 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     )}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      {project.isPrivate ? (
-                        <span className="bg-black/70 text-white px-4 py-2 rounded-md font-medium text-sm flex items-center shadow-lg backdrop-blur-sm">
-                          <Lock className="h-4 w-4 mr-2" />
-                          {dictionary.common.privateSoftware}
-                        </span>
-                      ) : (
-                        <>
-                          {project.demo ? (
-                            <Button size="sm" asChild>
-                              <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                                <ExternalLink className="h-4 w-4 mr-2" />
-                                {dictionary.common.navigate}
-                              </a>
-                            </Button>
-                          ) : null}
-                          {project.code ? (
-                            <Button
-                              size="sm"
-                              asChild
-                              className="bg-[#0D1117] text-white hover:bg-[#161b22]"
-                            >
-                              <a href={project.code} target="_blank" rel="noopener noreferrer">
-                                <Github className="h-4 w-4 mr-2" />
-                                {dictionary.common.github}
-                              </a>
-                            </Button>
-                          ) : null}
-                        </>
-                      )}
-                    </div>
                   </div>
 
                   <CardHeader>
@@ -130,16 +99,40 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                     <CardDescription>{content.description}</CardDescription>
                   </CardHeader>
 
-                  <CardFooter>
+                  <CardFooter className="mt-auto flex-col items-stretch gap-4">
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                          className="px-2 py-1 bg-primary/10 text-primary-text text-xs rounded-full"
                         >
                           {tech}
                         </span>
                       ))}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {project.isPrivate ? (
+                        <span className="inline-flex items-center text-sm font-medium text-muted-foreground">
+                          <Lock className="h-4 w-4 mr-2" />
+                          {dictionary.common.privateSoftware}
+                        </span>
+                      ) : null}
+                      {project.demo ? (
+                        <Button size="sm" asChild className="min-h-11 flex-1">
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4 mr-2" />
+                            {dictionary.common.navigate}
+                          </a>
+                        </Button>
+                      ) : null}
+                      {project.code ? (
+                        <Button size="sm" variant="outline" asChild className="min-h-11 flex-1">
+                          <a href={project.code} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 mr-2" />
+                            {dictionary.common.github}
+                          </a>
+                        </Button>
+                      ) : null}
                     </div>
                   </CardFooter>
                 </Card>
@@ -157,7 +150,7 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                   href={GITHUB_PROFILE}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary-text hover:underline"
                 >
                   <Github className="h-4 w-4" />
                   {dictionary.projects.github.viewAll}

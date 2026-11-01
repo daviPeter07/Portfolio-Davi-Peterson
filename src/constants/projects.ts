@@ -11,7 +11,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 'forgePath',
-    icon: 'Brain',
+    icon: 'Terminal',
     technologies: ['Go', 'Bubble Tea', 'Bubbles', 'Lip Gloss', 'Cobra', 'Huh', 'Nerd Fonts'],
     code: 'https://github.com/daviPeter07/ForgePath',
   },

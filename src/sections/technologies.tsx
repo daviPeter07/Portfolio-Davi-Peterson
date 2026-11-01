@@ -48,7 +48,7 @@ export function TechnologiesSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             {dictionary.technologies.titleBefore}{' '}
-            <span className="text-primary">{dictionary.technologies.titleAccent}</span>
+            <span className="text-primary-text">{dictionary.technologies.titleAccent}</span>
           </h2>
 
           <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
@@ -58,7 +58,7 @@ export function TechnologiesSection() {
                   className="rounded-2xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md sm:p-7"
                 >
                   <div className="mb-6 flex items-center gap-3 border-b pb-5">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary-text">
                       <Icon className="h-5 w-5" />
                     </span>
                     <h3 className="text-xl font-bold">{title}</h3>

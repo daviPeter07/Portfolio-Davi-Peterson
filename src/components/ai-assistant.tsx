@@ -78,7 +78,7 @@ export function AiAssistant({ repos }: AiAssistantProps) {
             href={part}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary underline font-medium hover:text-primary/80 break-all transition-colors"
+            className="text-primary-text underline font-medium hover:text-primary-text/80 break-all transition-colors"
           >
             {part}
           </a>
@@ -240,7 +240,9 @@ export function AiAssistant({ repos }: AiAssistantProps) {
         }}
       >
         <DialogTrigger asChild>
-          <Button className="relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20">
+          <Button
+            aria-label={t.title}
+            className="relative flex h-16 w-16 cursor-pointer items-center justify-center rounded-full bg-primary p-0 text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:h-20 sm:w-20">
             <Bot className="size-8 text-white sm:size-8" strokeWidth={2.25} />
             {hasNotification && !isOpen && (
               <span className="absolute top-0 right-0 -mt-1 -mr-1 flex h-6 w-6 animate-bounce items-center justify-center rounded-full bg-red-500 text-xs font-black text-white shadow-lg ring-4 ring-background sm:h-8 sm:w-8 sm:text-sm">
@@ -250,27 +252,25 @@ export function AiAssistant({ repos }: AiAssistantProps) {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="w-[95vw] max-w-[95vw] sm:max-w-2xl h-[90vh] max-h-[860px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden">
-          <DialogTitle className="sr-only">Chat com Davi AI</DialogTitle>
+        <DialogContent
+          onOpenAutoFocus={(event) => {
+            // Evita abrir o teclado virtual antes de a pessoa ler o chat
+            if (window.matchMedia('(pointer: coarse)').matches) {
+              event.preventDefault();
+            }
+          }}
+          className="w-[95vw] max-w-[95vw] sm:max-w-2xl h-[90vh] max-h-[860px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden">
+          <DialogTitle className="sr-only">{t.title}</DialogTitle>
           <Card className="border-0 rounded-2xl overflow-hidden flex flex-col h-full shadow-none bg-transparent relative p-0 gap-0">
-            <CardHeader className="bg-muted/50 border-b p-4 sm:p-5 relative z-10 m-0">
-              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl font-bold tracking-tight text-foreground pr-8">
-                <Bot className="h-5 w-5 sm:h-6 sm:w-6" />
+            <CardHeader className="bg-muted/50 border-b px-4 py-3 relative z-10 m-0 gap-1">
+              <CardTitle className="flex items-center gap-2 text-lg font-bold tracking-tight text-foreground pr-10">
+                <Bot className="h-5 w-5" />
                 {t.title}
-                <span className="text-[10px] sm:text-xs uppercase tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full font-semibold ml-2">
+                <span className="text-[10px] sm:text-xs uppercase tracking-wider bg-primary/10 text-primary-text px-2 py-0.5 rounded-full font-semibold ml-1">
                   {t.beta}
                 </span>
               </CardTitle>
-              <p className="text-xs sm:text-sm text-muted-foreground font-medium mt-1">
-                {t.description}
-              </p>
-              <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded bg-orange-500/10 border border-orange-500/20 text-xs sm:text-sm text-orange-500">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-                </span>
-                Respostas geradas por IA. Pode levar alguns segundos.
-              </div>
+              <p className="text-xs sm:text-sm text-muted-foreground pr-10">{t.disclaimer}</p>
             </CardHeader>
 
             <CardContent className="flex-1 p-0 relative overflow-hidden flex flex-col m-0">
@@ -284,7 +284,7 @@ export function AiAssistant({ repos }: AiAssistantProps) {
                     {m.role !== 'user' && (
                       <div className="flex-shrink-0 mr-3 mt-1 hidden sm:block">
                         <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center border border-primary/20 shadow-sm">
-                          <Bot className="w-4 h-4 text-primary" />
+                          <Bot className="w-4 h-4 text-primary-text" />
                         </div>
                       </div>
                     )}
@@ -358,7 +358,7 @@ export function AiAssistant({ repos }: AiAssistantProps) {
                             >
                               <Icon
                                 aria-hidden
-                                className={`size-5 shrink-0 ${isHighlighted ? '' : 'text-primary'}`}
+                                className={`size-5 shrink-0 ${isHighlighted ? '' : 'text-primary-text'}`}
                               />
                               <span className="flex-1">{t.faq[topic].question}</span>
                               <ChevronRight

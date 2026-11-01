@@ -73,10 +73,11 @@ function getProjectLines(dictionary: Dictionary) {
 }
 
 function getExperienceLines(dictionary: Dictionary) {
-  return Object.entries(dictionary.experience.items).map(([id, item]) => {
-    const company = experiences.find((experience) => experience.id === id)?.company;
+  return experiences.map(({ id, company }) => {
+    const { title, period } =
+      dictionary.experience.items[id as keyof typeof dictionary.experience.items];
 
-    return `- ${item.title}${company ? ` (${company})` : ''}: ${item.period}`;
+    return `- ${title} (${company}): ${period}`;
   });
 }
 

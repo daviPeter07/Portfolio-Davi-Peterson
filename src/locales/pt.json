@@ -16,6 +16,9 @@
     "jobTitle": "Desenvolvedor Full Stack Júnior"
   },
   "common": {
+    "menu": "Abrir menu",
+    "scrollDown": "Ir para a próxima seção",
+    "sendEmail": "Enviar e-mail",
     "siteName": "Davi Peterson",
     "role": "Desenvolvedor de Software",
     "themeToggle": "Alternar tema",
@@ -45,9 +48,9 @@
   },
   "hero": {
     "title": "Olá, eu sou",
-    "subtitle": "Desenvolvedor de software apaixonado por criar soluções digitais bem construídas e fáceis de usar.",
+    "subtitle": "Desenvolvedor fullstack com Next.js e NestJS, criando sistemas web bem construídos e fáceis de usar.",
     "primaryCta": "Ver Projetos",
-    "secondaryCta": "Download CV",
+    "secondaryCta": "Baixar currículo",
     "mailSubject": "Contato pelo Portfólio",
     "mailBody": "Olá, Davi! Vi seu portfólio e gostaria de conversar."
   },
@@ -121,6 +124,9 @@
     }
   },
   "experience": {
+    "showMore": "Ver mais",
+    "showLess": "Ver menos",
+    "officialSite": "site oficial",
     "titleBefore": "Minha",
     "titleAccent": "Experiência",
     "items": {
@@ -283,6 +289,7 @@
     "botMessage": "Olá! Como posso te ajudar a conhecer o perfil do Davi hoje?",
     "userMessage": "Quais tecnologias ele mais usa?",
     "placeholder": "Escreva sua mensagem...",
+    "disclaimer": "Respostas geradas por IA. Podem levar alguns segundos.",
     "errorMessage": "Não consegui responder agora. Tente novamente em instantes.",
     "fallbackMessage": "O assistente não está disponível agora. Escolha uma das perguntas abaixo ou tente novamente mais tarde.",
     "faq": {

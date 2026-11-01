@@ -41,7 +41,7 @@ export function HeroSection() {
 
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             {dictionary.hero.title}{' '}
-            <span className="text-primary">{dictionary.common.siteName}</span>
+            <span className="text-primary-text">{dictionary.common.siteName}</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -52,7 +52,7 @@ export function HeroSection() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => window.open('https://github.com/daviPeter07', '_blank')}
+              onClick={() => scrollToSection(sectionIds.projects)}
             >
               {dictionary.hero.primaryCta}
             </Button>
@@ -60,7 +60,7 @@ export function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 bg-transparent"
+              className="border-primary dark:border-primary text-primary-text hover:bg-primary hover:text-primary-foreground transition-colors duration-300 bg-transparent"
             >
               <a href="/Davi Peterson.pdf" download>
                 {dictionary.hero.secondaryCta}
@@ -68,12 +68,13 @@ export function HeroSection() {
             </Button>
           </div>
 
-          <div className="flex justify-center space-x-6 mb-12">
+          <div className="flex justify-center gap-2 mb-12">
             <a
               href="https://github.com/daviPeter07"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label={dictionary.common.github}
+              className="inline-flex size-11 items-center justify-center text-muted-foreground hover:text-primary-text transition-colors"
             >
               <Github className="h-6 w-6" />
             </a>
@@ -81,13 +82,15 @@ export function HeroSection() {
               href="https://www.linkedin.com/in/davipeterson/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="LinkedIn"
+              className="inline-flex size-11 items-center justify-center text-muted-foreground hover:text-primary-text transition-colors"
             >
               <Linkedin className="h-6 w-6" />
             </a>
             <a
               href={mailHref}
-              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label={dictionary.common.sendEmail}
+              className="inline-flex size-11 items-center justify-center text-muted-foreground hover:text-primary-text transition-colors"
             >
               <Mail className="h-6 w-6" />
             </a>
@@ -97,9 +100,10 @@ export function HeroSection() {
 
       <button
         onClick={() => scrollToSection(sectionIds.about)}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        aria-label={dictionary.common.scrollDown}
+        className="absolute bottom-6 left-1/2 flex size-11 transform -translate-x-1/2 items-center justify-center animate-bounce"
       >
-        <ArrowDown className="h-6 w-6 text-primary" />
+        <ArrowDown className="h-6 w-6 text-primary-text" />
       </button>
     </section>
   );

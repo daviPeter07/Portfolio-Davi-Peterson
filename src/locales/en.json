@@ -16,6 +16,9 @@
     "jobTitle": "Junior Full Stack Developer"
   },
   "common": {
+    "menu": "Open menu",
+    "scrollDown": "Go to the next section",
+    "sendEmail": "Send email",
     "siteName": "Davi Peterson",
     "role": "Software Developer",
     "themeToggle": "Toggle theme",
@@ -45,9 +48,9 @@
   },
   "hero": {
     "title": "Hi, I'm",
-    "subtitle": "Software developer passionate about building well-crafted digital products that feel good to use.",
+    "subtitle": "Full-stack developer working with Next.js and NestJS, building web systems that are well made and easy to use.",
     "primaryCta": "View Projects",
-    "secondaryCta": "Download Resume",
+    "secondaryCta": "Download resume",
     "mailSubject": "Contact from Portfolio",
     "mailBody": "Hi Davi! I saw your portfolio and would like to talk."
   },
@@ -121,6 +124,9 @@
     }
   },
   "experience": {
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "officialSite": "official website",
     "titleBefore": "My",
     "titleAccent": "Experience",
     "items": {
@@ -283,6 +289,7 @@
     "botMessage": "Hello! How can I help you get to know Davi's profile today?",
     "userMessage": "What technologies does he use the most?",
     "placeholder": "Type your message...",
+    "disclaimer": "AI-generated answers. They may take a few seconds.",
     "errorMessage": "I couldn't answer right now. Please try again in a moment.",
     "fallbackMessage": "The assistant isn't available right now. Choose one of the questions below or try again later.",
     "faq": {

@@ -96,6 +96,16 @@ describe.each(Object.entries(dictionaries))('getFaqAnswer in %s', (_locale, dict
     }
   });
 
+  it('starts with the most recent experience', () => {
+    const [, firstLine] = getFaqAnswer('experience', dictionary).split('\n');
+
+    expect(firstLine).toContain('Solasstec');
+  });
+
+  it('ends with the oldest experience', () => {
+    expect(getFaqAnswer('experience', dictionary).split('\n').at(-1)).toContain('DG Computer');
+  });
+
   it('lists the technologies', () => {
     expect(getFaqAnswer('technologies', dictionary)).toContain('Next');
   });

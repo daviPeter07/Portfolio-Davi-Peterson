@@ -82,6 +82,8 @@ Stored in `.env.local` (git-ignored):
 
 Prettier: single quotes, semicolons, 100-column width.
 
+Use `text-primary-text` for orange text, not `text-primary`: the plain orange fails contrast on the light theme.
+
 Commits follow `.rules/commit-convention.md`:
 
 ```text

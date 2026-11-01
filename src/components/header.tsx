@@ -37,7 +37,7 @@ export function Header() {
   const currentLocale = localeOptions[locale];
 
   const localeBadgeClassName =
-    'inline-flex h-5 min-w-5 items-center justify-center rounded-sm bg-primary/10 px-1.5 text-[10px] font-bold text-primary';
+    'inline-flex h-5 min-w-5 items-center justify-center rounded-sm bg-primary/10 px-1.5 text-[10px] font-bold text-primary-text';
 
   const languageOptions = (
     <>
@@ -75,7 +75,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => scrollToSection(sectionIds.home)}
-            className="shrink-0 whitespace-nowrap text-lg font-bold text-primary transition-colors hover:text-primary/80 sm:text-xl"
+            className="min-h-11 shrink-0 whitespace-nowrap text-lg font-bold text-primary-text transition-colors hover:text-primary-text/80 sm:text-xl"
             aria-label={dictionary.nav.backToTopTitle}
             title={dictionary.nav.backToTopTitle}
           >
@@ -86,37 +86,37 @@ export function Header() {
           <div className="hidden lg:flex flex-1 items-center justify-center space-x-6">
             <button
               onClick={() => scrollToSection(sectionIds.home)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary-text transition-colors"
             >
               {dictionary.nav.home}
             </button>
             <button
               onClick={() => scrollToSection(sectionIds.about)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary-text transition-colors"
             >
               {dictionary.nav.about}
             </button>
             <button
               onClick={() => scrollToSection(sectionIds.technologies)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary-text transition-colors"
             >
               {dictionary.nav.technologies}
             </button>
             <button
               onClick={() => scrollToSection(sectionIds.experience)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary-text transition-colors"
             >
               {dictionary.nav.experience}
             </button>
             <button
               onClick={() => scrollToSection(sectionIds.projects)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary-text transition-colors"
             >
               {dictionary.nav.projects}
             </button>
             <button
               onClick={() => scrollToSection(sectionIds.contact)}
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary-text transition-colors"
             >
               {dictionary.nav.contact}
             </button>
@@ -149,18 +149,25 @@ export function Header() {
               <SelectTrigger
                 size="sm"
                 aria-label={dictionary.common.languageLabel}
-                className="w-[138px] shrink-0 px-2.5"
+                className="w-auto shrink-0 px-2.5 data-[size=sm]:h-11"
               >
                 <span className="flex items-center gap-2">
                   <span aria-hidden="true" className={localeBadgeClassName}>
                     {currentLocale.short}
                   </span>
-                  <span className="truncate">{currentLocale.label}</span>
+                  <span className="hidden truncate sm:inline">{currentLocale.label}</span>
                 </span>
               </SelectTrigger>
               <SelectContent>{languageOptions}</SelectContent>
             </Select>
-            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="size-11"
+              aria-label={dictionary.common.menu}
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
@@ -172,37 +179,37 @@ export function Header() {
             <div className="flex flex-col space-y-4 pt-4">
               <button
                 onClick={() => scrollToSection(sectionIds.home)}
-                className="text-left hover:text-primary transition-colors"
+                className="text-left hover:text-primary-text transition-colors"
               >
                 {dictionary.nav.home}
               </button>
               <button
                 onClick={() => scrollToSection(sectionIds.about)}
-                className="text-left hover:text-primary transition-colors"
+                className="text-left hover:text-primary-text transition-colors"
               >
                 {dictionary.nav.about}
               </button>
               <button
                 onClick={() => scrollToSection(sectionIds.technologies)}
-                className="text-left hover:text-primary transition-colors"
+                className="text-left hover:text-primary-text transition-colors"
               >
                 {dictionary.nav.technologies}
               </button>
               <button
                 onClick={() => scrollToSection(sectionIds.experience)}
-                className="text-left hover:text-primary transition-colors"
+                className="text-left hover:text-primary-text transition-colors"
               >
                 {dictionary.nav.experience}
               </button>
               <button
                 onClick={() => scrollToSection(sectionIds.projects)}
-                className="text-left hover:text-primary transition-colors"
+                className="text-left hover:text-primary-text transition-colors"
               >
                 {dictionary.nav.projects}
               </button>
               <button
                 onClick={() => scrollToSection(sectionIds.contact)}
-                className="text-left hover:text-primary transition-colors"
+                className="text-left hover:text-primary-text transition-colors"
               >
                 {dictionary.nav.contact}
               </button>

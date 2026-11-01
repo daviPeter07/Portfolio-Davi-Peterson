@@ -25,7 +25,7 @@ export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemP
           href={info.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-primary hover:underline"
+          className="text-sm text-primary-text hover:underline"
         >
           {dictionary.common.documentation}
         </a>
