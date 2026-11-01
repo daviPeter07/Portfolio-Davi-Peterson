@@ -30,7 +30,7 @@ export function HeroSection() {
         <div className="hero-enter">
           <div className="size-40 short:size-28 mx-auto mb-6 short:mb-3 rounded-full bg-linear-to-br from-primary to-accent overflow-hidden">
             <img
-              src="/meProfessional.jpg"
+              src="/davi-peterson.jpg"
               alt={dictionary.common.siteName}
               className="w-full h-full object-cover"
             />

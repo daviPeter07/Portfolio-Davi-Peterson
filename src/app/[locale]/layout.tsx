@@ -49,7 +49,7 @@ export async function generateMetadata({
     description: dictionary.metadata.description,
     keywords: dictionary.metadata.keywords,
     icons: {
-      icon: '/meProfessional.jpg',
+      icon: '/davi-peterson.jpg',
     },
     alternates: {
       canonical: `/${locale}`,
@@ -88,7 +88,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     '@type': 'Person',
     name: 'Davi Peterson',
     url: `${siteUrl}/${locale}`,
-    image: '/meProfessional.jpg',
+    image: '/davi-peterson.jpg',
     email: 'mailto:davipetersondev173@gmail.com',
     sameAs: ['https://www.linkedin.com/in/davipeterson/', 'https://github.com/daviPeter07'],
     jobTitle: dictionary.metadata.jobTitle,

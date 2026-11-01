@@ -12,7 +12,7 @@ export const contentType = 'image/png';
 
 export default async function Image() {
   // Read the local photo
-  const photoPath = path.join(process.cwd(), 'public', 'meProfessional.jpg');
+  const photoPath = path.join(process.cwd(), 'public', 'davi-peterson.jpg');
   let photoBase64 = '';
   try {
     const photoBuffer = fs.readFileSync(photoPath);
