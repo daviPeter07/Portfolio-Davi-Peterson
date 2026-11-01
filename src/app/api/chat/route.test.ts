@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 type StreamOptions = {
+  system: string;
   messages: unknown;
   maxTokens: number;
   maxRetries: number;
@@ -74,6 +75,15 @@ describe('POST /api/chat', () => {
 
     expect(call.maxTokens).toBe(1500);
     expect(call.messages).toEqual([{ role: 'user', content: 'oi' }]);
+  });
+
+  it('gives the assistant the public contact channels', async () => {
+    await POST(post(valid));
+
+    const { system } = streamText.mock.calls[0][0];
+
+    expect(system).toContain('davipetersondev173@gmail.com');
+    expect(system).toContain('https://www.linkedin.com/in/davipeterson/');
   });
 
   it('hides internal details on a 500', async () => {

@@ -1,4 +1,9 @@
 export const personalInfo = `
+CONTATO DO DAVI (Informe quando perguntarem como falar com ele):
+- E-mail: davipetersondev173@gmail.com
+- LinkedIn: https://www.linkedin.com/in/davipeterson/
+- GitHub: https://github.com/daviPeter07
+
 INFORMAÇÕES PESSOAIS (Revelar APENAS se perguntarem):
 - Idade: 19 anos (Aniversário: 12 de outubro).
 - Relacionamento: "Em um relacionamento sério com a Alice." (Diga isso exatamente assim, com firmeza e sem adicionar coisas como "no momento").
