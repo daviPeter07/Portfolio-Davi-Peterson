@@ -1,5 +1,5 @@
 import { createOpenAI } from '@ai-sdk/openai';
-import { convertToCoreMessages, streamText, type Attachment, type ToolInvocation } from 'ai';
+import { convertToCoreMessages, streamText } from 'ai';
 
 // Base de dados local (importando do próprio portfólio)
 import ptDict from '@/src/locales/pt.json';
@@ -11,6 +11,9 @@ import { personalInfo } from '@/src/ai-skills/personal';
 import { githubInfo } from '@/src/ai-skills/github';
 import { getResumeInfo } from '@/src/ai-skills/resume';
 
+import { isAllowedOrigin, parseChatRequest } from '@/src/lib/chat-request';
+import type { Locale } from '@/src/lib/i18n-config';
+
 // Instância customizada apontando para o OpenRouter
 const openrouter = createOpenAI({
   baseURL: 'https://openrouter.ai/api/v1',
@@ -19,27 +22,16 @@ const openrouter = createOpenAI({
 
 export const maxDuration = 30;
 
-type Locale = 'pt' | 'en' | 'es';
 type Dictionary = typeof ptDict;
-type ChatMessage = {
-  role: 'system' | 'user' | 'assistant' | 'function' | 'data' | 'tool';
-  content: string;
-  toolInvocations?: ToolInvocation[];
-  experimental_attachments?: Attachment[];
-};
-type ChatRequestBody = {
-  messages: ChatMessage[];
-  locale?: Locale;
-};
 
-function normalizeMessages(messages: ChatMessage[]) {
-  return messages.map((message) => ({
-    ...message,
-    content: message.content.trim(),
-  }));
+function jsonError(code: string, status: number) {
+  return new Response(JSON.stringify({ error: code }), {
+    status,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
 
-function getDictionary(locale?: Locale): Dictionary {
+function getDictionary(locale: Locale): Dictionary {
   if (locale === 'en') {
     return enDict;
   }
@@ -51,29 +43,19 @@ function getDictionary(locale?: Locale): Dictionary {
   return ptDict;
 }
 
-function getErrorMessage(error: unknown) {
-  if (error instanceof Error) {
-    return error.message;
-  }
-
-  return 'Failed to process request';
-}
-
-function getErrorStack(error: unknown) {
-  if (error instanceof Error) {
-    return error.stack;
-  }
-
-  return undefined;
-}
-
 export async function POST(req: Request) {
   try {
-    const { messages, locale } = (await req.json()) as ChatRequestBody;
-    const normalizedMessages = normalizeMessages(messages);
+    if (!isAllowedOrigin(req.headers.get('origin'), req.headers.get('host'))) {
+      return jsonError('forbidden', 403);
+    }
 
-    // Limitar o histórico para não enviar a conversa inteira e não deixar a API lenta
-    const recentMessages = normalizedMessages.slice(-6);
+    const chatRequest = parseChatRequest(await req.json().catch(() => null));
+
+    if (!chatRequest) {
+      return jsonError('invalid_request', 400);
+    }
+
+    const { messages, locale } = chatRequest;
 
     // Selecionar o dicionário correto com base no idioma atual do usuário
     const dict = getDictionary(locale);
@@ -117,23 +99,25 @@ ${resumeInfo}`;
     const result = await streamText({
       model: openrouter(process.env.OPENROUTER_MODEL || 'openrouter/free'),
       system: systemPrompt,
-      messages: convertToCoreMessages(recentMessages),
+      messages: convertToCoreMessages(messages),
       temperature: 0.7,
+      maxTokens: 500,
+      maxRetries: 1,
+      abortSignal: req.signal,
     });
 
     // O TypeScript acusa erro nesta linha dizendo que toDataStreamResponse não existe,
     // sugerindo toTextStreamResponse. No entanto, toTextStreamResponse envia texto puro,
     // o que faz o useChat (frontend) travar. Apenas toDataStreamResponse empacota o stream
     // no formato correto para o useChat v1.x+.
-    return result.toDataStreamResponse();
+    return result.toDataStreamResponse({
+      getErrorMessage: (error) => {
+        console.error('Error streaming chat response:', error);
+        return 'stream_failed';
+      },
+    });
   } catch (error: unknown) {
     console.error('Error handling chat request:', error);
-    return new Response(
-      JSON.stringify({ error: getErrorMessage(error), stack: getErrorStack(error) }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+    return jsonError('internal_error', 500);
   }
 }
