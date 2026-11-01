@@ -1,8 +1,7 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   excludeFeaturedRepos,
   formatGithubContext,
-  getGithubRepos,
   parseGithubRepos,
   type GithubRepo,
 } from '@/src/lib/github-repos';
@@ -71,9 +70,30 @@ describe('parseGithubRepos', () => {
 });
 
 describe('getGithubRepos', () => {
+  const rateLimited = (resetInSeconds: number) =>
+    new Response('{}', {
+      status: 403,
+      headers: {
+        'x-ratelimit-remaining': '0',
+        'x-ratelimit-reset': String(Math.floor(Date.now() / 1000) + resetInSeconds),
+      },
+    });
+
+  // O bloqueio fica em memória no módulo, então cada teste começa com um módulo novo
+  const loadGetGithubRepos = async () => (await import('@/src/lib/github-repos')).getGithubRepos;
+
+  beforeEach(() => {
+    vi.resetModules();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it('requests the most recently pushed repositories with a 10 minute cache', async () => {
     const fetchMock = vi.fn(async () => Response.json([apiRepo()]));
     vi.stubGlobal('fetch', fetchMock);
+    const getGithubRepos = await loadGetGithubRepos();
 
     expect(await getGithubRepos()).toEqual([repo()]);
 
@@ -91,6 +111,7 @@ describe('getGithubRepos', () => {
     const fetchMock = vi.fn(async () => Response.json([]));
     vi.stubGlobal('fetch', fetchMock);
     vi.stubEnv('GITHUB_TOKEN', 'secret');
+    const getGithubRepos = await loadGetGithubRepos();
 
     await getGithubRepos();
 
@@ -102,12 +123,62 @@ describe('getGithubRepos', () => {
     expect(options.headers.Authorization).toBe('Bearer secret');
   });
 
-  it('returns nothing and logs when GitHub refuses', async () => {
+  it('warns once without an error when rate limited', async () => {
+    const error = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => rateLimited(600))
+    );
+    const getGithubRepos = await loadGetGithubRepos();
+
+    expect(await getGithubRepos()).toEqual([]);
+    await getGithubRepos();
+
+    expect(warn).toHaveBeenCalledTimes(1);
+    expect(error).not.toHaveBeenCalled();
+  });
+
+  it('stops calling GitHub until the rate limit resets', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.useFakeTimers({ toFake: ['Date'] });
+    const fetchMock = vi.fn(async () => rateLimited(600));
+    vi.stubGlobal('fetch', fetchMock);
+    const getGithubRepos = await loadGetGithubRepos();
+
+    await getGithubRepos();
+    await getGithubRepos();
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+
+    vi.setSystemTime(Date.now() + 601_000);
+    await getGithubRepos();
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('keeps the last good list while rate limited', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(Response.json([apiRepo()]))
+      .mockResolvedValue(rateLimited(600));
+    vi.stubGlobal('fetch', fetchMock);
+    const getGithubRepos = await loadGetGithubRepos();
+
+    await getGithubRepos();
+
+    expect(await getGithubRepos()).toEqual([repo()]);
+    expect(await getGithubRepos()).toEqual([repo()]);
+  });
+
+  it('returns nothing and logs an error for other refusals', async () => {
     const log = vi.spyOn(console, 'error').mockImplementation(() => {});
     vi.stubGlobal(
       'fetch',
-      vi.fn(async () => new Response('{}', { status: 403 }))
+      vi.fn(async () => new Response('{}', { status: 500 }))
     );
+    const getGithubRepos = await loadGetGithubRepos();
 
     expect(await getGithubRepos()).toEqual([]);
     expect(log).toHaveBeenCalled();
@@ -119,6 +190,7 @@ describe('getGithubRepos', () => {
       'fetch',
       vi.fn(async () => Promise.reject(new Error('timeout')))
     );
+    const getGithubRepos = await loadGetGithubRepos();
 
     expect(await getGithubRepos()).toEqual([]);
   });

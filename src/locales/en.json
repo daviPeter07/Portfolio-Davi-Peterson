@@ -121,7 +121,7 @@
       "Docker": "Container platform for packaging and shipping applications.",
       "MiniIO": "High-performance, S3 compatible object storage.",
       "RabbitMQ": "Message broker for asynchronous communication between services.",
-      "Microservices": "Architecture that splits a system into independent services.",
+      "Microserviços": "Architecture that splits a system into independent services.",
       "AWS": "Cloud computing platform with managed infrastructure services."
     }
   },

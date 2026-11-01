@@ -10,6 +10,10 @@ const MAX_CONTEXT_REPOS = 15;
 const HIDDEN_REPOS = [GITHUB_USER, 'Portfolio-Davi-Peterson'].map((name) => name.toLowerCase());
 const HIDDEN_REPO_PREFIX = 'teste-tecnico';
 
+// Sem token são 60 requisições por hora: após o limite, novas tentativas só atrasam a página
+let rateLimitedUntil = 0;
+let lastRepos: GithubRepo[] = [];
+
 export type GithubRepo = {
   name: string;
   description: string | null;
@@ -60,7 +64,25 @@ export function parseGithubRepos(body: unknown): GithubRepo[] {
   }));
 }
 
+function getRateLimitReset(response: Response) {
+  const isRateLimited =
+    response.status === 429 ||
+    (response.status === 403 && response.headers.get('x-ratelimit-remaining') === '0');
+
+  if (!isRateLimited) {
+    return null;
+  }
+
+  const resetSeconds = Number(response.headers.get('x-ratelimit-reset'));
+
+  return resetSeconds ? resetSeconds * 1000 : Date.now() + REVALIDATE_SECONDS * 1000;
+}
+
 export async function getGithubRepos(): Promise<GithubRepo[]> {
+  if (Date.now() < rateLimitedUntil) {
+    return lastRepos;
+  }
+
   const token = process.env.GITHUB_TOKEN;
 
   try {
@@ -76,15 +98,25 @@ export async function getGithubRepos(): Promise<GithubRepo[]> {
       }
     );
 
-    if (!response.ok) {
-      console.error('Error fetching GitHub repositories:', response.status);
-      return [];
+    const rateLimitReset = getRateLimitReset(response);
+
+    if (rateLimitReset) {
+      rateLimitedUntil = rateLimitReset;
+      console.warn(`GitHub rate limit reached until ${new Date(rateLimitReset).toISOString()}`);
+      return lastRepos;
     }
 
-    return parseGithubRepos(await response.json());
+    if (!response.ok) {
+      console.error('Error fetching GitHub repositories:', response.status);
+      return lastRepos;
+    }
+
+    lastRepos = parseGithubRepos(await response.json());
+
+    return lastRepos;
   } catch (error) {
     console.error('Error fetching GitHub repositories:', error);
-    return [];
+    return lastRepos;
   }
 }
 

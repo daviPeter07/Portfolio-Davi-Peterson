@@ -63,7 +63,7 @@ export const dataDevOps: TechItem[] = [
     logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
   },
   {
-    name: 'Microservices',
+    name: 'Microserviços',
     logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8804a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='9' y='2' width='6' height='6' rx='1'/><rect x='2' y='16' width='6' height='6' rx='1'/><rect x='16' y='16' width='6' height='6' rx='1'/><path d='M12 8v4M5 16v-2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2'/></svg>",
   },
 ];
@@ -80,7 +80,7 @@ export const techResources: Record<string, { url: string }> = {
   Redis: { url: 'https://redis.io/docs/latest' },
   Docker: { url: 'https://docs.docker.com' },
   RabbitMQ: { url: 'https://www.rabbitmq.com/docs' },
-  Microservices: { url: 'https://microservices.io/' },
+  Microserviços: { url: 'https://microservices.io/' },
   MiniIO: { url: 'https://min.io/docs/minio/linux/index.html' },
   AWS: { url: 'https://docs.aws.amazon.com/' },
 };
