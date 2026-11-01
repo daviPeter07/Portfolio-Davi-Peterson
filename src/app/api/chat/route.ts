@@ -31,6 +31,17 @@ function jsonError(code: string, status: number) {
   });
 }
 
+// Erros do provedor guardam o corpo da requisição e da resposta, que podem conter texto do visitante
+function toLogFields(error: unknown) {
+  if (!(error instanceof Error)) {
+    return { name: 'UnknownError' };
+  }
+
+  const { statusCode } = error as { statusCode?: number };
+
+  return { name: error.name, message: error.message, statusCode };
+}
+
 function getDictionary(locale: Locale): Dictionary {
   if (locale === 'en') {
     return enDict;
@@ -107,6 +118,12 @@ ${resumeInfo}`;
       maxTokens: 1500,
       maxRetries: 1,
       abortSignal: req.signal,
+      // O provedor pode encerrar o stream sem emitir erro, então o fim anormal é detectado aqui
+      onFinish: ({ text, finishReason }) => {
+        if (!text.trim() || finishReason === 'unknown' || finishReason === 'error') {
+          console.error('Chat reply ended abnormally', { finishReason, textLength: text.length });
+        }
+      },
     });
 
     // O TypeScript acusa erro nesta linha dizendo que toDataStreamResponse não existe,
@@ -115,12 +132,12 @@ ${resumeInfo}`;
     // no formato correto para o useChat v1.x+.
     return result.toDataStreamResponse({
       getErrorMessage: (error) => {
-        console.error('Error streaming chat response:', error);
+        console.error('Error streaming chat response:', toLogFields(error));
         return 'stream_failed';
       },
     });
   } catch (error: unknown) {
-    console.error('Error handling chat request:', error);
+    console.error('Error handling chat request:', toLogFields(error));
     return jsonError('internal_error', 500);
   }
 }

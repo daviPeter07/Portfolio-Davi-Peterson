@@ -8,6 +8,7 @@ import { Input } from '@/src/components/ui/input';
 import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/src/components/ui/dialog';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/src/components/ui/card';
 import { useI18n } from '@/src/components/i18n-provider';
+import { isReplyMissing } from '@/src/lib/chat-reply';
 
 type WindowWithWebkitAudioContext = Window & {
   webkitAudioContext?: typeof AudioContext;
@@ -266,7 +267,7 @@ export function AiAssistant() {
                   </div>
                 )}
 
-                {error && (
+                {(error || isReplyMissing(messages, isLoading)) && (
                   <div className="flex justify-center">
                     <div className="bg-destructive/10 text-destructive text-xs p-2 rounded-lg text-center max-w-[90%]">
                       {t.errorMessage}
