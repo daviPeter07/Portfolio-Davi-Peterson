@@ -27,7 +27,7 @@ Single-page, multi-language portfolio on Next.js 15 (App Router), React 19, Tail
 - `[locale]/layout.tsx` loads the dictionary on the server and passes it to `I18nProvider`. Client components read it with `useI18n()`.
 - `src/lib/i18n-config.ts` is safe to import anywhere. `src/lib/i18n.ts` is `server-only`; client code may only import types from it.
 - `pt.json` is the source of the `Dictionary` type, so all three locale files must keep the same shape.
-- Adding a locale touches `i18n-config.ts`, the loaders in `i18n.ts`, the `alternates` in `layout.tsx`, the JSON files, and the separate `Locale` type and `getDictionary` in `src/app/api/chat/route.ts`.
+- Adding a locale touches `i18n-config.ts`, the loaders in `i18n.ts`, the `alternates` in `layout.tsx`, the JSON files, and `getDictionary` in `src/app/api/chat/route.ts`.
 
 ### Content model
 
@@ -50,6 +50,8 @@ The system prompt is rebuilt per request from `src/ai-skills/`:
 - `resume.ts` derives skills, experience and projects from the constants and the locale dictionary, so edits there reach the assistant automatically.
 
 `src/lib/chat-request.ts` is the entry barrier: `isAllowedOrigin` and `parseChatRequest` run before anything reaches the model. The app has no rate limit, so the OpenRouter key's quota is the usage ceiling. Treat everything in the prompt as public.
+
+When a request fails or returns no text, the chat falls back to ready-made answers from `src/lib/chat-faq.ts`, built from the constants and dictionaries without calling the model. The last question decides which button is highlighted.
 
 Constraints that are easy to break:
 

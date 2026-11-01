@@ -279,6 +279,25 @@
     "botMessage": "Hello! How can I help you get to know Davi's profile today?",
     "userMessage": "What technologies does he use the most?",
     "placeholder": "Type your message...",
-    "errorMessage": "I couldn't answer right now. Please try again in a moment."
+    "errorMessage": "I couldn't answer right now. Please try again in a moment.",
+    "fallbackMessage": "The assistant isn't available right now. Choose one of the questions below or try again later.",
+    "faq": {
+      "projects": {
+        "question": "What projects has Davi built?",
+        "intro": "These are Davi's projects:"
+      },
+      "experience": {
+        "question": "What is his experience?",
+        "intro": "This is Davi's professional experience:"
+      },
+      "technologies": {
+        "question": "What technologies does he use?",
+        "intro": "These are Davi's main technologies:"
+      },
+      "contact": {
+        "question": "How can I reach him?",
+        "intro": "You can reach Davi here:"
+      }
+    }
   }
 }

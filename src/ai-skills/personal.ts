@@ -1,8 +1,10 @@
+import { contact } from '@/src/constants/contact';
+
 export const personalInfo = `
 CONTATO DO DAVI (Informe quando perguntarem como falar com ele):
-- E-mail: davipetersondev173@gmail.com
-- LinkedIn: https://www.linkedin.com/in/davipeterson/
-- GitHub: https://github.com/daviPeter07
+- E-mail: ${contact.email}
+- LinkedIn: ${contact.linkedin}
+- GitHub: ${contact.github}
 
 INFORMAÇÕES PESSOAIS (Revelar APENAS se perguntarem):
 - Idade: 19 anos (Aniversário: 12 de outubro).

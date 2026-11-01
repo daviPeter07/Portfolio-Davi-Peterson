@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/src/compone
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/src/components/ui/card';
 import { useI18n } from '@/src/components/i18n-provider';
 import { isReplyMissing } from '@/src/lib/chat-reply';
+import { getFaqAnswer, rankFaqTopics, type FaqTopic } from '@/src/lib/chat-faq';
 
 type WindowWithWebkitAudioContext = Window & {
   webkitAudioContext?: typeof AudioContext;
@@ -18,14 +19,19 @@ export function AiAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [hasNotification, setHasNotification] = useState(false);
+  const [isFallbackActive, setIsFallbackActive] = useState(false);
+  const [lastQuestion, setLastQuestion] = useState('');
+  const [answeredTopics, setAnsweredTopics] = useState<FaqTopic[]>([]);
   const { dictionary, locale } = useI18n();
   const t = dictionary.aiAssistant;
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
+  const { messages, setMessages, input, handleInputChange, handleSubmit, isLoading, error } =
+    useChat({
     api: '/api/chat',
     body: { locale },
     onError: (err) => console.error('Chat Hook Error:', err),
+    onFinish: () => setIsFallbackActive(false),
     initialMessages: [
       {
         id: 'welcome-message',
@@ -89,8 +95,27 @@ export function AiAssistant() {
       return;
     }
 
+    setLastQuestion(normalizedInput);
     handleSubmit(event);
   };
+
+  const handleFaqClick = (topic: FaqTopic) => {
+    setAnsweredTopics((topics) => [...topics, topic]);
+    setMessages([
+      ...messages,
+      { id: `faq-${topic}-question`, role: 'user', content: t.faq[topic].question },
+      { id: `faq-${topic}-answer`, role: 'assistant', content: getFaqAnswer(topic, dictionary) },
+    ]);
+  };
+
+  const fallback = rankFaqTopics(lastQuestion, answeredTopics);
+
+  // Fica ativo após a falha: clicar em uma pergunta pronta não pode esconder as demais
+  useEffect(() => {
+    if (error || isReplyMissing(messages, isLoading)) {
+      setIsFallbackActive(true);
+    }
+  }, [error, messages, isLoading]);
 
   // Auto scroll para o final das mensagens
   useEffect(() => {
@@ -267,10 +292,24 @@ export function AiAssistant() {
                   </div>
                 )}
 
-                {(error || isReplyMissing(messages, isLoading)) && (
-                  <div className="flex justify-center">
+                {isFallbackActive && !isLoading && (
+                  <div className="flex flex-col items-center gap-2">
                     <div className="bg-destructive/10 text-destructive text-xs p-2 rounded-lg text-center max-w-[90%]">
-                      {t.errorMessage}
+                      {fallback.topics.length > 0 ? t.fallbackMessage : t.errorMessage}
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {fallback.topics.map((topic) => (
+                        <Button
+                          key={topic}
+                          type="button"
+                          size="sm"
+                          variant={topic === fallback.highlighted ? 'default' : 'outline'}
+                          className="h-auto rounded-full whitespace-normal"
+                          onClick={() => handleFaqClick(topic)}
+                        >
+                          {t.faq[topic].question}
+                        </Button>
+                      ))}
                     </div>
                   </div>
                 )}
