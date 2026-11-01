@@ -39,6 +39,7 @@ export function AiAssistant() {
   const [isFallbackActive, setIsFallbackActive] = useState(false);
   const [lastQuestion, setLastQuestion] = useState('');
   const [answeredTopics, setAnsweredTopics] = useState<FaqTopic[]>([]);
+  const [isNoticeDismissed, setIsNoticeDismissed] = useState(false);
   const { dictionary, locale } = useI18n();
   const t = dictionary.aiAssistant;
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -113,11 +114,13 @@ export function AiAssistant() {
     }
 
     setLastQuestion(normalizedInput);
+    setIsNoticeDismissed(false);
     handleSubmit(event);
   };
 
   const handleFaqClick = (topic: FaqTopic) => {
     setAnsweredTopics((topics) => [...topics, topic]);
+    setIsNoticeDismissed(true);
     setMessages([
       ...messages,
       { id: `faq-${topic}-question`, role: 'user', content: t.faq[topic].question },
@@ -136,10 +139,20 @@ export function AiAssistant() {
 
   // Auto scroll para o final das mensagens
   useEffect(() => {
+    // Respostas prontas são longas: rolar até o fim esconderia o início delas
+    const faqQuestion = messages.at(-1)?.id.startsWith('faq-') ? messages.at(-2) : null;
+
+    if (faqQuestion) {
+      document
+        .querySelector(`[data-message-id="${faqQuestion.id}"]`)
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [messages]);
+  }, [messages, isFallbackActive]);
 
   // Mostrar o botão apenas na primeira vez que o usuário interagir com a página
   useEffect(() => {
@@ -232,7 +245,7 @@ export function AiAssistant() {
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="w-[95vw] max-w-[500px] h-[85vh] max-h-[700px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden">
+        <DialogContent className="w-[95vw] max-w-[95vw] sm:max-w-2xl h-[90vh] max-h-[860px] p-0 border-0 shadow-2xl rounded-2xl bg-background flex flex-col gap-0 outline-none overflow-hidden">
           <DialogTitle className="sr-only">Chat com Davi AI</DialogTitle>
           <Card className="border-0 rounded-2xl overflow-hidden flex flex-col h-full shadow-none bg-transparent relative p-0 gap-0">
             <CardHeader className="bg-muted/50 border-b p-4 sm:p-5 relative z-10 m-0">
@@ -260,7 +273,8 @@ export function AiAssistant() {
                 {messages.map((m) => (
                   <div
                     key={m.id}
-                    className={`flex w-full ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    data-message-id={m.id}
+                    className={`flex w-full scroll-mt-2 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     {m.role !== 'user' && (
                       <div className="flex-shrink-0 mr-3 mt-1 hidden sm:block">
@@ -311,9 +325,11 @@ export function AiAssistant() {
 
                 {isFallbackActive && !isLoading && (
                   <div className="flex w-full flex-col gap-3 sm:pl-11">
-                    <div className="bg-muted border text-foreground rounded-2xl rounded-tl-sm p-3 sm:p-4 text-sm sm:text-base leading-relaxed shadow-sm">
-                      {fallback.topics.length > 0 ? t.fallbackMessage : t.errorMessage}
-                    </div>
+                    {!isNoticeDismissed && (
+                      <div className="bg-muted border text-foreground rounded-2xl rounded-tl-sm p-3 sm:p-4 text-sm sm:text-base leading-relaxed shadow-sm">
+                        {fallback.topics.length > 0 ? t.fallbackMessage : t.errorMessage}
+                      </div>
+                    )}
                     {fallback.topics.length > 0 && (
                       <div
                         role="group"
