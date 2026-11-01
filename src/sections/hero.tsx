@@ -32,7 +32,7 @@ export function HeroSection() {
             <img
               src="/meProfessional.jpg"
               alt={dictionary.common.siteName}
-              className="w-full h-full object-cover origin-[50%_20%] scale-[1.45]"
+              className="w-full h-full object-cover"
             />
           </div>
 
