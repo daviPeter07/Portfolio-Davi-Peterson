@@ -16,6 +16,9 @@ type ProjectsSectionProps = {
 
 const GITHUB_PROFILE = 'https://github.com/daviPeter07';
 
+// A área fica oculta por enquanto; a IA e as respostas prontas continuam usando os repositórios
+const SHOW_GITHUB_REPOS = false;
+
 export function ProjectsSection({ repos }: ProjectsSectionProps) {
   const { dictionary, locale } = useI18n();
   const dateFormat = new Intl.DateTimeFormat(localeToHtmlLang[locale], {
@@ -144,7 +147,7 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
             })}
           </div>
 
-          {repos.length > 0 && (
+          {SHOW_GITHUB_REPOS && repos.length > 0 && (
             <div className="mt-16 max-w-6xl mx-auto">
               <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
                 <h3 className="text-xl md:text-2xl font-semibold">

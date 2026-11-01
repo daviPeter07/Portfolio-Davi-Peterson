@@ -31,7 +31,7 @@ export const projects: Project[] = [
     id: 'operis',
     image: '/Operis-dashboard.png',
     technologies: ['PHP', 'Laravel 13', 'Inertia.js', 'React'],
-    isPrivate: true,
+    code: 'https://github.com/daviPeter07/Operis-Saas',
   },
   {
     id: 'residuum',

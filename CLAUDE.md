@@ -62,7 +62,7 @@ Constraints that are easy to break:
 
 ### GitHub sync
 
-`src/lib/github-repos.ts` fetches public repositories with a 10-minute cache. The page uses `revalidate = 600` and shows the ones that are not curated projects, the assistant receives them in the prompt, and the ready-made projects answer lists them. If GitHub fails, the result is empty: the section hides and the assistant falls back to `ai-skills/github.ts`.
+`src/lib/github-repos.ts` fetches public repositories with a 10-minute cache. The page uses `revalidate = 600`, the assistant receives the repositories in the prompt, and the ready-made projects answer lists the ones that are not curated projects. The landing page area for them is currently off through `SHOW_GITHUB_REPOS` in `src/sections/projects.tsx`. If GitHub fails, the result is empty and the assistant falls back to `ai-skills/github.ts`.
 
 ### Other notes
 
