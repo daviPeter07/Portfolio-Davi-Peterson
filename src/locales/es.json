@@ -237,7 +237,7 @@
       },
       "operis": {
         "title": "Operis",
-        "description": "Sistema de gestión creado para DG Computer y ofrecido a otras empresas. Registra ventas, actualiza el inventario al instante, genera las cuotas del crédito y muestra lo que está atrasado, además de controlar cuentas por pagar y por cobrar. Funciona en el navegador del computador o del celular."
+        "description": "SaaS multi-tenant de punto de venta y flujo de caja, en desarrollo constante. Registra ventas, actualiza el inventario al instante y controla cuotas y cuentas por pagar y por cobrar, en el navegador del computador o del celular."
       },
       "forgePath": {
         "title": "ForgePath CLI",

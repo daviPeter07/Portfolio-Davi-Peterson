@@ -237,7 +237,7 @@
       },
       "operis": {
         "title": "Operis",
-        "description": "Management system built for DG Computer and offered to other businesses. It records sales, updates stock instantly, creates installment plans and shows what is overdue, while tracking accounts payable and receivable. It runs in the browser on a computer or phone."
+        "description": "Multi-tenant SaaS for point of sale and cash flow, under continuous development. It records sales, updates stock instantly and tracks installments and accounts payable and receivable, in the browser on a computer or phone."
       },
       "forgePath": {
         "title": "ForgePath CLI",

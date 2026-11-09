@@ -14,7 +14,6 @@ export const projects: Project[] = [
     image: '/Operis-landingpage.jpg',
     technologies: ['PHP', 'Laravel 13', 'Inertia.js', 'React'],
     demo: 'https://www.dgcomputer.com.br/operis/',
-    code: 'https://github.com/daviPeter07/Operis-Saas',
   },
   {
     id: 'syncForge',

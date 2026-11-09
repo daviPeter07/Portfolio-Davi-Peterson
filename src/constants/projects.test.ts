@@ -15,11 +15,11 @@ describe('projects', () => {
     ]);
   });
 
-  it('links Operis to its live page and its code', () => {
+  it('links Operis to its live page only, since its code is closed', () => {
     const operis = projects.find(({ id }) => id === 'operis');
 
     expect(operis?.demo).toBe('https://www.dgcomputer.com.br/operis/');
-    expect(operis?.code).toBe('https://github.com/daviPeter07/Operis-Saas');
+    expect(operis?.code).toBeUndefined();
   });
 
   it('points every image at a file in public', () => {
