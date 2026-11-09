@@ -275,6 +275,10 @@
       "residuum": {
         "title": "Residuum",
         "description": "Reverse logistics and circular economy platform that connects people who want to dispose of waste with those who collect it, with a map search for collection points."
+      },
+      "leaf": {
+        "title": "Leaf",
+        "description": "Mobile reading tracker inspired by Strava. It records pages, time and pace for each session, shows a weekly summary and creates an image with the stats to share in stories. Data is stored only on the device."
       }
     }
   },

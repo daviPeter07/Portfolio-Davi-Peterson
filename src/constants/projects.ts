@@ -46,6 +46,12 @@ export const projects: Project[] = [
     demo: 'https://maucco.com.br/',
   },
   {
+    id: 'leaf',
+    image: '/Leaf-app.jpg',
+    technologies: ['TypeScript', 'React Native', 'Expo', 'Zustand'],
+    code: 'https://github.com/daviPeter07/leaf',
+  },
+  {
     id: 'forgePath',
     icon: 'Terminal',
     technologies: ['Go', 'Bubble Tea', 'Bubbles', 'Lip Gloss', 'Cobra', 'Huh', 'Nerd Fonts'],

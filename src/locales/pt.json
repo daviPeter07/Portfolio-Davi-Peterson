@@ -275,6 +275,10 @@
       "residuum": {
         "title": "Residuum",
         "description": "Plataforma de logística reversa e economia circular que conecta quem quer descartar resíduos a quem faz a coleta, com busca de pontos de coleta no mapa."
+      },
+      "leaf": {
+        "title": "Leaf",
+        "description": "App mobile de acompanhamento de leitura inspirado no Strava. Registra páginas, tempo e ritmo de cada sessão, mostra o resumo da semana e gera uma imagem com as métricas para compartilhar nos stories. Os dados ficam salvos só no aparelho."
       }
     }
   },

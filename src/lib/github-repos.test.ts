@@ -7,9 +7,9 @@ import {
 } from '@/src/lib/github-repos';
 
 const apiRepo = (overrides: Record<string, unknown> = {}) => ({
-  name: 'leaf',
+  name: 'notes-app',
   description: 'App de leitura',
-  html_url: 'https://github.com/daviPeter07/leaf',
+  html_url: 'https://github.com/daviPeter07/notes-app',
   homepage: null,
   language: 'TypeScript',
   pushed_at: '2026-10-30T10:00:00Z',
@@ -20,9 +20,9 @@ const apiRepo = (overrides: Record<string, unknown> = {}) => ({
 });
 
 const repo = (overrides: Partial<GithubRepo> = {}): GithubRepo => ({
-  name: 'leaf',
+  name: 'notes-app',
   description: 'App de leitura',
-  url: 'https://github.com/daviPeter07/leaf',
+  url: 'https://github.com/daviPeter07/notes-app',
   homepage: null,
   language: 'TypeScript',
   pushedAt: '2026-10-30T10:00:00Z',
@@ -202,10 +202,10 @@ describe('excludeFeaturedRepos', () => {
       repo({ name: 'ForgePath' }),
       repo({ name: 'Operis-Saas' }),
       repo({ name: 'Landing', homepage: 'https://syncforge-business.vercel.app' }),
-      repo({ name: 'leaf' }),
+      repo({ name: 'notes-app' }),
     ]).map(({ name }) => name);
 
-    expect(names).toEqual(['leaf']);
+    expect(names).toEqual(['notes-app']);
   });
 
   it('removes repositories without a description', () => {
@@ -221,13 +221,13 @@ describe('excludeFeaturedRepos', () => {
 
 describe('formatGithubContext', () => {
   it('describes the repositories for the assistant', () => {
-    const context = formatGithubContext([repo({ homepage: 'https://leaf.app' })]);
+    const context = formatGithubContext([repo({ homepage: 'https://notes.app' })]);
 
-    expect(context).toContain('leaf');
+    expect(context).toContain('notes-app');
     expect(context).toContain('App de leitura');
     expect(context).toContain('TypeScript');
     expect(context).toContain('2026-10-30');
-    expect(context).toContain('https://leaf.app');
+    expect(context).toContain('https://notes.app');
   });
 
   it('is empty without repositories', () => {
