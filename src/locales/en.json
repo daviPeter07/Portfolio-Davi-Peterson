@@ -60,8 +60,8 @@
     "titleBefore": "About",
     "titleAccent": "Me",
     "paragraphs": {
-      "first": "I'm a full stack developer and work mainly with Next.js and NestJS, from architecture to interfaces, including APIs and integrations.",
-      "second": "Beyond coding, I lead teams and mentor other developers. I study Systems Analysis and Development at UniNorte."
+      "first": "I'm a full stack developer with experience in front end, back end, integrations and infrastructure. I work mainly with Next.js and NestJS and move between interfaces, APIs, authentication, caching, queues, asynchronous processing and AI integrations.",
+      "second": "I've taken on technical leadership on both the front end and the back end, taking part in architecture decisions and looking after the quality of deliveries. My focus is writing code that is easy to maintain, following good practices and making technical decisions that make sense for the product."
     },
     "stats": {
       "seniorityValue": "+1000",
