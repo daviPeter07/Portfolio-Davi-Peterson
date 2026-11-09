@@ -12,9 +12,6 @@ type TechnologyItemProps = {
   invertDark?: boolean;
 };
 
-// Nomes longos ocupam a linha inteira no grid de 2 colunas, onde não cabem
-const WIDE_NAMES = ['Microserviços', 'Cloudflare R2'];
-
 export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemProps) {
   const isMobile = useIsMobile();
   const { dictionary } = useI18n();
@@ -39,9 +36,7 @@ export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemP
   const item = (
     <div
       title={name}
-      className={`group flex items-center gap-2 px-2.5 py-3 rounded-lg border bg-muted/30 hover:bg-muted transition-transform hover:-translate-y-0.5 hover:ring-1 ring-primary/20 ${
-        WIDE_NAMES.includes(name) ? 'min-[380px]:col-span-2 sm:col-span-1' : ''
-      }`}
+      className="group flex h-full flex-col items-center justify-center gap-2 px-2.5 py-3 text-center rounded-lg border bg-muted/30 hover:bg-muted transition-transform hover:-translate-y-0.5 hover:ring-1 ring-primary/20 md:flex-row md:justify-start md:text-left"
     >
       {name === 'NativeWind' || name === 'AWS' ? (
         <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md bg-white p-1">

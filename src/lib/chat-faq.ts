@@ -1,7 +1,14 @@
 import { contact } from '@/src/constants/contact';
 import { experiences } from '@/src/constants/experiences';
 import { projects } from '@/src/constants/projects';
-import { backendAPIs, coreLanguages, dataDevOps, frontendUI } from '@/src/constants/technologies';
+import {
+  aiAgents,
+  backendAPIs,
+  cicdDeploy,
+  coreLanguages,
+  dataDevOps,
+  frontendUI,
+} from '@/src/constants/technologies';
 import type { GithubRepo } from '@/src/lib/github-repos';
 import type { Dictionary } from '@/src/lib/i18n';
 
@@ -82,7 +89,7 @@ function getExperienceLines(dictionary: Dictionary) {
 }
 
 function getTechnologyLines() {
-  return [frontendUI, backendAPIs, coreLanguages, dataDevOps].map(
+  return [frontendUI, backendAPIs, coreLanguages, dataDevOps, aiAgents, cicdDeploy].map(
     (group) => `- ${group.map((technology) => technology.name).join(', ')}`
   );
 }

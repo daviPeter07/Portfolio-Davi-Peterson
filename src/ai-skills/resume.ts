@@ -1,6 +1,13 @@
 import ptDict from '@/src/locales/pt.json';
 import { projects } from '@/src/constants/projects';
-import { frontendUI, backendAPIs, coreLanguages, dataDevOps } from '@/src/constants/technologies';
+import {
+  frontendUI,
+  backendAPIs,
+  coreLanguages,
+  dataDevOps,
+  aiAgents,
+  cicdDeploy,
+} from '@/src/constants/technologies';
 
 type Dictionary = typeof ptDict;
 type ExperienceItem = Dictionary['experience']['items'][keyof Dictionary['experience']['items']];
@@ -11,6 +18,8 @@ export function getResumeInfo(dict: Dictionary) {
   const techBackend = backendAPIs.map((t) => t.name).join(', ');
   const techCore = coreLanguages.map((t) => t.name).join(', ');
   const techData = dataDevOps.map((t) => t.name).join(', ');
+  const techAi = aiAgents.map((t) => t.name).join(', ');
+  const techCicd = cicdDeploy.map((t) => t.name).join(', ');
 
   const experiencesList = Object.values(dict.experience.items)
     .map(
@@ -35,6 +44,8 @@ export function getResumeInfo(dict: Dictionary) {
 - Backend: ${techBackend}
 - Core/Linguagens: ${techCore}
 - Banco de Dados e DevOps: ${techData}
+- IA e Agentes: ${techAi}
+- CI/CD e Deploy: ${techCicd}
 
 EXPERIÊNCIAS PROFISSIONAIS DO DAVI:
 (REGRA PARA A IA: Quando perguntarem sobre as atuações do Davi, NÃO cite os nomes dos cargos completos ou rebuscados. Diga apenas que ele atuou como desenvolvedor, cite a senioridade, a área - Frontend, Backend ou Fullstack - e as principais tecnologias usadas).

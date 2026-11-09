@@ -99,7 +99,9 @@
     },
     "groups": {
       "development": "Herramientas",
-      "dataInfrastructure": "Infraestructura"
+      "dataInfrastructure": "Infraestructura",
+      "aiAgents": "IA y Agentes",
+      "cicdDeploy": "CI/CD y Deploy"
     },
     "docs": {
       "React": "Biblioteca para construir interfaces con componentes.",
@@ -125,7 +127,17 @@
       "Cloudflare R2": "Almacenamiento de objetos de Cloudflare, compatible con S3 y sin tarifas por salida de datos.",
       "RabbitMQ": "Mensajería para la comunicación asíncrona entre servicios.",
       "Microserviços": "Arquitectura que divide el sistema en servicios independientes.",
-      "AWS": "Plataforma de computación en la nube con servicios de infraestructura administrados."
+      "AWS": "Plataforma de computación en la nube con servicios de infraestructura administrados.",
+      "LangGraph": "Framework para orquestar agentes de IA como grafos con estado, en flujos de varios pasos.",
+      "LangChain": "Framework para construir aplicaciones con modelos de lenguaje, herramientas y fuentes de datos.",
+      "AI SDK": "Biblioteca TypeScript de Vercel para integrar modelos de IA, con streaming y llamadas a herramientas.",
+      "n8n": "Plataforma de automatización de flujos que conecta servicios y agentes de IA.",
+      "Spec Driven Development": "Método en el que la especificación se escribe antes del código y guía el desarrollo con agentes de IA.",
+      "GitHub Actions": "Automatización de build, pruebas y despliegue directamente en el repositorio de GitHub.",
+      "Vercel": "Plataforma de despliegue y hosting para aplicaciones web, con previews en cada cambio.",
+      "Cloudflare": "Red global con hosting de sitios, CDN, DNS y protección para aplicaciones.",
+      "Render": "Plataforma en la nube para publicar APIs, sitios web y bases de datos.",
+      "cPanel": "Panel de hosting compartido, usado en despliegues automatizados por FTPS."
     }
   },
   "experience": {

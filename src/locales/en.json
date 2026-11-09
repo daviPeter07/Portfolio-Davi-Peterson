@@ -99,7 +99,9 @@
     },
     "groups": {
       "development": "Tools",
-      "dataInfrastructure": "Infrastructure"
+      "dataInfrastructure": "Infrastructure",
+      "aiAgents": "AI and Agents",
+      "cicdDeploy": "CI/CD and Deploy"
     },
     "docs": {
       "React": "Library for building interfaces with components.",
@@ -125,7 +127,17 @@
       "Cloudflare R2": "Cloudflare's S3-compatible object storage with no data egress fees.",
       "RabbitMQ": "Message broker for asynchronous communication between services.",
       "Microserviços": "Architecture that splits a system into independent services.",
-      "AWS": "Cloud computing platform with managed infrastructure services."
+      "AWS": "Cloud computing platform with managed infrastructure services.",
+      "LangGraph": "Framework for orchestrating AI agents as stateful graphs in multi-step workflows.",
+      "LangChain": "Framework for building applications with language models, tools and data sources.",
+      "AI SDK": "Vercel's TypeScript library for integrating AI models, with streaming and tool calling.",
+      "n8n": "Workflow automation platform that connects services and AI agents.",
+      "Spec Driven Development": "Method where the specification is written before the code and guides development with AI agents.",
+      "GitHub Actions": "Build, test and deploy automation straight from the GitHub repository.",
+      "Vercel": "Deploy and hosting platform for web applications, with a preview for every change.",
+      "Cloudflare": "Global network with site hosting, CDN, DNS and protection for applications.",
+      "Render": "Cloud platform for publishing APIs, websites and databases.",
+      "cPanel": "Shared hosting panel, used in automated deploys over FTPS."
     }
   },
   "experience": {
