@@ -166,11 +166,11 @@
       "syncForge": {
         "title": "Fundador, CEO e Desenvolvedor Full Stack",
         "period": "04-2026 - Atualmente",
-        "description": "Fundei a SyncForge, software house de Manaus que cria sistemas e sites para negócios se organizarem e venderem mais. Atuo como CEO e desenvolvedor, conduzindo projetos sob medida e os produtos próprios da empresa.",
+        "description": "Fundei a SyncForge e acumulo a direção da empresa com o desenvolvimento dos sistemas entregues aos clientes.",
         "achievements": [
-          "Liderança de uma equipe de 4 desenvolvedores na criação de protótipos e produtos sob demanda e por assinatura.",
-          "Desenvolvimento do SIGEM, sistema de gestão próprio da SyncForge para vendas, estoque e contas.",
-          "Atendimento direto aos clientes, do entendimento da rotina do negócio à entrega e ao suporte após o lançamento."
+          "Liderança de uma equipe de 4 desenvolvedores em projetos sob demanda e por assinatura.",
+          "Desenvolvimento do SIGEM, sistema de gestão próprio da empresa.",
+          "Contato direto com os clientes, da definição do escopo ao suporte após a entrega."
         ]
       },
       "twoBrains": {
@@ -224,7 +224,6 @@
     "titleBefore": "Meus",
     "titleAccent": "Projetos",
     "items": {
-
       "nexusSkills": {
         "title": "Nexus Skills",
         "description": "Plataforma Nexus Skill com cursos para potencializar as soft skills das pessoas."
@@ -255,7 +254,7 @@
       },
       "syncForge": {
         "title": "SyncForge",
-        "description": "Landing page da SyncForge, minha própria Software House. Como Dev e CEO, lidero uma equipe de 4 desenvolvedores na criação de protótipos e produtos sob demanda e por assinatura."
+        "description": "Landing page institucional da SyncForge, software house de Manaus. Apresenta os serviços de sistemas e sites sob medida, o modo de trabalho da empresa e o SIGEM, seu sistema de gestão, com contato direto pelo WhatsApp."
       },
       "residuum": {
         "title": "Residuum",

@@ -166,11 +166,11 @@
       "syncForge": {
         "title": "Fundador, CEO y Desarrollador Full Stack",
         "period": "04-2026 - Actualidad",
-        "description": "Fundé SyncForge, una software house de Manaus que crea sistemas y sitios web para que los negocios se organicen y vendan más. Trabajo como CEO y desarrollador, conduciendo proyectos a medida y los productos propios de la empresa.",
+        "description": "Fundé SyncForge y combino la dirección de la empresa con el desarrollo de los sistemas entregados a los clientes.",
         "achievements": [
-          "Liderazgo de un equipo de 4 desarrolladores en la creación de prototipos y productos a demanda y por suscripción.",
-          "Desarrollo de SIGEM, el sistema de gestión propio de SyncForge para ventas, inventario y cuentas.",
-          "Atención directa a los clientes, desde entender la rutina del negocio hasta la entrega y el soporte posterior al lanzamiento."
+          "Liderazgo de un equipo de 4 desarrolladores en proyectos a demanda y por suscripción.",
+          "Desarrollo de SIGEM, el sistema de gestión propio de la empresa.",
+          "Contacto directo con los clientes, desde la definición del alcance hasta el soporte posterior a la entrega."
         ]
       },
       "twoBrains": {
@@ -224,7 +224,6 @@
     "titleBefore": "Mis",
     "titleAccent": "Proyectos",
     "items": {
-
       "nexusSkills": {
         "title": "Nexus Skills",
         "description": "Plataforma Nexus Skill con cursos orientados a fortalecer las soft skills de las personas."
@@ -255,7 +254,7 @@
       },
       "syncForge": {
         "title": "SyncForge",
-        "description": "Landing page de SyncForge, mi propia Software House. Como Dev y CEO, lidero un equipo de 4 desarrolladores creando prototipos y productos bajo demanda y por suscripción."
+        "description": "Landing page institucional de SyncForge, software house de Manaus. Presenta los servicios de sistemas y sitios web a medida, la forma de trabajo de la empresa y SIGEM, su sistema de gestión, con contacto directo por WhatsApp."
       },
       "residuum": {
         "title": "Residuum",

@@ -166,11 +166,11 @@
       "syncForge": {
         "title": "Founder, CEO and Full Stack Developer",
         "period": "04-2026 - Present",
-        "description": "I founded SyncForge, a software house in Manaus that builds systems and websites to help businesses get organized and sell more. I work as CEO and developer, leading custom projects and the company's own products.",
+        "description": "I founded SyncForge and combine running the company with building the systems delivered to clients.",
         "achievements": [
-          "Leading a team of 4 developers building prototypes and products on demand and by subscription.",
-          "Building SIGEM, SyncForge's own management system for sales, inventory and accounts.",
-          "Working directly with clients, from understanding how their business runs to delivery and post-launch support."
+          "Leading a team of 4 developers on on-demand and subscription projects.",
+          "Building SIGEM, the company's own management system.",
+          "Working directly with clients, from defining the scope to post-delivery support."
         ]
       },
       "twoBrains": {
@@ -224,7 +224,6 @@
     "titleBefore": "My",
     "titleAccent": "Projects",
     "items": {
-
       "nexusSkills": {
         "title": "Nexus Skills",
         "description": "Nexus Skill platform with courses designed to strengthen people's soft skills."
@@ -255,7 +254,7 @@
       },
       "syncForge": {
         "title": "SyncForge",
-        "description": "Landing page for SyncForge, my own Software House. As Dev and CEO, I lead a team of 4 developers creating prototypes and building on-demand and subscription-based products."
+        "description": "Corporate landing page for SyncForge, a software house in Manaus. It presents its custom systems and websites, how the company works and SIGEM, its management system, with direct contact through WhatsApp."
       },
       "residuum": {
         "title": "Residuum",
