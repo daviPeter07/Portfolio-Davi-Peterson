@@ -19,6 +19,12 @@ export const experiences: Experience[] = [
     url: 'https://residuum.com.br/',
   },
   {
+    id: 'syncForge',
+    company: 'SyncForge',
+    location: 'Manaus, AM',
+    url: 'https://syncforge-business.vercel.app/',
+  },
+  {
     id: 'twoBrains',
     company: 'TwoBrains Technology',
     location: 'São Paulo, SP',
