@@ -128,11 +128,18 @@ function isFeatured(repo: GithubRepo) {
   const name = repo.name.toLowerCase().replace(/[^a-z0-9]/g, '');
   const links = [repo.url, repo.homepage].filter(Boolean).map((link) => normalizeLink(link!));
 
-  return projects.some(
-    (project) =>
+  return projects.some((project) => {
+    const projectLinks = [
+      project.code,
+      project.demo,
+      ...(project.repositories ?? []).map(({ url }) => url),
+    ];
+
+    return (
       name.includes(project.id.toLowerCase()) ||
-      [project.code, project.demo].some((link) => link && links.includes(normalizeLink(link)))
-  );
+      projectLinks.some((link) => link && links.includes(normalizeLink(link)))
+    );
+  });
 }
 
 export function excludeFeaturedRepos(repos: GithubRepo[]): GithubRepo[] {

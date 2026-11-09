@@ -38,7 +38,7 @@ Content is split between non-translated data and translated text, joined by `id`
 
 A new project or experience needs its `id` in the constants file and in all three locale files. A project missing from a locale crashes `src/sections/projects.tsx`, which reads `content.title` without a guard.
 
-The project filter buttons (`filterOptions`) and the `icon === 'Terminal'` case are hardcoded in `src/sections/projects.tsx`.
+The project filter buttons (`filterOptions`) and the `PROJECT_ICONS` map are hardcoded in `src/sections/projects.tsx`.
 
 ### AI assistant
 

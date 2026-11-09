@@ -1,5 +1,5 @@
 import ptDict from '@/src/locales/pt.json';
-import { projects } from '@/src/constants/projects';
+import { getProjectLink, projects } from '@/src/constants/projects';
 import {
   frontendUI,
   backendAPIs,
@@ -34,7 +34,7 @@ export function getResumeInfo(dict: Dictionary) {
 
       if (!localeData) return '';
 
-      return `- ${localeData.title}: ${localeData.description}\n  Tecnologias: ${p.technologies.join(', ')}\n  Link: ${p.demo || p.code || 'Privado'}`;
+      return `- ${localeData.title}: ${localeData.description}\n  Tecnologias: ${p.technologies.join(', ')}\n  Link: ${getProjectLink(p) || 'Privado'}`;
     })
     .filter(Boolean)
     .join('\n\n');

@@ -1,6 +1,6 @@
 import { contact } from '@/src/constants/contact';
 import { experiences } from '@/src/constants/experiences';
-import { projects } from '@/src/constants/projects';
+import { getProjectLink, projects } from '@/src/constants/projects';
 import {
   aiAgents,
   backendAPIs,
@@ -75,7 +75,7 @@ function getProjectLines(dictionary: Dictionary) {
     const { title } =
       dictionary.projects.items[project.id as keyof typeof dictionary.projects.items];
 
-    return `- ${title}: ${project.demo ?? project.code ?? dictionary.common.privateSoftware}`;
+    return `- ${title}: ${getProjectLink(project) ?? dictionary.common.privateSoftware}`;
   });
 }
 
