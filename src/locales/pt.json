@@ -231,9 +231,13 @@
         "title": "ContaCloud",
         "description": "SaaS desenvolvido na TwoBrains. Atuei como arquiteto dividindo as operações em microsserviços para melhor manutenção, melhorando a experiência do usuário e funcionalidades. Integra automações com LangGraph e LangChain para emissão de notas fiscais usando a API do Focus, focado em performance com SSR e cache do Next.js."
       },
+      "maucco": {
+        "title": "Maucco",
+        "description": "Landing page desenvolvida como freelance para a Maucco, consultoria ambiental de Manaus. Apresenta os serviços de licenciamento e regularização ambiental e leva o visitante a agendar uma consulta gratuita."
+      },
       "operis": {
         "title": "Operis",
-        "description": "Sistema completo de PDV e financeiro desenvolvido para a DG Computer. Conta com controle de estoque, compras e vendas, gestão de clientes/fornecedores e emissão de notas e cupons fiscais."
+        "description": "Sistema de gestão criado para a DG Computer e oferecido a outras empresas. Registra vendas, baixa o estoque na hora, gera as parcelas do crediário e mostra o que está em atraso, além de controlar contas a pagar e a receber. Funciona no navegador do computador ou do celular."
       },
       "forgePath": {
         "title": "ForgePath CLI",

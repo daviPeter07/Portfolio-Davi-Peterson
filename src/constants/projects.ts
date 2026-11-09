@@ -10,28 +10,29 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: 'forgePath',
-    icon: 'Terminal',
-    technologies: ['Go', 'Bubble Tea', 'Bubbles', 'Lip Gloss', 'Cobra', 'Huh', 'Nerd Fonts'],
-    code: 'https://github.com/daviPeter07/ForgePath',
+    id: 'operis',
+    image: '/Operis-landingpage.jpg',
+    technologies: ['PHP', 'Laravel 13', 'Inertia.js', 'React'],
+    demo: 'https://www.dgcomputer.com.br/operis/',
+    code: 'https://github.com/daviPeter07/Operis-Saas',
   },
   {
     id: 'syncForge',
-    image: '/Syncforge-landingpage.png',
+    image: '/Syncforge-landingpage.jpg',
     technologies: ['TypeScript', 'Next.js', 'Tailwind'],
     demo: 'https://syncforge-business.vercel.app/',
   },
   {
-    id: 'contaCloud',
-    image: '/Contacloud-saas.png',
-    technologies: ['TypeScript', 'Next.js', 'PostgreSQL', 'Prisma', 'LangChain', 'LangGraph'],
-    demo: 'https://contacloud.app/',
+    id: 'masterMind',
+    image: '/Mastermind-saas.png',
+    technologies: ['Java', 'Vue.js', 'Spring Boot'],
+    demo: 'https://mastermind-frontend-hyo7.onrender.com/',
   },
   {
-    id: 'operis',
-    image: '/Operis-dashboard.png',
-    technologies: ['PHP', 'Laravel 13', 'Inertia.js', 'React'],
-    code: 'https://github.com/daviPeter07/Operis-Saas',
+    id: 'contaCloud',
+    image: '/Contacloud-landingpage.jpg',
+    technologies: ['TypeScript', 'Next.js', 'PostgreSQL', 'Prisma', 'LangChain', 'LangGraph'],
+    demo: 'https://contacloud.app/',
   },
   {
     id: 'residuum',
@@ -40,10 +41,16 @@ export const projects: Project[] = [
     demo: 'https://residuum-frontend-ten.vercel.app/',
   },
   {
-    id: 'masterMind',
-    image: '/Mastermind-saas.png',
-    technologies: ['Java', 'Vue.js', 'Spring Boot'],
-    demo: 'https://mastermind-frontend-hyo7.onrender.com/',
+    id: 'maucco',
+    image: '/Maucco-landingpage.jpg',
+    technologies: ['Next.js', 'Tailwind'],
+    demo: 'https://maucco.com.br/',
+  },
+  {
+    id: 'forgePath',
+    icon: 'Terminal',
+    technologies: ['Go', 'Bubble Tea', 'Bubbles', 'Lip Gloss', 'Cobra', 'Huh', 'Nerd Fonts'],
+    code: 'https://github.com/daviPeter07/ForgePath',
   },
   {
     id: 'nexusSkills',

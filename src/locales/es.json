@@ -231,9 +231,13 @@
         "title": "ContaCloud",
         "description": "SaaS desarrollado en TwoBrains. Actué como arquitecto dividiendo las operaciones en microservicios para un mejor mantenimiento, mejorando la experiencia del usuario y funcionalidades. Integra automatizaciones con LangGraph y LangChain para la emisión de facturas usando la API de Focus, priorizando el rendimiento mediante SSR y caché de Next.js."
       },
+      "maucco": {
+        "title": "Maucco",
+        "description": "Landing page desarrollada como freelance para Maucco, consultoría ambiental de Manaus. Presenta los servicios de licenciamiento y regularización ambiental y lleva al visitante a agendar una consulta gratuita."
+      },
       "operis": {
         "title": "Operis",
-        "description": "Sistema completo de punto de venta (PDV) y financiero desarrollado para DG Computer. Incluye control de inventario, compras y ventas, gestión de clientes y proveedores, y emisión de facturas y recibos."
+        "description": "Sistema de gestión creado para DG Computer y ofrecido a otras empresas. Registra ventas, actualiza el inventario al instante, genera las cuotas del crédito y muestra lo que está atrasado, además de controlar cuentas por pagar y por cobrar. Funciona en el navegador del computador o del celular."
       },
       "forgePath": {
         "title": "ForgePath CLI",

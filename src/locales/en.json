@@ -231,9 +231,13 @@
         "title": "ContaCloud",
         "description": "SaaS built at TwoBrains. Worked as an architect dividing operations into microservices for better maintainability, improving user experience and features. Integrates AI automations with LangGraph and LangChain for automated invoice generation using the Focus API, emphasizing Next.js SSR and caching."
       },
+      "maucco": {
+        "title": "Maucco",
+        "description": "Freelance landing page for Maucco, an environmental consultancy in Manaus. It presents their environmental licensing and compliance services and guides visitors to book a free consultation."
+      },
       "operis": {
         "title": "Operis",
-        "description": "Complete POS and financial system built for DG Computer. Includes inventory management, sales and purchases, customer/supplier management, and invoice generation."
+        "description": "Management system built for DG Computer and offered to other businesses. It records sales, updates stock instantly, creates installment plans and shows what is overdue, while tracking accounts payable and receivable. It runs in the browser on a computer or phone."
       },
       "forgePath": {
         "title": "ForgePath CLI",
