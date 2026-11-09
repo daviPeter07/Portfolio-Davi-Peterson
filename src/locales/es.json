@@ -1,15 +1,15 @@
 {
   "metadata": {
     "title": "Davi Peterson | Desarrollador Full Stack Junior",
-    "description": "Portafolio de Davi Peterson, Desarrollador Full Stack Junior especialista en React, Next.js, Node.js, PHP/Laravel y arquitectura escalable.",
+    "description": "Portafolio de Davi Peterson, desarrollador full stack junior en Manaus que trabaja con Next.js y NestJS y fundó SyncForge.",
     "keywords": [
       "Davi Peterson",
       "Desarrollador Full Stack Junior",
       "Ingeniero de Software Junior",
       "React",
       "Next.js",
+      "NestJS",
       "Node.js",
-      "Laravel",
       "TypeScript",
       "Portafolio"
     ],
@@ -24,10 +24,10 @@
     "themeToggle": "Cambiar tema",
     "backToTop": "Volver arriba",
     "documentation": "Documentación",
-    "stacks": "Stacks",
-    "navigate": "Abrir",
+    "stacks": "Tecnologías",
+    "navigate": "Ver sitio",
     "github": "GitHub",
-    "privateSoftware": "Software Privado",
+    "privateSoftware": "Software privado",
     "all": "Todos",
     "languageLabel": "Idioma",
     "languages": {
@@ -60,8 +60,8 @@
     "titleBefore": "Sobre",
     "titleAccent": "Mí",
     "paragraphs": {
-      "first": "Desarrollador Full Stack con sólida experiencia en frontend, backend, integraciones e infraestructura. Trabajo principalmente con Next.js y NestJS, transitando con fluidez entre la creación de interfaces, APIs, autenticación, caché, colas, procesamiento asíncrono e integraciones avanzadas con IA.",
-      "second": "Actualmente estudio Análisis y Desarrollo de Sistemas en UniNorte. He asumido responsabilidades de liderazgo técnico tanto en el frontend como en el backend, apoyando decisiones de arquitectura y elevando la calidad de las entregas del equipo. Trabajo enfocado en la mantenibilidad, buenas prácticas y decisiones técnicas alineadas al valor que el producto necesita entregar."
+      "first": "Soy desarrollador full stack y trabajo principalmente con Next.js y NestJS. Hoy desarrollo sistemas para organismos públicos en Solasstec, oriento a estudiantes en el proyecto Residuum y dirijo SyncForge, la software house que fundé en Manaus.",
+      "second": "Desarrollé un software de gestión de pagos implantado en 3 estados, me encargué del lanzamiento de una aplicación en Play Store y App Store y dividí las operaciones de ContaCloud en microservicios. Estudio Análisis y Desarrollo de Sistemas en UniNorte."
     },
     "stats": {
       "seniorityValue": "+1000",
@@ -72,19 +72,19 @@
     "cards": {
       "performance": {
         "title": "Rendimiento",
-        "description": "Optimización de extremo a extremo, abarcando caché, SSR y procesamiento asíncrono para la máxima fluidez."
+        "description": "SSR y caché de Next.js en ContaCloud y optimización de las búsquedas en el back-end de Residuum."
       },
       "architecture": {
         "title": "Arquitectura y Diseño",
-        "description": "Diseño de soluciones escalables utilizando microservicios, asegurando alta disponibilidad y fácil mantenimiento."
+        "description": "Microservicios en ContaCloud y monolito modular en Master Mind."
       },
       "scalability": {
-        "title": "Escalabilidad",
-        "description": "Sistemas diseñados para el crecimiento orgánico, utilizando microservicios y patrones de diseño consolidados."
+        "title": "En producción",
+        "description": "Software de pagos implantado en 3 estados y aplicación publicada en Play Store y App Store."
       },
       "leadership": {
         "title": "Liderazgo",
-        "description": "Mentoría técnica, definición de estándares de código y decisiones técnicas alineadas a los objetivos comerciales."
+        "description": "Lidero el equipo de SyncForge y oriento a estudiantes del 8º semestre en el proyecto Residuum."
       }
     }
   },
@@ -139,30 +139,30 @@
       "solasstec": {
         "title": "Desarrollador de Software Junior",
         "period": "08-2026 - Actualidad",
-        "description": "Trabajo como Desarrollador de Software Junior en el mantenimiento y evolución de sistemas destinados a organismos públicos, utilizando Next.js en el Frontend y NestJS en el Backend.",
+        "description": "Mantengo y evoluciono sistemas usados por organismos públicos, con Next.js en el front-end y NestJS en el back-end.",
         "achievements": [
-          "Desarrollo y mantenimiento de funcionalidades en sistemas utilizados por organismos públicos.",
-          "Refactorización de código para mejorar su legibilidad, organización, rendimiento y mantenibilidad."
+          "Desarrollo y mantengo funcionalidades de estos sistemas.",
+          "Refactorizo código para hacerlo más legible, organizado, rápido y fácil de mantener."
         ]
       },
       "dgComputer": {
         "title": "Técnico de Hardware",
         "period": "2019 - 2025",
-        "description": "Experiencia sólida en soporte técnico, montaje y mantenimiento de hardware, infraestructura de redes y sistemas.",
+        "description": "Brindé soporte técnico y realicé montaje y mantenimiento de computadoras, redes y sistemas.",
         "achievements": [
-          "Atención y soporte técnico en informática, con mantenimiento preventivo y correctivo de equipos.",
-          "Montaje y configuración de computadoras (desktop y laptops) y dispositivos de red como switches y routers.",
-          "Instalación de sistemas operativos, drivers y software, con optimización y troubleshooting."
+          "Realicé atención y soporte técnico en informática, con mantenimiento preventivo y correctivo de equipos.",
+          "Monté y configuré computadoras de escritorio, portátiles y dispositivos de red, como switches y routers.",
+          "Instalé sistemas operativos, drivers y software, optimizando y resolviendo problemas."
         ]
       },
       "nxsSkill": {
         "title": "Desarrollador de Software Voluntario",
         "period": "06-2025 - 02-2026",
-        "description": "Desarrollo frontend en una plataforma educativa, con énfasis en accesibilidad, rendimiento y experiencias ricas de UI. Colaboración en design system y optimización de flujos de autenticación.",
+        "description": "Desarrollé el front-end de una plataforma educativa, con atención a la accesibilidad y el rendimiento, y colaboré en el design system y en los flujos de autenticación.",
         "achievements": [
-          "Participación en la versión 2.0 de la plataforma web en colaboración con un equipo de 6 desarrolladores.",
-          "Construcción de interfaces responsivas complejas para autenticación, registros y dashboards usando Next.js y TypeScript.",
-          "Implementación de módulos backend y rutas de API para soportar nuevas funcionalidades del sistema."
+          "Desarrollé la versión 2.0 de la plataforma web con un equipo de 6 desarrolladores.",
+          "Construí interfaces responsivas de autenticación, registros y dashboards con Next.js y TypeScript.",
+          "Implementé módulos y rutas de API en el back-end para las nuevas funcionalidades."
         ]
       },
       "syncForge": {
@@ -170,50 +170,50 @@
         "period": "04-2026 - Actualidad",
         "description": "Fundé SyncForge y conduzco la empresa de punta a punta: desde la planificación de los proyectos hasta la arquitectura y el desarrollo de los sistemas, al frente de un equipo multidisciplinario.",
         "achievements": [
-          "Liderazgo del equipo de desarrolladores, QAs, analistas y marketing, definiendo prioridades y distribuyendo las tareas de cada entrega.",
-          "Definición de la arquitectura y la organización técnica de los sistemas, estableciendo los estándares que el equipo sigue en el desarrollo.",
-          "Planificación de los proyectos y seguimiento de las entregas, desde el alcance inicial hasta la publicación.",
-          "Participación directa en el desarrollo y apoyo técnico al equipo, orientando a los desarrolladores y resolviendo sus dudas del día a día."
+          "Lidero el equipo de desarrolladores, QAs, analistas y marketing, definiendo prioridades y distribuyendo las tareas de cada entrega.",
+          "Defino la arquitectura y la organización técnica de los sistemas, con los estándares que sigue el equipo.",
+          "Planifico los proyectos y acompaño las entregas, desde el alcance inicial hasta la publicación.",
+          "Desarrollo junto al equipo y doy apoyo técnico, orientando a los desarrolladores en el día a día."
         ]
       },
       "twoBrains": {
         "title": "Desarrollador de Software Junior",
         "period": "01-2026 - 03-2026",
-        "description": "Actuación como Desarrollador de Software Junior en productos digitales modernos. Trabajo en frontend con Next.js y React, backend con Node.js, corrección de bugs y evolución técnica continua. También inicié estudios en AWS para servicios serverless, storage, APIs e integraciones con IA cuando fue necesario.",
+        "description": "Desarrollé productos internos y de clientes con Next.js, React y Node.js, y fui arquitecto de ContaCloud.",
         "achievements": [
-          "Desarrollo full stack con Next.js y Node.js en productos internos y proyectos para clientes.",
-          "Aprendizaje práctico de servicios AWS como serverless, storage y APIs con apoyo del equipo.",
-          "Corrección de bugs y mejoras continuas enfocadas en calidad y entrega de valor."
+          "Dividí las operaciones de ContaCloud en microservicios e integré automatizaciones con LangGraph y LangChain para emitir facturas mediante la API de Focus.",
+          "Usé servicios serverless, storage y APIs de AWS, con apoyo del equipo.",
+          "Corregí bugs y evolucioné funcionalidades en el front-end y el back-end."
         ]
       },
       "indicai": {
         "title": "Desarrollador de Software (Contratista)",
         "period": "11-2025 - 03-2026",
-        "description": "Trabajo como contratista independiente en soluciones full stack y prácticas DevOps, con responsabilidades alineadas a nivel junior: implementación de funcionalidades, corrección de bugs, integración de APIs y patrones de código escalables. Participación en ciclos de despliegue para Play Store y App Store, además de mejoras continuas en UX, UI y rendimiento.",
+        "description": "Presté servicios como PJ (MEI) en desarrollo full stack y DevOps: implementé funcionalidades, corregí bugs, integré APIs y participé en el despliegue de la aplicación.",
         "achievements": [
-          "Actuación full stack y DevOps enfocada en definición de arquitectura y estándares de código escalables.",
-          "Implementación de interfaces de alta fidelidad con prioridad en UX, UI, accesibilidad y rendimiento.",
-          "Planificación y ejecución de ciclos de despliegue, incluyendo el lanzamiento de la aplicación en tiendas móviles."
+          "Definí la arquitectura y los estándares de código del proyecto.",
+          "Implementé interfaces fieles al diseño, con atención a UX/UI, accesibilidad y rendimiento.",
+          "Planifiqué y ejecuté el ciclo de despliegue, incluido el lanzamiento de la aplicación en Play Store y App Store."
         ]
       },
       "uape": {
         "title": "Desarrollador de Software (Prácticas)",
         "period": "06-2025 - 05-2026",
-        "description": "Práctica en desarrollo full stack con foco en arquitectura escalable, integración entre servicios y buenas prácticas de código. Participación en iniciativas de IA y Data Science aplicadas a productos internos.",
+        "description": "Prácticas full stack con foco en arquitectura, integración entre servicios y buenas prácticas de código, con participación en iniciativas de IA y Data Science para productos internos.",
         "achievements": [
-          "Desarrollo completo de un software de gestión de pagos implementado en 3 estados.",
-          "Creación de landing pages con soporte de internacionalización (i18n) en portugués, inglés y español.",
-          "Soporte técnico avanzado y configuración de entornos e infraestructura en Windows y Linux/Ubuntu."
+          "Desarrollé de principio a fin un software de gestión de pagos implantado en 3 estados.",
+          "Creé landing pages en portugués, inglés y español, con internacionalización (i18n).",
+          "Configuré entornos e infraestructura en Windows y Linux (Ubuntu) y brindé soporte técnico."
         ]
       },
       "residuum": {
         "title": "Orientador y Desarrollador Voluntario",
         "period": "05-2026 - Actualidad",
-        "description": "Por invitación de la universidad, brindé orientación técnica en el proyecto Residuum a estudiantes del octavo semestre de Ciencia de la Computación e Ingeniería de la Computación durante sus prácticas obligatorias. Asigné tareas, proporcioné instrucciones técnicas, acompañé las entregas y aseguré la calidad del código mediante revisiones de Pull Requests y orientación continua.",
+        "description": "Por invitación de UniNorte, oriento técnicamente el proyecto Residuum, desarrollado por estudiantes del 8º semestre de Ciencias de la Computación e Ingeniería de la Computación en sus prácticas obligatorias. Distribuyo y explico las tareas, acompaño las entregas y reviso los Pull Requests.",
         "achievements": [
-          "Asignación e instrucción técnica de tareas de Frontend con React, trabajando en la corrección de errores, revisión de código (análisis de PRs) y mejoras continuas de UX/UI.",
-          "Desarrollo Full Stack en el Backend usando FastAPI, aplicando refactorización de modelado de datos y reglas de negocio complejas.",
-          "Optimización significativa en el rendimiento de consultas a la base de datos, mejorando el tiempo de respuesta de la aplicación."
+          "Conduje la refactorización completa de la aplicación en 2 semanas, con un rediseño visual y una nueva landing page, para cumplir un plazo corto.",
+          "Optimicé las consultas de la búsqueda de puntos de recolección en el mapa y de los productos de cada usuario, reduciendo el tiempo de respuesta.",
+          "Trabajo en el back-end con FastAPI, refactorizando el modelado y reglas de negocio complejas, y en el front-end con React, con correcciones y mejoras de UX/UI."
         ]
       }
     }
@@ -229,19 +229,19 @@
     "items": {
       "nexusSkills": {
         "title": "Nexus Skills",
-        "description": "Plataforma Nexus Skill con cursos orientados a fortalecer las soft skills de las personas."
+        "description": "Plataforma de cursos para desarrollar soft skills."
       },
       "uape": {
         "title": "UAPE",
-        "description": "Landing institucional que presenta el trabajo de ingeniería de datos en salud global de UAPÉ: soberanía de datos, despliegue rápido, recolección móvil offline-first, integración entre sistemas de salud y visualizaciones en tiempo real. Disponible en 3 idiomas (PT/EN/ES)."
+        "description": "Landing page institucional de UAPÉ, que presenta su ingeniería de datos para la salud global: soberanía de datos, implantación rápida, recolección offline en dispositivos móviles, integración entre sistemas de salud y visualizaciones en tiempo real, en portugués, inglés y español."
       },
       "masterMind": {
         "title": "Master Mind",
-        "description": "SaaS de control financiero basado en una arquitectura de monolito modular. Cuenta con integración a pasarela de pagos y automatización de funciones directamente a través de Telegram."
+        "description": "SaaS de control financiero en monolito modular, con pasarela de pago integrada y funciones que se pueden usar desde Telegram."
       },
       "contaCloud": {
         "title": "ContaCloud",
-        "description": "SaaS desarrollado en TwoBrains. Actué como arquitecto dividiendo las operaciones en microservicios para un mejor mantenimiento, mejorando la experiencia del usuario y funcionalidades. Integra automatizaciones con LangGraph y LangChain para la emisión de facturas usando la API de Focus, priorizando el rendimiento mediante SSR y caché de Next.js."
+        "description": "SaaS de contabilidad que emite facturas a partir de mensajes de texto o audio en WhatsApp, con automatizaciones en LangGraph y LangChain sobre la API de Focus. Organizado en microservicios, usa SSR y caché de Next.js."
       },
       "maucco": {
         "title": "Maucco",
@@ -253,7 +253,7 @@
       },
       "forgePath": {
         "title": "ForgePath CLI",
-        "description": "Una herramienta interactiva de línea de comandos en Go (Golang) enfocada en Developer Experience para gestionar múltiples proyectos."
+        "description": "Herramienta de terminal en Go que recorre las carpetas del equipo, identifica el framework de cada proyecto y abre el elegido rápidamente."
       },
       "syncForge": {
         "title": "SyncForge",
@@ -261,7 +261,7 @@
       },
       "residuum": {
         "title": "Residuum",
-        "description": "Plataforma de logística inversa y economía circular que conecta a quienes desean desechar residuos con quienes necesitan recolectarlos. Fui responsable de la construcción de la landing page institucional, con un fuerte enfoque en mejoras de UX/UI. También actué como Tech Lead y Desarrollador Full Stack, refactorizando reglas de negocio en el backend con FastAPI y liderando al equipo."
+        "description": "Plataforma de logística inversa y economía circular que conecta a quien quiere desechar residuos con quien los recolecta, con búsqueda de puntos de recolección en el mapa."
       }
     }
   },
@@ -269,9 +269,9 @@
     "titleBefore": "Ponte en",
     "titleAccent": "Contacto",
     "introTitle": "¡Hablemos!",
-    "introDescription": "Siempre estoy disponible para conversar sobre nuevos proyectos, oportunidades creativas o alianzas interesantes. No dudes en contactarme.",
+    "introDescription": "¿Tienes un proyecto, una vacante o una alianza en mente? Cuéntame de qué se trata y me pondré en contacto.",
     "info": {
-      "email": "Email",
+      "email": "Correo",
       "phone": "Teléfono",
       "location": "Ubicación",
       "locationValue": "Manaus, AM - Brasil"
@@ -280,23 +280,23 @@
       "title": "Envía un mensaje",
       "description": "Completa el formulario abajo y me pondré en contacto contigo lo antes posible.",
       "name": "Nombre",
-      "email": "Email",
+      "email": "Correo",
       "subject": "Asunto",
       "message": "Mensaje",
       "namePlaceholder": "Tu nombre completo",
       "emailPlaceholder": "tu@email.com",
       "subjectPlaceholder": "Asunto del mensaje",
       "messagePlaceholder": "Describe tu proyecto o tu duda...",
-      "submit": "Enviar Mensaje",
+      "submit": "Enviar mensaje",
       "sending": "Enviando...",
       "success": "¡Mensaje enviado con éxito!",
-      "error": "¡Ups! Algo salió mal. Inténtalo de nuevo."
+      "error": "No se pudo enviar tu mensaje. Inténtalo de nuevo o escribe a mi correo."
     }
   },
   "footer": {
-    "description": "Desarrollador de software apasionado por crear soluciones digitales bien construidas y experiencias de usuario consistentes.",
-    "quickLinks": "Enlaces Rápidos",
-    "social": "Redes Sociales",
+    "description": "Desarrollador full stack en Manaus y fundador de SyncForge.",
+    "quickLinks": "Enlaces rápidos",
+    "social": "Redes sociales",
     "madeWith": "Hecho con",
     "andCoffee": "y café por",
     "mailSubject": "Contacto por el Portafolio",

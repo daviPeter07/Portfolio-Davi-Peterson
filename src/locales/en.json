@@ -1,15 +1,15 @@
 {
   "metadata": {
     "title": "Davi Peterson | Junior Full Stack Developer",
-    "description": "Portfolio of Davi Peterson, Junior Full Stack Developer specializing in React, Next.js, Node.js, PHP/Laravel, and scalable architecture.",
+    "description": "Portfolio of Davi Peterson, a junior full stack developer in Manaus who works with Next.js and NestJS and founded SyncForge.",
     "keywords": [
       "Davi Peterson",
       "Junior Full Stack Developer",
       "Junior Software Engineer",
       "React",
       "Next.js",
+      "NestJS",
       "Node.js",
-      "Laravel",
       "TypeScript",
       "Portfolio"
     ],
@@ -24,10 +24,10 @@
     "themeToggle": "Toggle theme",
     "backToTop": "Back to top",
     "documentation": "Documentation",
-    "stacks": "Stacks",
-    "navigate": "Open",
+    "stacks": "Technologies",
+    "navigate": "View site",
     "github": "GitHub",
-    "privateSoftware": "Private Software",
+    "privateSoftware": "Private software",
     "all": "All",
     "languageLabel": "Language",
     "languages": {
@@ -60,8 +60,8 @@
     "titleBefore": "About",
     "titleAccent": "Me",
     "paragraphs": {
-      "first": "Full Stack Developer with solid experience in frontend, backend, integrations, and infrastructure. I work primarily with Next.js and NestJS, smoothly navigating between interface creation, APIs, authentication, caching, queues, asynchronous processing, and advanced AI integrations.",
-      "second": "I am currently studying Systems Analysis and Development at UniNorte. I have taken on technical leadership responsibilities in both frontend and backend, supporting architectural decisions and raising the quality of team deliveries. I focus on maintainability, best practices, and technical decisions aligned with the value the product needs to deliver."
+      "first": "I'm a full stack developer and work mainly with Next.js and NestJS. Today I build systems for public agencies at Solasstec, mentor students on the Residuum project and run SyncForge, the software house I founded in Manaus.",
+      "second": "I've built a payment management system deployed in 3 states, handled the launch of an app on the Play Store and the App Store, and split ContaCloud's operations into microservices. I study Systems Analysis and Development at UniNorte."
     },
     "stats": {
       "seniorityValue": "+1000",
@@ -72,19 +72,19 @@
     "cards": {
       "performance": {
         "title": "Performance",
-        "description": "End-to-end optimization, covering caching, SSR, and asynchronous processing for maximum fluidity."
+        "description": "Next.js SSR and caching in ContaCloud, and faster searches in the Residuum back end."
       },
       "architecture": {
         "title": "Architecture & Design",
-        "description": "Designing scalable solutions using microservices, ensuring high availability and easy maintenance."
+        "description": "Microservices in ContaCloud and a modular monolith in Master Mind."
       },
       "scalability": {
-        "title": "Scalability",
-        "description": "Systems designed for organic growth, utilizing microservices and consolidated design patterns."
+        "title": "In production",
+        "description": "A payment system deployed in 3 states and an app published on the Play Store and the App Store."
       },
       "leadership": {
         "title": "Leadership",
-        "description": "Technical mentoring, defining coding standards, and making technical decisions aligned with business goals."
+        "description": "I lead the SyncForge team and mentor eighth-semester students on the Residuum project."
       }
     }
   },
@@ -139,30 +139,30 @@
       "solasstec": {
         "title": "Junior Software Developer",
         "period": "08-2026 - Present",
-        "description": "Working as a Junior Software Developer on the maintenance and evolution of systems for public agencies, using Next.js on the Frontend and NestJS on the Backend.",
+        "description": "I maintain and evolve systems used by public agencies, with Next.js on the front end and NestJS on the back end.",
         "achievements": [
-          "Developing and maintaining features for systems used by public agencies.",
-          "Refactoring code to improve readability, organization, performance, and maintainability."
+          "I build and maintain features for these systems.",
+          "I refactor code to make it more readable, organized, fast and easy to maintain."
         ]
       },
       "dgComputer": {
         "title": "Hardware Technician",
         "period": "2019 - 2025",
-        "description": "Solid experience in technical support, hardware assembly and maintenance, network infrastructure, and systems.",
+        "description": "I provided technical support and assembled and maintained computers, networks and systems.",
         "achievements": [
-          "Technical support for IT, including preventive and corrective equipment maintenance.",
-          "Assembly and configuration of computers (desktops and laptops) and networking devices such as switches and routers.",
-          "Installation of operating systems, drivers, and software with optimization and troubleshooting."
+          "I handled IT service and support, with preventive and corrective equipment maintenance.",
+          "I assembled and configured desktops, laptops and network devices such as switches and routers.",
+          "I installed operating systems, drivers and software, tuning and troubleshooting them."
         ]
       },
       "nxsSkill": {
         "title": "Volunteer Software Developer",
         "period": "06-2025 - 02-2026",
-        "description": "Frontend development for an education platform, with emphasis on accessibility, performance, and rich UI experiences. Collaboration on design system work and authentication flow improvements.",
+        "description": "I built the front end of an educational platform, with attention to accessibility and performance, and collaborated on the design system and authentication flows.",
         "achievements": [
-          "Worked on version 2.0 of the web platform in collaboration with a team of 6 developers.",
-          "Built complex responsive interfaces for authentication, registration flows, and dashboards using Next.js and TypeScript.",
-          "Implemented backend modules and API routes to support new platform features."
+          "I built version 2.0 of the web platform with a team of 6 developers.",
+          "I built responsive authentication, sign-up and dashboard interfaces with Next.js and TypeScript.",
+          "I implemented back-end modules and API routes for the new features."
         ]
       },
       "syncForge": {
@@ -170,50 +170,50 @@
         "period": "04-2026 - Present",
         "description": "I founded SyncForge and run the company end to end: from project planning to system architecture and development, leading a multidisciplinary team.",
         "achievements": [
-          "Leading the team of developers, QAs, analysts and marketing, setting priorities and assigning the tasks for each delivery.",
-          "Defining the architecture and technical organization of the systems, setting the standards the team follows in development.",
-          "Planning projects and tracking deliveries, from the initial scope to release.",
-          "Working hands-on in development and supporting the team technically, guiding developers and answering their day-to-day questions."
+          "I lead the team of developers, QAs, analysts and marketing, setting priorities and assigning the tasks for each delivery.",
+          "I define the architecture and technical organization of the systems, with the standards the team follows.",
+          "I plan projects and track deliveries, from the initial scope to release.",
+          "I develop alongside the team and give technical support, guiding developers day to day."
         ]
       },
       "twoBrains": {
         "title": "Junior Software Developer",
         "period": "01-2026 - 03-2026",
-        "description": "Worked as a Junior Software Developer on modern digital products. Contributed to frontend work with Next.js and React, backend work with Node.js, bug fixing, and continuous technical growth. Also started learning AWS for serverless services, storage, APIs, and AI integrations when needed.",
+        "description": "I built internal and client products with Next.js, React and Node.js, and was the architect of ContaCloud.",
         "achievements": [
-          "Full stack development with Next.js and Node.js for internal products and client projects.",
-          "Hands-on learning with AWS services such as serverless, storage, and APIs with team support.",
-          "Bug fixes and continuous improvements focused on quality and value delivery."
+          "I split ContaCloud's operations into microservices and integrated LangGraph and LangChain automations to issue invoices through the Focus API.",
+          "I used AWS serverless, storage and API services, with support from the team.",
+          "I fixed bugs and evolved features on the front end and back end."
         ]
       },
       "indicai": {
         "title": "Software Developer (Contractor)",
         "period": "11-2025 - 03-2026",
-        "description": "Worked as an independent contractor on full stack solutions and DevOps practices, with responsibilities aligned with junior-level work: feature implementation, bug fixing, API integration, and scalable code patterns. Participated in release cycles for the Play Store and App Store while continuously improving UX, UI, and performance.",
+        "description": "I worked as a contractor (MEI) on full stack development and DevOps: I built features, fixed bugs, integrated APIs and took part in deploying the app.",
         "achievements": [
-          "Full stack and DevOps work focused on architecture definition and scalable coding standards.",
-          "Implemented high-fidelity interfaces with emphasis on UX, UI, accessibility, and performance.",
-          "Planned and executed release cycles, including launching the app on mobile stores."
+          "I defined the project's architecture and code standards.",
+          "I built interfaces faithful to the design, with attention to UX/UI, accessibility and performance.",
+          "I planned and ran the deploy cycle, including the app's launch on the Play Store and the App Store."
         ]
       },
       "uape": {
         "title": "Software Developer Intern",
         "period": "06-2025 - 05-2026",
-        "description": "Internship in full stack development focused on scalable architecture, service integration, and good coding practices. Also involved in AI and Data Science initiatives applied to internal products.",
+        "description": "Full stack internship focused on architecture, service integration and good code practices, with participation in AI and Data Science initiatives for internal products.",
         "achievements": [
-          "Built an entire payment management software used across 3 states.",
-          "Created landing pages with internationalization support in Portuguese, English, and Spanish.",
-          "Provided advanced technical support and environment setup for Windows and Linux/Ubuntu infrastructure."
+          "I built a payment management system from start to finish, deployed in 3 states.",
+          "I created landing pages in Portuguese, English and Spanish, with internationalization (i18n).",
+          "I set up environments and infrastructure on Windows and Linux (Ubuntu) and provided technical support."
         ]
       },
       "residuum": {
         "title": "Volunteer Mentor and Developer",
         "period": "05-2026 - Present",
-        "description": "Invited by the university, I provided technical guidance for the Residuum project to eighth-semester Computer Science and Computer Engineering students during their mandatory internship course. I assigned tasks, provided technical instructions, monitored deliveries, and ensured code quality through Pull Request reviews and continuous guidance.",
+        "description": "Invited by UniNorte, I provide technical guidance for the Residuum project, built by eighth-semester Computer Science and Computer Engineering students during their mandatory internship. I assign and explain tasks, track deliveries and review Pull Requests.",
         "achievements": [
-          "Assigned and provided technical instructions for Frontend tasks using React, contributing to bug fixes, code reviews (PR analysis), and continuous UX/UI improvements.",
-          "Full Stack development in the Backend using FastAPI, applying data modeling refactoring and complex business rules.",
-          "Significant optimization of database query performance, improving the overall application response time."
+          "I led a complete refactor of the application in 2 weeks, with a visual redesign and a new landing page, to meet a tight deadline.",
+          "I optimized the queries behind the map search for collection points and each user's products, reducing response time.",
+          "I work on the FastAPI back end, refactoring the data model and complex business rules, and on the React front end, with fixes and UX/UI improvements."
         ]
       }
     }
@@ -229,19 +229,19 @@
     "items": {
       "nexusSkills": {
         "title": "Nexus Skills",
-        "description": "Nexus Skill platform with courses designed to strengthen people's soft skills."
+        "description": "Course platform for developing soft skills."
       },
       "uape": {
         "title": "UAPE",
-        "description": "Institutional landing page presenting UAPÉ's global health data engineering work: data sovereignty, fast deployment, offline-first mobile collection, health system integration, and real-time visualizations. Available in 3 languages (PT/EN/ES)."
+        "description": "Corporate landing page for UAPÉ, presenting its data engineering for global health: data sovereignty, fast deployment, offline mobile data collection, integration between health systems and real-time visualizations, in Portuguese, English and Spanish."
       },
       "masterMind": {
         "title": "Master Mind",
-        "description": "Financial control SaaS built with a modular monolith architecture. Features payment gateway integration and feature automation directly via Telegram."
+        "description": "Financial management SaaS built as a modular monolith, with an integrated payment gateway and features that can be used through Telegram."
       },
       "contaCloud": {
         "title": "ContaCloud",
-        "description": "SaaS built at TwoBrains. Worked as an architect dividing operations into microservices for better maintainability, improving user experience and features. Integrates AI automations with LangGraph and LangChain for automated invoice generation using the Focus API, emphasizing Next.js SSR and caching."
+        "description": "Accounting SaaS that issues invoices from text or voice messages on WhatsApp, with LangGraph and LangChain automations on top of the Focus API. Organized in microservices, it uses Next.js SSR and caching."
       },
       "maucco": {
         "title": "Maucco",
@@ -253,7 +253,7 @@
       },
       "forgePath": {
         "title": "ForgePath CLI",
-        "description": "An interactive command-line tool built in Go (Golang) focused on Developer Experience to manage multiple projects."
+        "description": "Terminal tool in Go that scans your folders, identifies each project's framework and quickly opens the one you choose."
       },
       "syncForge": {
         "title": "SyncForge",
@@ -261,7 +261,7 @@
       },
       "residuum": {
         "title": "Residuum",
-        "description": "A reverse logistics and circular economy platform connecting those who want to dispose of waste with those who need to collect it. I was responsible for building the institutional landing page, with a strong focus on UX/UI improvements. I also acted as Tech Lead and Full Stack Developer, refactoring business rules in the FastAPI backend and leading the team."
+        "description": "Reverse logistics and circular economy platform that connects people who want to dispose of waste with those who collect it, with a map search for collection points."
       }
     }
   },
@@ -269,7 +269,7 @@
     "titleBefore": "Get in",
     "titleAccent": "Touch",
     "introTitle": "Let's talk!",
-    "introDescription": "I am always open to discussing new projects, creative opportunities, or interesting partnerships. Feel free to reach out.",
+    "introDescription": "Have a project, a job opening or a partnership in mind? Tell me what it's about and I'll get back to you.",
     "info": {
       "email": "Email",
       "phone": "Phone",
@@ -287,16 +287,16 @@
       "emailPlaceholder": "your@email.com",
       "subjectPlaceholder": "Message subject",
       "messagePlaceholder": "Describe your project or question...",
-      "submit": "Send Message",
+      "submit": "Send message",
       "sending": "Sending...",
       "success": "Message sent successfully!",
-      "error": "Oops! Something went wrong. Please try again."
+      "error": "Your message couldn't be sent. Try again or write to my email."
     }
   },
   "footer": {
-    "description": "Software developer passionate about creating well-built digital solutions and consistent user experiences.",
-    "quickLinks": "Quick Links",
-    "social": "Social Media",
+    "description": "Full stack developer in Manaus and founder of SyncForge.",
+    "quickLinks": "Quick links",
+    "social": "Social media",
     "madeWith": "Made with",
     "andCoffee": "and coffee by",
     "mailSubject": "Contact from Portfolio",

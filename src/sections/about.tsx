@@ -1,6 +1,6 @@
 'use client';
 
-import { Gauge, Layers3, Server, Users } from 'lucide-react';
+import { Gauge, Rocket, Server, Users } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { sectionIds } from '@/src/constants/section-ids';
 
@@ -67,7 +67,7 @@ export function AboutSection() {
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Layers3 className="h-12 w-12 text-primary-text mx-auto mb-4" />
+                <Rocket className="h-12 w-12 text-primary-text mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{dictionary.about.cards.scalability.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {dictionary.about.cards.scalability.description}
