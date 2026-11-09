@@ -108,6 +108,7 @@ describe.each(Object.entries(dictionaries))('getFaqAnswer in %s', (_locale, dict
 
   it('lists the technologies', () => {
     expect(getFaqAnswer('technologies', dictionary)).toContain('Next');
+    expect(getFaqAnswer('technologies', dictionary)).toContain('LangGraph');
   });
 
   it('lists the contact channels', () => {

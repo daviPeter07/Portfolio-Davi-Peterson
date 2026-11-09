@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { CloudCog, Code2 } from 'lucide-react';
+import { BrainCircuit, CloudCog, Code2, Workflow } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { TechnologyItem } from '@/src/components/technology-item';
 import { sectionIds } from '@/src/constants/section-ids';
@@ -10,6 +10,8 @@ import {
   backendAPIs,
   coreLanguages,
   dataDevOps,
+  aiAgents,
+  cicdDeploy,
   techResources,
 } from '@/src/constants/technologies';
 
@@ -26,6 +28,16 @@ export function TechnologiesSection() {
       title: dictionary.technologies.groups.dataInfrastructure,
       Icon: CloudCog,
       items: dataDevOps,
+    },
+    {
+      title: dictionary.technologies.groups.aiAgents,
+      Icon: BrainCircuit,
+      items: aiAgents,
+    },
+    {
+      title: dictionary.technologies.groups.cicdDeploy,
+      Icon: Workflow,
+      items: cicdDeploy,
     },
   ];
 
@@ -54,27 +66,27 @@ export function TechnologiesSection() {
           <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
             {groups.map(({ title, Icon, items }) => (
               <div
-                  key={title}
-                  className="rounded-2xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6"
-                >
-                  <div className="mb-6 flex items-center gap-3 border-b pb-5">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary-text">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <h3 className="text-xl font-bold">{title}</h3>
-                  </div>
+                key={title}
+                className="rounded-2xl border bg-card p-5 shadow-sm transition-shadow hover:shadow-md sm:p-6"
+              >
+                <div className="mb-6 flex items-center gap-3 border-b pb-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary-text">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="text-xl font-bold">{title}</h3>
+                </div>
 
-                  <div className="grid grid-cols-1 gap-3 min-[380px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-                    {items.map((tech) => (
-                      <TechnologyItem
-                        key={tech.name}
-                        name={tech.name}
-                        logo={tech.logo}
-                        info={infoMap[tech.name]}
-                        invertDark={tech.name === 'Prisma'}
-                      />
-                    ))}
-                  </div>
+                <div className="grid grid-cols-1 gap-3 min-[380px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+                  {items.map((tech) => (
+                    <TechnologyItem
+                      key={tech.name}
+                      name={tech.name}
+                      logo={tech.logo}
+                      info={infoMap[tech.name]}
+                      invertDark={['Prisma', 'AI SDK', 'Vercel', 'Render'].includes(tech.name)}
+                    />
+                  ))}
+                </div>
               </div>
             ))}
           </div>

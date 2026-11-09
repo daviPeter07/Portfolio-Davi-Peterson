@@ -1,11 +1,16 @@
 'use client';
 
-import { Gauge, Layers3, Server, Users } from 'lucide-react';
+import { Gauge, Rocket, Server, Users } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
+import { experiences } from '@/src/constants/experiences';
 import { sectionIds } from '@/src/constants/section-ids';
+
+const syncForge = experiences.find(({ id }) => id === 'syncForge');
 
 export function AboutSection() {
   const { dictionary } = useI18n();
+  const [leadershipBefore, leadershipAfter] =
+    dictionary.about.cards.leadership.description.split('{company}');
 
   return (
     <section id={sectionIds.about} className="py-20 bg-muted/30">
@@ -67,7 +72,7 @@ export function AboutSection() {
               </div>
 
               <div className="text-center p-6 bg-card rounded-lg border hover:shadow-lg transition-shadow">
-                <Layers3 className="h-12 w-12 text-primary-text mx-auto mb-4" />
+                <Rocket className="h-12 w-12 text-primary-text mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{dictionary.about.cards.scalability.title}</h3>
                 <p className="text-sm text-muted-foreground">
                   {dictionary.about.cards.scalability.description}
@@ -78,7 +83,16 @@ export function AboutSection() {
                 <Users className="h-12 w-12 text-primary-text mx-auto mb-4" />
                 <h3 className="font-semibold mb-2">{dictionary.about.cards.leadership.title}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {dictionary.about.cards.leadership.description}
+                  {leadershipBefore}
+                  <a
+                    href={syncForge?.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-primary-text underline decoration-primary/60 underline-offset-4 hover:decoration-primary"
+                  >
+                    {syncForge?.company}
+                  </a>
+                  {leadershipAfter}
                 </p>
               </div>
             </div>

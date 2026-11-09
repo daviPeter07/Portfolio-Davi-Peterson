@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  aiAgents,
   backendAPIs,
+  cicdDeploy,
   coreLanguages,
   dataDevOps,
   frontendUI,
@@ -11,15 +13,44 @@ import es from '@/src/locales/es.json';
 import pt from '@/src/locales/pt.json';
 
 const names = (items: { name: string }[]) => items.map(({ name }) => name);
-const allTechnologies = [...frontendUI, ...backendAPIs, ...coreLanguages, ...dataDevOps];
+const allTechnologies = [
+  ...frontendUI,
+  ...backendAPIs,
+  ...coreLanguages,
+  ...dataDevOps,
+  ...aiAgents,
+  ...cicdDeploy,
+];
 
 describe('technologies', () => {
   it('shows Angular next to Next', () => {
     expect(names(frontendUI).slice(0, 2)).toEqual(['Next', 'Angular']);
   });
 
+  it('groups the AI and agent tools', () => {
+    expect(names(aiAgents)).toEqual([
+      'LangGraph',
+      'LangChain',
+      'AI SDK',
+      'n8n',
+      'Spec Driven Development',
+    ]);
+  });
+
+  it('groups the CI/CD and deploy tools', () => {
+    expect(names(cicdDeploy)).toEqual([
+      'GitHub Actions',
+      'Vercel',
+      'Cloudflare',
+      'Render',
+      'cPanel',
+    ]);
+  });
+
   it('replaces Bull with RabbitMQ and adds microservices', () => {
-    expect(names(dataDevOps)).toEqual(expect.arrayContaining(['RabbitMQ', 'Microserviços']));
+    expect(names(dataDevOps)).toEqual(
+      expect.arrayContaining(['RabbitMQ', 'Microserviços', 'Cloudflare R2'])
+    );
     expect(names(dataDevOps)).not.toContain('Bull');
   });
 

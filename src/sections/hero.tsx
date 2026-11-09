@@ -5,6 +5,7 @@ import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
 import { experiences } from '@/src/constants/experiences';
 import { sectionIds } from '@/src/constants/section-ids';
+import Image from 'next/image';
 
 export function HeroSection() {
   const { dictionary } = useI18n();
@@ -29,10 +30,12 @@ export function HeroSection() {
       <div className="container mx-auto px-4 text-center">
         <div className="hero-enter">
           <div className="size-40 short:size-28 mx-auto mb-6 short:mb-3 rounded-full bg-linear-to-br from-primary to-accent overflow-hidden">
-            <img
+            <Image
               src="/davi-peterson.jpg"
               alt={dictionary.common.siteName}
               className="w-full h-full object-cover"
+              width={160}
+              height={160}
             />
           </div>
 
@@ -44,14 +47,14 @@ export function HeroSection() {
             {dictionary.hero.role}
           </p>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-3 short:mb-2 max-w-2xl mx-auto text-balance">
+          {/* <p className="text-lg md:text-xl text-muted-foreground mb-3 short:mb-2 max-w-2xl mx-auto text-balance">
             {dictionary.hero.subtitle}
-          </p>
+          </p> */}
 
-          <p className="text-sm text-muted-foreground mb-8 short:mb-4 text-balance">
+          {/* <p className="text-sm text-muted-foreground mb-8 short:mb-4 text-balance">
             <MapPin className="inline h-4 w-4 mr-1.5 align-text-bottom" />
-            {dictionary.hero.currentlyAt} {currentExperience.company}, {currentExperience.location}
-          </p>
+            {dictionary.hero.currentlyAt} {currentExperience.company}
+          </p> */}
 
           <div className="flex flex-col sm:flex-row gap-4 short:gap-3 justify-center items-center mb-6 short:mb-3">
             <Button

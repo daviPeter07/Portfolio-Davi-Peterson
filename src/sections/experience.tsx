@@ -1,17 +1,47 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { Calendar, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import { Calendar, ChevronDown, MapPin } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
-import { experiences } from '@/src/constants/experiences';
+import { experiences, type Experience } from '@/src/constants/experiences';
 import { sectionIds } from '@/src/constants/section-ids';
 
 const VISIBLE_ACHIEVEMENTS = 2;
 
+function AchievementList({ achievements }: { achievements: string[] }) {
+  return (
+    <ul className="space-y-2">
+      {achievements.map((achievement) => (
+        <li key={achievement} className="flex items-start gap-2 text-sm">
+          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+          <span>{achievement}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function CompanyLink({ experience }: { experience: Experience }) {
+  return (
+    <a
+      href={experience.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-medium text-primary-text underline decoration-primary/60 underline-offset-4 hover:decoration-primary"
+    >
+      {experience.company}
+    </a>
+  );
+}
+
 export function ExperienceSection() {
-  const sectionRef = useRef<HTMLElement>(null);
   const { dictionary } = useI18n();
   const [expandedIds, setExpandedIds] = useState<string[]>([]);
+  const current = experiences.filter(({ isCurrent }) => isCurrent);
+  const previous = experiences.filter(({ isCurrent }) => !isCurrent);
+
+  const getContent = (id: string) =>
+    dictionary.experience.items[id as keyof typeof dictionary.experience.items];
 
   const toggleExpanded = (id: string) => {
     setExpandedIds((ids) =>
@@ -20,7 +50,7 @@ export function ExperienceSection() {
   };
 
   return (
-    <section id={sectionIds.experience} ref={sectionRef} className="py-20 bg-muted/30">
+    <section id={sectionIds.experience} className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div
           data-reveal
@@ -31,86 +61,96 @@ export function ExperienceSection() {
             <span className="text-primary-text">{dictionary.experience.titleAccent}</span>
           </h2>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-border"></div>
+          <div className="mx-auto max-w-6xl">
+            <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold">
+              <span className="h-2 w-2 rounded-full bg-primary" />
+              {dictionary.experience.current}
+            </h3>
 
-              {experiences.map((exp, index) => {
-                const content =
-                  dictionary.experience.items[exp.id as keyof typeof dictionary.experience.items];
-                const isExpanded = expandedIds.includes(exp.id);
+            <div className="grid gap-6 lg:grid-cols-3">
+              {current.map((experience) => {
+                const content = getContent(experience.id);
+                const isExpanded = expandedIds.includes(experience.id);
                 const achievements = isExpanded
                   ? content.achievements
                   : content.achievements.slice(0, VISIBLE_ACHIEVEMENTS);
 
                 return (
-                  <div
-                    key={exp.id}
-                    className={`relative flex items-center mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
+                  <article
+                    key={experience.id}
+                    data-experience="current"
+                    className="flex flex-col rounded-xl border bg-card p-6 shadow-sm"
                   >
-                    <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10"></div>
+                    <p className="mb-3 flex items-center gap-2 text-sm text-muted-foreground">
+                      <Calendar className="h-4 w-4" />
+                      {content.period}
+                    </p>
+                    <h4 className="text-xl font-semibold mb-1">{content.title}</h4>
+                    <p className="mb-1">
+                      <CompanyLink experience={experience} />
+                    </p>
+                    <p className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
+                      <MapPin className="h-4 w-4" />
+                      {experience.location}
+                    </p>
+                    <p className="mb-4 leading-relaxed text-muted-foreground">
+                      {content.description}
+                    </p>
 
-                    <div
-                      className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}
-                    >
-                      <div className="relative bg-card p-6 rounded-lg border shadow-sm transition-all hover:border-primary/50 hover:shadow-md focus-within:border-primary/50 focus-within:ring-2 focus-within:ring-primary/10">
-                        <a
-                          href={exp.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`${exp.company} - ${dictionary.experience.officialSite}`}
-                          className="absolute inset-0 z-10 rounded-lg"
-                        />
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                    <AchievementList achievements={achievements} />
+
+                    {content.achievements.length > VISIBLE_ACHIEVEMENTS && (
+                      <button
+                        type="button"
+                        aria-expanded={isExpanded}
+                        onClick={() => toggleExpanded(experience.id)}
+                        className="mt-auto min-h-11 cursor-pointer self-start pt-2 text-sm font-medium text-primary-text hover:underline"
+                      >
+                        {isExpanded
+                          ? dictionary.experience.showLess
+                          : dictionary.experience.showMore}
+                      </button>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+
+            <h3 className="mt-14 mb-4 text-lg font-semibold">{dictionary.experience.previous}</h3>
+
+            <div className="divide-y rounded-xl border bg-card">
+              {previous.map((experience) => {
+                const content = getContent(experience.id);
+
+                return (
+                  <details key={experience.id} data-experience="previous" className="group">
+                    <summary className="flex min-h-14 cursor-pointer list-none items-center gap-4 px-5 py-4 transition-colors hover:bg-muted/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring [&::-webkit-details-marker]:hidden">
+                      <span className="flex min-w-0 flex-1 flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-2">
+                        <span className="font-semibold">{content.title}</span>
+                        <span className="text-sm text-muted-foreground">{experience.company}</span>
+                      </span>
+                      <span className="hidden shrink-0 text-sm text-muted-foreground sm:block">
+                        {content.period}
+                      </span>
+                      <ChevronDown className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-open:rotate-180 motion-reduce:transition-none" />
+                    </summary>
+
+                    <div className="max-w-3xl space-y-4 px-5 pb-5">
+                      <p className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                        <span className="flex items-center gap-2 sm:hidden">
                           <Calendar className="h-4 w-4" />
                           {content.period}
-                        </div>
-
-                        <h3 className="text-xl font-semibold mb-1">{content.title}</h3>
-                        <div className="flex items-center gap-2 text-primary-text font-medium mb-2">
-                          <a
-                            href={exp.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="relative z-20 underline underline-offset-4 decoration-primary/60 hover:decoration-primary"
-                          >
-                            {exp.company}
-                          </a>
-                        </div>
-
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                        </span>
+                        <span className="flex items-center gap-2">
                           <MapPin className="h-4 w-4" />
-                          {exp.location}
-                        </div>
-
-                        <p className="text-muted-foreground mb-4 leading-relaxed">
-                          {content.description}
-                        </p>
-
-                        <ul className="space-y-2">
-                          {achievements.map((achievement) => (
-                            <li key={achievement} className="flex items-start gap-2 text-sm">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></div>
-                              <span>{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        {content.achievements.length > VISIBLE_ACHIEVEMENTS && (
-                          <button
-                            type="button"
-                            aria-expanded={isExpanded}
-                            onClick={() => toggleExpanded(exp.id)}
-                            className="relative z-20 mt-2 min-h-11 cursor-pointer text-sm font-medium text-primary-text hover:underline"
-                          >
-                            {isExpanded
-                              ? dictionary.experience.showLess
-                              : dictionary.experience.showMore}
-                          </button>
-                        )}
-                      </div>
+                          {experience.location}
+                        </span>
+                        <CompanyLink experience={experience} />
+                      </p>
+                      <p className="leading-relaxed text-muted-foreground">{content.description}</p>
+                      <AchievementList achievements={content.achievements} />
                     </div>
-                  </div>
+                  </details>
                 );
               })}
             </div>

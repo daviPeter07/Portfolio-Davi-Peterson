@@ -59,12 +59,62 @@ export const dataDevOps: TechItem[] = [
     logo: 'https://cdn.simpleicons.org/minio/C72E49',
   },
   {
+    name: 'Cloudflare R2',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg',
+  },
+  {
     name: 'AWS',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
   },
   {
     name: 'Microserviços',
     logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8804a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='9' y='2' width='6' height='6' rx='1'/><rect x='2' y='16' width='6' height='6' rx='1'/><rect x='16' y='16' width='6' height='6' rx='1'/><path d='M12 8v4M5 16v-2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2'/></svg>",
+  },
+];
+
+export const aiAgents: TechItem[] = [
+  {
+    name: 'LangGraph',
+    logo: 'https://cdn.simpleicons.org/langgraph',
+  },
+  {
+    name: 'LangChain',
+    logo: 'https://cdn.simpleicons.org/langchain',
+  },
+  {
+    name: 'AI SDK',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg',
+  },
+  {
+    name: 'n8n',
+    logo: 'https://cdn.simpleicons.org/n8n',
+  },
+  {
+    name: 'Spec Driven Development',
+    logo: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8804a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><path d='M14 2v6h6'/><path d='m9 15 2 2 4-4'/></svg>",
+  },
+];
+
+export const cicdDeploy: TechItem[] = [
+  {
+    name: 'GitHub Actions',
+    logo: 'https://cdn.simpleicons.org/githubactions',
+  },
+  {
+    name: 'Vercel',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg',
+  },
+  {
+    name: 'Cloudflare',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg',
+  },
+  {
+    name: 'Render',
+    logo: 'https://cdn.simpleicons.org/render',
+  },
+  {
+    name: 'cPanel',
+    logo: 'https://cdn.simpleicons.org/cpanel',
   },
 ];
 
@@ -82,5 +132,16 @@ export const techResources: Record<string, { url: string }> = {
   RabbitMQ: { url: 'https://www.rabbitmq.com/docs' },
   Microserviços: { url: 'https://microservices.io/' },
   MiniIO: { url: 'https://min.io/docs/minio/linux/index.html' },
+  'Cloudflare R2': { url: 'https://developers.cloudflare.com/r2/' },
   AWS: { url: 'https://docs.aws.amazon.com/' },
+  LangGraph: { url: 'https://www.langchain.com/langgraph' },
+  LangChain: { url: 'https://docs.langchain.com/' },
+  'AI SDK': { url: 'https://ai-sdk.dev/docs' },
+  n8n: { url: 'https://docs.n8n.io/' },
+  'Spec Driven Development': { url: 'https://github.com/github/spec-kit' },
+  'GitHub Actions': { url: 'https://docs.github.com/actions' },
+  Vercel: { url: 'https://vercel.com/docs' },
+  Cloudflare: { url: 'https://developers.cloudflare.com/pages/' },
+  Render: { url: 'https://render.com/docs' },
+  cPanel: { url: 'https://docs.cpanel.net/' },
 };
