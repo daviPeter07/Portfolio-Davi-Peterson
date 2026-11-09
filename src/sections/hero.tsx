@@ -5,6 +5,7 @@ import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
 import { experiences } from '@/src/constants/experiences';
 import { sectionIds } from '@/src/constants/section-ids';
+import Image from 'next/image';
 
 export function HeroSection() {
   const { dictionary } = useI18n();
@@ -29,10 +30,12 @@ export function HeroSection() {
       <div className="container mx-auto px-4 text-center">
         <div className="hero-enter">
           <div className="size-40 short:size-28 mx-auto mb-6 short:mb-3 rounded-full bg-linear-to-br from-primary to-accent overflow-hidden">
-            <img
+            <Image
               src="/davi-peterson.jpg"
               alt={dictionary.common.siteName}
               className="w-full h-full object-cover"
+              width={160}
+              height={160}
             />
           </div>
 
