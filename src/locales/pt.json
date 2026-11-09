@@ -60,8 +60,8 @@
     "titleBefore": "Sobre",
     "titleAccent": "Mim",
     "paragraphs": {
-      "first": "Sou desenvolvedor full stack e trabalho principalmente com Next.js e NestJS. Hoje desenvolvo sistemas para órgãos públicos na Solasstec, oriento alunos no projeto Residuum e dirijo a SyncForge, a software house que fundei em Manaus.",
-      "second": "Já desenvolvi um software de gestão de pagamentos implantado em 3 estados e cuidei do lançamento de um aplicativo na Play Store e na App Store. Curso Análise e Desenvolvimento de Sistemas na UniNorte."
+      "first": "Sou desenvolvedor full stack e trabalho principalmente com Next.js e NestJS, da arquitetura às interfaces, passando por APIs e integrações.",
+      "second": "Além de programar, lidero times e oriento outros desenvolvedores. Curso Análise e Desenvolvimento de Sistemas na UniNorte."
     },
     "stats": {
       "seniorityValue": "+1000",

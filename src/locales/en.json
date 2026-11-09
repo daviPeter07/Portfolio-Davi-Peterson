@@ -60,8 +60,8 @@
     "titleBefore": "About",
     "titleAccent": "Me",
     "paragraphs": {
-      "first": "I'm a full stack developer and work mainly with Next.js and NestJS. Today I build systems for public agencies at Solasstec, mentor students on the Residuum project and run SyncForge, the software house I founded in Manaus.",
-      "second": "I've built a payment management system deployed in 3 states and handled the launch of an app on the Play Store and the App Store. I study Systems Analysis and Development at UniNorte."
+      "first": "I'm a full stack developer and work mainly with Next.js and NestJS, from architecture to interfaces, including APIs and integrations.",
+      "second": "Beyond coding, I lead teams and mentor other developers. I study Systems Analysis and Development at UniNorte."
     },
     "stats": {
       "seniorityValue": "+1000",
