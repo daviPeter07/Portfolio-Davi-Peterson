@@ -44,13 +44,13 @@ export function HeroSection() {
             {dictionary.hero.role}
           </p>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-3 short:mb-2 max-w-2xl mx-auto text-balance">
+          {/* <p className="text-lg md:text-xl text-muted-foreground mb-3 short:mb-2 max-w-2xl mx-auto text-balance">
             {dictionary.hero.subtitle}
-          </p>
+          </p> */}
 
           <p className="text-sm text-muted-foreground mb-8 short:mb-4 text-balance">
             <MapPin className="inline h-4 w-4 mr-1.5 align-text-bottom" />
-            {dictionary.hero.currentlyAt} {currentExperience.company}, {currentExperience.location}
+            {dictionary.hero.currentlyAt} {currentExperience.company}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 short:gap-3 justify-center items-center mb-6 short:mb-3">
