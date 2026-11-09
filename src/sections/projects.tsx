@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Brain, ExternalLink, Github, Hammer, Lock, Terminal } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
@@ -88,13 +89,17 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                       <div className="w-full h-48 bg-muted flex items-center justify-center rounded-t-lg">
                         <Icon className="w-20 h-20 text-primary-text" />
                       </div>
-                    ) : (
-                      <img
-                        src={project.image || '/placeholder.svg'}
-                        alt={content.title}
-                        className="w-full h-48 object-cover"
-                      />
-                    )}
+                    ) : project.image ? (
+                      <div className="relative h-48 w-full">
+                        <Image
+                          src={project.image}
+                          alt={content.title}
+                          fill
+                          sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : null}
                   </div>
 
                   <CardHeader>

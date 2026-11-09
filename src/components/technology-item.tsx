@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/src/components/ui/hover-card';
 import { Popover, PopoverContent, PopoverTrigger } from '@/src/components/ui/popover';
 import { useI18n } from '@/src/components/i18n-provider';
@@ -40,13 +41,22 @@ export function TechnologyItem({ name, logo, info, invertDark }: TechnologyItemP
     >
       {name === 'NativeWind' || name === 'AWS' ? (
         <span className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md bg-white p-1">
-          <img src={logo} alt={name} title={name} className="h-full w-full object-contain" />
+          <Image
+            src={logo}
+            alt={name}
+            title={name}
+            width={28}
+            height={28}
+            className="h-full w-full object-contain"
+          />
         </span>
       ) : (
-        <img
+        <Image
           src={logo}
           alt={name}
           title={name}
+          width={36}
+          height={36}
           className={`w-9 h-9 object-contain ${invertDark ? 'dark:invert dark:brightness-0' : ''}`}
         />
       )}
