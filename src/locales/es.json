@@ -60,8 +60,8 @@
     "titleBefore": "Sobre",
     "titleAccent": "Mí",
     "paragraphs": {
-      "first": "Soy desarrollador full stack y mi día a día es con Next.js y NestJS. Llevo un sistema de la pantalla al servidor: construyo la interfaz, la API y las integraciones, incluso con IA, y me encargo de lo que funciona por detrás, como la caché y las colas.",
-      "second": "También he liderado equipos técnicos, ayudando a decidir cómo se construirían los sistemas y revisando lo que iba a producción. Me importa escribir código que otra persona pueda entender y cambiar sin miedo, porque eso es lo que mantiene un producto en pie."
+      "first": "Desarrollador Full Stack con experiencia en infraestructura e integraciones. Trabajo en la creación de interfaces, APIs, caché, colas, procesamiento asíncrono y soluciones con IA, acompañando cada sistema desde la concepción hasta la publicación y el mantenimiento en producción.",
+      "second": "He ejercido liderazgo técnico de equipos de desarrollo, distribuyendo tareas, revisando Pull Requests y orientando a los desarrolladores, además de participar en las decisiones de arquitectura y en la planificación de las entregas. Trabajo con foco en la mantenibilidad y en decisiones técnicas alineadas con las necesidades del producto."
     },
     "stats": {
       "seniorityValue": "+1000",
