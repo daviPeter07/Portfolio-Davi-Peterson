@@ -61,7 +61,7 @@
     "titleAccent": "Mim",
     "paragraphs": {
       "first": "Sou desenvolvedor full stack e trabalho principalmente com Next.js e NestJS. Hoje desenvolvo sistemas para órgãos públicos na Solasstec, oriento alunos no projeto Residuum e dirijo a SyncForge, a software house que fundei em Manaus.",
-      "second": "Já desenvolvi um software de gestão de pagamentos implantado em 3 estados, cuidei do lançamento de um aplicativo na Play Store e na App Store e dividi as operações do ContaCloud em microsserviços. Curso Análise e Desenvolvimento de Sistemas na UniNorte."
+      "second": "Já desenvolvi um software de gestão de pagamentos implantado em 3 estados e cuidei do lançamento de um aplicativo na Play Store e na App Store. Curso Análise e Desenvolvimento de Sistemas na UniNorte."
     },
     "stats": {
       "seniorityValue": "+1000",
@@ -72,19 +72,19 @@
     "cards": {
       "performance": {
         "title": "Performance",
-        "description": "SSR e cache do Next.js no ContaCloud e otimização das buscas no back-end da Residuum."
+        "description": "Otimização de ponta a ponta, abrangendo cache, SSR e processamento assíncrono para máxima fluidez."
       },
       "architecture": {
         "title": "Arquitetura e Design",
-        "description": "Microsserviços no ContaCloud e monólito modular no Master Mind."
+        "description": "Desenho de soluções escaláveis utilizando microsserviços, garantindo alta disponibilidade e fácil manutenção."
       },
       "scalability": {
         "title": "Em produção",
-        "description": "Vários SaaS em produção, como o Operis, multi-tenant de PDV e fluxo de caixa, e o ContaCloud, de contabilidade pelo WhatsApp."
+        "description": "SaaS multi-tenant que já rodam em produção, desenvolvidos e mantidos por mim."
       },
       "leadership": {
         "title": "Liderança",
-        "description": "Lidero o time da SyncForge e oriento alunos do 8º período no projeto Residuum."
+        "description": "Fundador e CEO da {company}, com foco em formar um time técnico forte e manter a qualidade de cada entrega."
       }
     }
   },

@@ -61,7 +61,7 @@
     "titleAccent": "Mí",
     "paragraphs": {
       "first": "Soy desarrollador full stack y trabajo principalmente con Next.js y NestJS. Hoy desarrollo sistemas para organismos públicos en Solasstec, oriento a estudiantes en el proyecto Residuum y dirijo SyncForge, la software house que fundé en Manaus.",
-      "second": "Desarrollé un software de gestión de pagos implantado en 3 estados, me encargué del lanzamiento de una aplicación en Play Store y App Store y dividí las operaciones de ContaCloud en microservicios. Estudio Análisis y Desarrollo de Sistemas en UniNorte."
+      "second": "Desarrollé un software de gestión de pagos implantado en 3 estados y me encargué del lanzamiento de una aplicación en Play Store y App Store. Estudio Análisis y Desarrollo de Sistemas en UniNorte."
     },
     "stats": {
       "seniorityValue": "+1000",
@@ -72,19 +72,19 @@
     "cards": {
       "performance": {
         "title": "Rendimiento",
-        "description": "SSR y caché de Next.js en ContaCloud y optimización de las búsquedas en el back-end de Residuum."
+        "description": "Optimización de extremo a extremo, abarcando caché, SSR y procesamiento asíncrono para la máxima fluidez."
       },
       "architecture": {
         "title": "Arquitectura y Diseño",
-        "description": "Microservicios en ContaCloud y monolito modular en Master Mind."
+        "description": "Diseño de soluciones escalables utilizando microservicios, asegurando alta disponibilidad y fácil mantenimiento."
       },
       "scalability": {
         "title": "En producción",
-        "description": "Varios SaaS en producción, como Operis, multi-tenant de punto de venta y flujo de caja, y ContaCloud, de contabilidad por WhatsApp."
+        "description": "SaaS multi-tenant que ya funcionan en producción, desarrollados y mantenidos por mí."
       },
       "leadership": {
         "title": "Liderazgo",
-        "description": "Lidero el equipo de SyncForge y oriento a estudiantes del 8º semestre en el proyecto Residuum."
+        "description": "Fundador y CEO de {company}, enfocado en formar un equipo técnico sólido y mantener la calidad de cada entrega."
       }
     }
   },
