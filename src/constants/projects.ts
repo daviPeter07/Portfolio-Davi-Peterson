@@ -5,7 +5,9 @@ export type Project = {
   technologies: string[];
   demo?: string;
   code?: string;
+  repositories?: { label: string; url: string }[];
   isPrivate?: boolean;
+  inDevelopment?: boolean;
 };
 
 export const projects: Project[] = [
@@ -52,6 +54,17 @@ export const projects: Project[] = [
     code: 'https://github.com/daviPeter07/leaf',
   },
   {
+    id: 'mentorIA',
+    icon: 'Brain',
+    technologies: ['TypeScript', 'Next.js', 'NestJS', 'Go', 'PostgreSQL', 'RabbitMQ', 'Redis'],
+    repositories: [
+      { label: 'Frontend', url: 'https://github.com/daviPeter07/Mentor.IA-Frontend' },
+      { label: 'Backend', url: 'https://github.com/daviPeter07/Mentor.IA-Backend' },
+      { label: 'Worker', url: 'https://github.com/daviPeter07/Mentor.IA-Worker' },
+    ],
+    inDevelopment: true,
+  },
+  {
     id: 'forgePath',
     icon: 'Terminal',
     technologies: ['Go', 'Bubble Tea', 'Bubbles', 'Lip Gloss', 'Cobra', 'Huh', 'Nerd Fonts'],
@@ -78,3 +91,8 @@ export const projects: Project[] = [
     demo: 'https://uape.us/',
   },
 ];
+
+export function getProjectLink(project: Project): string | undefined {
+  if (project.demo ?? project.code) return project.demo ?? project.code;
+  return project.repositories?.map(({ label, url }) => `${label}: ${url}`).join(' ');
+}

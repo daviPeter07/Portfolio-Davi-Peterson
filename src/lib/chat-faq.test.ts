@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { contact } from '@/src/constants/contact';
-import { projects } from '@/src/constants/projects';
+import { getProjectLink, projects } from '@/src/constants/projects';
 import { faqTopics, getFaqAnswer, rankFaqTopics } from '@/src/lib/chat-faq';
 import en from '@/src/locales/en.json';
 import es from '@/src/locales/es.json';
@@ -61,7 +61,7 @@ describe.each(Object.entries(dictionaries))('getFaqAnswer in %s', (_locale, dict
         dictionary.projects.items[project.id as keyof typeof dictionary.projects.items];
 
       expect(answer).toContain(title);
-      expect(answer).toContain(project.demo ?? project.code ?? dictionary.common.privateSoftware);
+      expect(answer).toContain(getProjectLink(project) ?? dictionary.common.privateSoftware);
     }
   });
 

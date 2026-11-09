@@ -35,7 +35,8 @@
       "en": "Inglês",
       "es": "Espanhol"
     },
-    "comingSoon": "em breve"
+    "comingSoon": "em breve",
+    "inDevelopment": "Em desenvolvimento"
   },
   "nav": {
     "home": "Início",
@@ -279,6 +280,10 @@
       "leaf": {
         "title": "Leaf",
         "description": "App mobile de acompanhamento de leitura inspirado no Strava. Registra páginas, tempo e ritmo de cada sessão, mostra o resumo da semana e gera uma imagem com as métricas para compartilhar nos stories. Os dados ficam salvos só no aparelho."
+      },
+      "mentorIA": {
+        "title": "Mentor.IA",
+        "description": "Plataforma de preparação para o ENEM que diagnostica as lacunas do aluno, prioriza conteúdos e gera cronogramas de estudo adaptativos, com insights motivacionais gerados por IA. Atuei como Tech Lead e Desenvolvedor em uma arquitetura dividida em três repositórios: frontend em Next.js, API em NestJS e worker em Go que processa os jobs de IA via RabbitMQ. Ainda não está em produção."
       }
     }
   },

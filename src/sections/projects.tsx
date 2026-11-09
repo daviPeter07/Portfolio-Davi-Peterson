@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ExternalLink, Github, Lock, Terminal } from 'lucide-react';
+import { Brain, ExternalLink, Github, Hammer, Lock, Terminal } from 'lucide-react';
 import { useI18n } from '@/src/components/i18n-provider';
 import { Button } from '@/src/components/ui/button';
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/src/components/ui/card';
@@ -15,6 +15,8 @@ type ProjectsSectionProps = {
 };
 
 const GITHUB_PROFILE = 'https://github.com/daviPeter07';
+
+const PROJECT_ICONS = { Terminal, Brain };
 
 // A área fica oculta por enquanto; a IA e as respostas prontas continuam usando os repositórios
 const SHOW_GITHUB_REPOS = false;
@@ -32,8 +34,8 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
     { label: dictionary.common.all, value: null },
     ...['TypeScript', 'Python', 'Java', 'PHP', 'Go'].map((tech) => ({ label: tech, value: tech })),
   ];
-  const filteredProjects = activeFilter 
-    ? projects.filter((p) => p.technologies.includes(activeFilter)) 
+  const filteredProjects = activeFilter
+    ? projects.filter((p) => p.technologies.includes(activeFilter))
     : projects;
 
   return (
@@ -74,15 +76,17 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
               const content =
                 dictionary.projects.items[project.id as keyof typeof dictionary.projects.items];
 
+              const Icon = PROJECT_ICONS[project.icon as keyof typeof PROJECT_ICONS];
+              const codeLinks = project.code
+                ? [{ label: dictionary.common.github, url: project.code }]
+                : (project.repositories ?? []);
+
               return (
-                <Card
-                  key={project.id}
-                  className="overflow-hidden"
-                >
+                <Card key={project.id} className="overflow-hidden">
                   <div className="relative overflow-hidden p-4">
-                    {project.icon === 'Terminal' ? (
+                    {Icon ? (
                       <div className="w-full h-48 bg-muted flex items-center justify-center rounded-t-lg">
-                        <Terminal className="w-20 h-20 text-primary-text" />
+                        <Icon className="w-20 h-20 text-primary-text" />
                       </div>
                     ) : (
                       <img
@@ -116,6 +120,12 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                           {dictionary.common.privateSoftware}
                         </span>
                       ) : null}
+                      {project.inDevelopment ? (
+                        <span className="inline-flex w-full items-center text-sm font-medium text-muted-foreground">
+                          <Hammer className="h-4 w-4 mr-2" />
+                          {dictionary.common.inDevelopment}
+                        </span>
+                      ) : null}
                       {project.demo ? (
                         <Button
                           size="sm"
@@ -128,19 +138,20 @@ export function ProjectsSection({ repos }: ProjectsSectionProps) {
                           </a>
                         </Button>
                       ) : null}
-                      {project.code ? (
+                      {codeLinks.map(({ label, url }) => (
                         <Button
+                          key={url}
                           size="sm"
                           variant="outline"
                           asChild
                           className="min-h-11 flex-1 border-primary bg-transparent text-primary-text transition-colors hover:bg-primary hover:text-primary-foreground dark:border-primary dark:bg-transparent dark:hover:bg-primary"
                         >
-                          <a href={project.code} target="_blank" rel="noopener noreferrer">
+                          <a href={url} target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4 mr-2" />
-                            {dictionary.common.github}
+                            {label}
                           </a>
                         </Button>
-                      ) : null}
+                      ))}
                     </div>
                   </CardFooter>
                 </Card>
