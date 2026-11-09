@@ -164,13 +164,14 @@
         ]
       },
       "syncForge": {
-        "title": "Founder, CEO and Full Stack Developer",
+        "title": "Founder and CEO",
         "period": "04-2026 - Present",
-        "description": "I founded SyncForge and combine running the company with building the systems delivered to clients.",
+        "description": "I founded SyncForge and run the company end to end: from project planning to system architecture and development, leading a multidisciplinary team.",
         "achievements": [
-          "Leading a team of 4 developers on on-demand and subscription projects.",
-          "Building SIGEM, the company's own management system.",
-          "Working directly with clients, from defining the scope to post-delivery support."
+          "Leading a team of 4 people, with 3 developers and 1 QA analyst, setting priorities and assigning the tasks for each delivery.",
+          "Defining the architecture and technical organization of the systems, setting the standards the team follows in development.",
+          "Planning projects and tracking deliveries, from the initial scope to release.",
+          "Working hands-on in development and supporting the team technically, guiding developers and answering their day-to-day questions."
         ]
       },
       "twoBrains": {
