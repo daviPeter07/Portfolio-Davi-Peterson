@@ -122,6 +122,7 @@
       "Redis": "Base de datos en memoria usada para caché, colas y rendimiento.",
       "Docker": "Plataforma de contenedores para empaquetar y distribuir aplicaciones.",
       "MiniIO": "Almacenamiento de objetos compatible con S3 de alto rendimiento.",
+      "Cloudflare R2": "Almacenamiento de objetos de Cloudflare, compatible con S3 y sin tarifas por salida de datos.",
       "RabbitMQ": "Mensajería para la comunicación asíncrona entre servicios.",
       "Microserviços": "Arquitectura que divide el sistema en servicios independientes.",
       "AWS": "Plataforma de computación en la nube con servicios de infraestructura administrados."

@@ -19,7 +19,9 @@ describe('technologies', () => {
   });
 
   it('replaces Bull with RabbitMQ and adds microservices', () => {
-    expect(names(dataDevOps)).toEqual(expect.arrayContaining(['RabbitMQ', 'Microserviços']));
+    expect(names(dataDevOps)).toEqual(
+      expect.arrayContaining(['RabbitMQ', 'Microserviços', 'Cloudflare R2'])
+    );
     expect(names(dataDevOps)).not.toContain('Bull');
   });
 

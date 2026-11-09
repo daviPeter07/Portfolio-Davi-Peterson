@@ -122,6 +122,7 @@
       "Redis": "In-memory database used for cache, queues, and high performance.",
       "Docker": "Container platform for packaging and shipping applications.",
       "MiniIO": "High-performance, S3 compatible object storage.",
+      "Cloudflare R2": "Cloudflare's S3-compatible object storage with no data egress fees.",
       "RabbitMQ": "Message broker for asynchronous communication between services.",
       "Microserviços": "Architecture that splits a system into independent services.",
       "AWS": "Cloud computing platform with managed infrastructure services."

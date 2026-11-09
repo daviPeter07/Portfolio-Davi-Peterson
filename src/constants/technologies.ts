@@ -59,6 +59,10 @@ export const dataDevOps: TechItem[] = [
     logo: 'https://cdn.simpleicons.org/minio/C72E49',
   },
   {
+    name: 'Cloudflare R2',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg',
+  },
+  {
     name: 'AWS',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
   },
@@ -82,5 +86,6 @@ export const techResources: Record<string, { url: string }> = {
   RabbitMQ: { url: 'https://www.rabbitmq.com/docs' },
   Microserviços: { url: 'https://microservices.io/' },
   MiniIO: { url: 'https://min.io/docs/minio/linux/index.html' },
+  'Cloudflare R2': { url: 'https://developers.cloudflare.com/r2/' },
   AWS: { url: 'https://docs.aws.amazon.com/' },
 };
