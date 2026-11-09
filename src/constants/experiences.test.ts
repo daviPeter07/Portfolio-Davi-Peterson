@@ -14,6 +14,14 @@ describe('experiences', () => {
     ]);
   });
 
+  it('marks only the ongoing roles as current', () => {
+    expect(experiences.filter(({ isCurrent }) => isCurrent).map(({ id }) => id)).toEqual([
+      'solasstec',
+      'residuum',
+      'syncForge',
+    ]);
+  });
+
   it.each(Object.entries({ pt, en, es }))(
     'has translated text for every role in %s',
     (_locale, dictionary) => {

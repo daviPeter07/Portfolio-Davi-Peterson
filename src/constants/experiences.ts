@@ -3,6 +3,7 @@ export type Experience = {
   company: string;
   location: string;
   url: string;
+  isCurrent?: boolean;
 };
 
 export const experiences: Experience[] = [
@@ -11,18 +12,21 @@ export const experiences: Experience[] = [
     company: 'Solasstec Tecnologia',
     location: 'Manaus, AM',
     url: 'https://solasstec.com.br/',
+    isCurrent: true,
   },
   {
     id: 'residuum',
     company: 'Residuum (UniNorte)',
     location: 'Manaus, AM',
     url: 'https://residuum.com.br/',
+    isCurrent: true,
   },
   {
     id: 'syncForge',
     company: 'SyncForge',
     location: 'Manaus, AM',
     url: 'https://syncforge-business.vercel.app/',
+    isCurrent: true,
   },
   {
     id: 'twoBrains',
